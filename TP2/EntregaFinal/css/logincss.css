@@ -1,0 +1,9 @@
+.login-background{
+    background-image: url(/Images/hightechback1080.png);
+    background-size:cover;
+    min-height: 100vh;
+}
+.form-login{
+    display: flex;
+    flex-direction: column;
+}
