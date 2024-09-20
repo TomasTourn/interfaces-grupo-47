@@ -1,0 +1,89 @@
+@import url(style.css);
+
+footer{
+    background-color: var( --secondary-dark);
+    height: 31.25rem; /*500px*/ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; /*  se posiciona de manera relativa a su posición normal en el flujo del documento. 
+                            Esto significa que sigue ocupando su espacio original en el diseño*/
+
+}
+.container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    "about help contact account category socialNetworks";
+    gap:2.5rem
+
+}
+
+h2{
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: "Noto Sans", sans-serif;
+    margin-bottom: .625rem;
+}
+
+ul li {
+    font-size: var(--font-size-normal);
+    color: var(--white);
+    list-style-type: none;
+    font-family: 'Hind',sans-serif;
+   
+}
+
+.about{
+    grid-area: about;
+    
+}
+.help{
+    grid-area: help;
+}
+.contact{
+    grid-area: contact;
+}
+.account{
+    grid-area: account;
+}
+.category{
+    grid-area: category;
+}
+.socialNetworks{
+    grid-area: socialNetworks;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+.social{
+    display: flex;
+    flex-direction:row ;
+    gap: .125rem;
+}
+
+
+p{
+    color: var(--transparent-white);
+    font-size: var(--font-size-small);
+}
+.container-copyright{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    ". . . copyright . .";
+    gap: .25rem;
+    position: absolute; /* se posiciona en relación al elemento contenedor más cercano que tenga una posición distinta de static (que es el valor predeterminado).*/
+    bottom: .625rem; /* Mueve el elemento 10px del borde inferior del contenedor */
+
+}
+.copyright{
+    display: flex;
+    align-items: center;
+    grid-area: copyright;
+    gap: 0.125rem;
+}
