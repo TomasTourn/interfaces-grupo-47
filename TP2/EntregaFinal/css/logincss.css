@@ -58,7 +58,9 @@
     padding-bottom:5.75rem ;
 }
 .login-img{
-    height: 63.5625rem
+    max-width: 38%;
+    height: auto;
+    padding-top:    7.5rem; ;
 }
 
 button{
