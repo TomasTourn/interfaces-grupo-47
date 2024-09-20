@@ -1,6 +1,6 @@
 @import url(style.css);
 .login-container{
-    background-image: url(/Images/backblurredback1080.png);
+    background-image: url(../Images/backblurredback1080.png);
     background-size:cover;
     min-height: 100vh;
     display: flex;
@@ -21,10 +21,10 @@
 }
 .input-email {
     padding-left: 30px;
-    background: url(/Iconos/mailChiquito.svg) no-repeat ;
+    background: url(../Iconos/mailChiquito.svg) no-repeat ;
 }
 .input-pass{
-    background: url(/Iconos/candadoChiquito.svg) no-repeat center;
+    background: url(../Iconos/candadoChiquito.svg) no-repeat center;
 }
 .form-login input{
     font-size: var(--normal);
