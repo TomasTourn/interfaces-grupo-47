@@ -1,8 +1,11 @@
 @import url(style.css);
+
 .login-container{
+    width: 100%;
     background-image: url(../Images/backblurredback1080.png);
     background-size:cover;
     min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -60,7 +63,6 @@
 .login-img{
     max-width: 38%;
     height: auto;
-    padding-top:    7.5rem; ;
 }
 
 button{
@@ -105,4 +107,19 @@ a{
     text-decoration: none;
     color: var(--white);
     font-weight: var(--font-weight-bold);
+}
+
+@media only screen and (max-width:480px) {
+    .login-img{
+        display: none;
+    }
+}
+
+@media only screen and (max-width:1280px) {
+    .login-img{
+        width: 50%;
+    }
+    .form-login form{
+        width: 50%;
+    }
 }
