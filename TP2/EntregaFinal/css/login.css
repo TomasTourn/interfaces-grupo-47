@@ -1,0 +1,169 @@
+.login-container{
+    display: flex;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-image: url(../Images/backblurredback1080.png);
+    justify-content: space-around;
+}
+.login-img{
+    width: 40rem;
+}
+.img-div{
+    display: flex;
+    align-items: flex-end;
+}
+.form-div{
+    display: flex;
+    align-items: center;
+}
+.form-login{
+    width: 25rem;
+    background-color: var(--transparent-dark-20);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+    padding: 5rem 0 5rem 0;
+    
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.inputs label{
+    margin-left: .3125rem;
+    margin-bottom: .0625rem;
+}
+.input-email {
+    padding-left: 30px;
+    background: url(../Iconos/mailChiquito.svg) no-repeat ;
+}
+.input-pass{
+    background: url(../Iconos/candadoChiquito.svg) no-repeat center;
+}
+.form-login label{
+    color: var(--transparent-white);
+    display: block;
+}
+.form-login input{
+    color: var(--white);
+    font-size: var(--normal);
+    font-family: var(--body);
+    background-position: 10px;
+    width: 15.625rem;
+    height: 2.5rem;
+    background-color: var(--secondary-light);
+    border-radius: .5rem;
+    padding-left: 2rem;
+    border-style: none;
+    margin-bottom: 1rem ;
+  
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0;
+    padding-left: .625rem;
+}
+.date-container{
+    position: relative;
+}
+.date-container img{
+   position: absolute;
+   right: .625rem;
+   top: .625rem;
+   cursor: pointer;
+}
+.date-container img:hover{
+    pointer-events: visible;
+    cursor: pointer;
+}
+
+.captcha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-dark);
+    width: 12.5rem;
+    height: 3.125rem;
+    color: var(--white);
+    border-radius: .5rem; 
+    border:solid var(--white) 2px;
+    margin-top:.625rem;
+    margin-bottom: -10px;
+}   
+
+.form-register input{
+    padding-left: 1rem;
+}
+.form-register{
+    padding: 2rem 0;
+}
+.form-login h2{
+    font: var(--title);
+    font-size: var(--large);
+    color: var(--white);
+    padding: 0 0 1.8125rem 0;
+}
+.login-button{
+    margin: 1.5625rem 0 1.5625rem 0;
+}
+.form-login hr{
+    border: 1px solid var(--secondary-light);
+    width: 15.625rem;
+    margin-bottom: 1.6875rem;
+}
+.form-login p{
+    margin: 1.5rem 0;
+    color: var(--white);
+}
+button{
+    font-size: var(--small);
+    border-radius: 8px;
+    width: 8.1875rem;
+    height: 2.25rem;
+    border-style: none;
+    color: var(--white);
+    letter-spacing: 0.09rem;
+    cursor: pointer;
+    transition: background 300ms ease-in-out;/*preguntar porque no funciona con background*/
+}
+
+.login-button{
+    background: var(--primary-gradient-1);
+    font-family: var(--button);
+}
+.login-button:hover{   
+    background: var(--primary-gradient-2);
+}
+
+.external-btn img {
+    padding: 0 1rem  0 .8125rem;
+    height:1rem ;
+    width: 1rem;
+}
+.external-btn{
+    margin-bottom: .625rem;
+    display: flex;
+    align-items: center;
+    color: black;
+    width: 15.625rem;
+    height: 2.5rem;
+}
+
+.facebook-btn{
+    background-color: #1877F2;
+}
+a{
+    font-style: none;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: var(--font-weight-bold);
+}
+@media (max-width:1280px) {
+    .login-img{
+        width: 30rem;
+    }
+}
