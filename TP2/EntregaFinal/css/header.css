@@ -9,7 +9,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;    
-    position:fixed    
+    position:fixed;
+    z-index: 1;    
 }
 
 .navbar {
@@ -65,6 +66,53 @@ header {
     margin-left: .625rem;
 }
 
+.sidebar{
+    display: none;
+    flex-direction: column; 
+    position: fixed;
+    background-color:var(--secondary-dark);
+    width:100%;
+    height: 100%;
+    z-index: 2;
+    color: white;
+    scrollbar-width: thin;    
+    overflow:scroll;
+    font-family: var(--body);
+    font-size: var(--normal);   
+        
+}
+.sidebar.show{
+    display:flex;
+}
+
+.sidebar .icon-cruz{
+    width: 30px;
+    height: 30px;  
+    position: absolute; 
+    top: 10px; 
+    right: 10px;
+    cursor: pointer;  
+}
+
+.sidebar ul{    
+    list-style: none;
+    padding: 40px 26px ;
+    
+}
+.sidebar a{
+        text-decoration: none;
+        color: var(--white);        
+}
+.sidebar li{
+    display: flex;
+    align-items: center;
+    height: 34px;        
+}
+
+.sidebar li img{    
+    margin-right: 15px;       
+}
+
 
 @media (min-width: 768px) {
     header{
@@ -75,7 +123,8 @@ header {
     .search-bar {    
         display:flex;
         position: relative;
-        justify-content: center;
+        justify-content: end;
+        align-items: center;
         width: 30rem;
         height: 2.5rem;
         padding: 0 .9375rem;
@@ -83,7 +132,8 @@ header {
     }
     
     .search-input {
-        width: 100%;    
+        width: 100%;
+        height: 30px;    
         padding: .3125rem 2.5rem .3125rem 1.25rem;
         border-radius:.5rem;
         border: none;
@@ -93,9 +143,8 @@ header {
         font-size: 16px;    
     }
     .search-lupa{
-        position: absolute;        
-        right: .75rem;
-        transform: translateY(.375rem);
+        position: absolute;
+        right: 30px;
         pointer-events: none;
     }
     
@@ -125,5 +174,25 @@ header {
         height:2.5rem ;
         width: 4.375rem;
     }
-    
+
+    .sidebar{
+        display: none;
+        background-color:var(--secondary-dark);
+        position:fixed;
+        width: 200px;
+        height: 1080px;
+        margin-top: 70px;
+        
+        
+    }
+    .sidebar .icon-cruz{
+        display: none;
+    }
+    .sidebar.show{
+        display:flex;
+    }
+    .sidebar ul{    
+        list-style: none;
+        padding: 20px 26px ;
+    }   
 }
