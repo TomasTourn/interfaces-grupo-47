@@ -27,12 +27,25 @@
     padding: 5rem 0 5rem 0;
     
 }
+.inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.inputs label{
+    margin-left: .3125rem;
+    margin-bottom: .0625rem;
+}
 .input-email {
     padding-left: 30px;
     background: url(../Iconos/mailChiquito.svg) no-repeat ;
 }
 .input-pass{
     background: url(../Iconos/candadoChiquito.svg) no-repeat center;
+}
+.form-login label{
+    color: var(--transparent-white);
+    display: block;
 }
 .form-login input{
     color: var(--white);
@@ -45,7 +58,48 @@
     border-radius: .5rem;
     padding-left: 2rem;
     border-style: none;
-    margin: .3125rem 0;
+    margin-bottom: 1rem ;
+  
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0;
+    padding-left: .625rem;
+}
+.date-container{
+    position: relative;
+}
+.date-container img{
+   position: absolute;
+   right: .625rem;
+   top: .625rem;
+   cursor: pointer;
+}
+.date-container img:hover{
+    pointer-events: visible;
+    cursor: pointer;
+}
+
+.captcha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-dark);
+    width: 12.5rem;
+    height: 3.125rem;
+    color: var(--white);
+    border-radius: .5rem; 
+    border:solid var(--white) 2px;
+    margin-top:.625rem;
+    margin-bottom: -10px;
+}   
+
+.form-register input{
+    padding-left: 1rem;
+}
+.form-register{
+    padding: 2rem 0;
 }
 .form-login h2{
     font: var(--title);
@@ -73,10 +127,16 @@ button{
     border-style: none;
     color: var(--white);
     letter-spacing: 0.09rem;
+    cursor: pointer;
+    transition: background 300ms ease-in-out;/*preguntar porque no funciona con background*/
 }
+
 .login-button{
     background: var(--primary-gradient-1);
     font-family: var(--button);
+}
+.login-button:hover{   
+    background: var(--primary-gradient-2);
 }
 
 .external-btn img {
@@ -103,6 +163,7 @@ a{
     font-weight: var(--font-weight-bold);
 }
 @media (max-width:1280px) {
-    
-    
+    .login-img{
+        width: 30rem;
+    }
 }
