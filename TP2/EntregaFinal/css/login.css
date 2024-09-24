@@ -166,4 +166,26 @@ a{
     .login-img{
         width: 30rem;
     }
+    .form-login input{
+        width: 12.5rem;
+        height: 1.875rem;
+        margin-bottom: 0.7rem;
+    }
+    .form-login h2{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .form-register{
+        padding: 0;
+    }
+    .form-login p{
+        margin-top: 0;
+        margin-bottom: 0.8rem;
+    }
+    .date-container img{
+        top: .4375rem;
+     }
+     .form-register input{
+        padding-left: 0.5rem;
+    }
 }
