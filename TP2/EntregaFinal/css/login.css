@@ -4,6 +4,7 @@
     max-height: 100vh;
     background-image: url(../Images/backblurredback1080.png);
     justify-content: space-around;
+    background-size: cover
 }
 .login-img{
     width: 40rem;
@@ -102,7 +103,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 2rem 0;
 }
 .form-login h2{
-    font: var(--title);
+    font-family: var(--title);
+    font-weight: var(--normal);
     font-size: var(--large);
     color: var(--white);
     padding: 0 0 1.8125rem 0;
@@ -152,9 +154,15 @@ button{
     width: 15.625rem;
     height: 2.5rem;
 }
+.google-btn:hover{
+    background-color: #C8BFBF;
+}
 
 .facebook-btn{
     background-color: #1877F2;
+}
+.facebook-btn:hover{
+    background-color: #166AD8;
 }
 a{
     font-style: none;
@@ -187,5 +195,10 @@ a{
      }
      .form-register input{
         padding-left: 0.5rem;
+    }
+}
+@media (min-width:2000px) {
+    .login-img{
+        width: 60rem;
     }
 }
