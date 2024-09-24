@@ -1,3 +1,4 @@
+/*login and register*/
 .login-container{
     display: flex;
     min-height: 100vh;
@@ -201,4 +202,33 @@ a{
     .login-img{
         width: 60rem;
     }
+}
+
+/*slider*/
+.slider-container img{
+    width: 100%;
+}
+a{
+    color: black;
+}
+.slider-dots{
+    text-align: center;
+}
+.slides{
+    display: none;
+}
+.prev,.next{
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    width: auto;
+    padding:0 16px;
+    color: white;
+   
+}
+.prev img,.next img{
+    size: 1rem;
+}
+#next{
+    right: 0;
 }
