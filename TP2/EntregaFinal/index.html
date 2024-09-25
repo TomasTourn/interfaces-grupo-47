@@ -10,27 +10,37 @@
 </head>
 <body>
     <div class="slider-container">
-        <div class="slides fade">
+        <div class="slides">
+
+        
+        <div class="slide active">
             <img class="deadpool" src="./Images/sliderdeadpool.jpg" alt="deadpool vs wolverine">
+            <button class="slider-button" data-url="login.html">Ver Más</button>
         </div>
-        <div class="slides fade">
+        <div class="slide">
             <img class="re4" src="./Images/re4slider.jpg" alt="Resident Evil 4">
+            <button class="slider-button" data-disabled="true">Ver Más</button>
         </div>
-        <div class="slides fade">
+        <div class="slide">
             <img class="angry" src="./Images/angrybird.png" alt="Angry Birds">
+            <button class="slider-button" data-disabled="true">Ver Más</button>
         </div>
-        <div class="slides fade">
+        <div class="slide">
             <img class="clash" src="./Images/clashroyaleslider.jpg" alt="Clash Royale">
+            <button class="slider-button" data-disabled="true">Ver Más</button>
+        </div>
         </div>
     </div> 
+
 
     <img src="./Iconos/flecha-sombra-izquierda.svg" id="prev" class="prev" alt="Anterior">
     <img src="./Iconos/flecha-sombra-derecha.svg" id="next" class="next" alt="Siguiente">
     
-    <div class="slider-dots">
-        <span id="dot1" class="dot"></span>
-        <span id="dot2" class="dot"></span>
-        <span id="dot3" class="dot"></span>
+    <div class="dots">
+        <span  class="dot active"></span>
+        <span  class="dot"></span>
+        <span  class="dot"></span>
+        <span  class="dot"></span>
     </div>
     <script src="./js/slider.js"></script>
 </body>

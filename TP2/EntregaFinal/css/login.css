@@ -205,18 +205,32 @@ a{
 }
 
 /*slider*/
-.slider-container img{
-    width: 100%;
+.slider-container{
+    position: relative;
+  overflow: hidden;
+
+}
+.slides{
+    display: flex;
+    transition: transform 1200ms ease;
+}
+.slide img{
+    min-width: 100%;
+    height: auto;
 }
 a{
     color: black;
 }
-.slider-dots{
-    text-align: center;
+.slide{
+    position: relative;
+    opacity: 1;
+   
 }
-.slides{
-    display: none;
+
+.active{
+    opacity: 1;
 }
+
 .prev,.next{
     cursor: pointer;
     position: absolute;
@@ -226,9 +240,34 @@ a{
     color: white;
    
 }
-.prev img,.next img{
-    size: 1rem;
+.dots{
+    position: absolute;
+    left: 50%; /* Posiciona el contenedor de los puntos al 50% del ancho del contenedor padre */
+    transform: translateX(-50%); /* Ajusta el punto de referencia para centrarlo */
+    top:63%
+}
+.dot{
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    border: solid var(--white) 2px;
+  
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.dot.active{
+    background-color: var(--white);
 }
 #next{
     right: 0;
+}
+.slider-button{
+    width: 220px;
+    height: 40px;
+    background: var(--primary-gradient-1);
+    position: absolute;
+    left: 3%;
+    top: 85%;
 }
