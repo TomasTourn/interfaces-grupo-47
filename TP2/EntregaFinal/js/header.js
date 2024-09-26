@@ -1,11 +1,25 @@
-const menuButton = document.querySelector('.menu-button');
+const menuBtn = document.querySelector('.menu-button');
 const sidebar = document.getElementById('sidebar');
-const closeBtn = document.querySelector('.icon-cruz');
+const closeMenu = document.querySelector('.icon-cruz-menu');
 
-menuButton.addEventListener('click', () => {
+const profileBtn = document.querySelector('.user-icon');
+const profile = document.querySelector('.user-menu');
+const closeProfile = document.querySelector('.icon-cruz-profile');
+
+menuBtn.addEventListener('click', () => {
     sidebar.classList.toggle('show');
 });
 
-closeBtn.addEventListener('click', ()=>{
+closeMenu.addEventListener('click', ()=>{
     sidebar.classList.toggle('show');
+});
+
+profileBtn.addEventListener('click', ()=>{
+    console.log("dsadgas");
+    profile.classList.toggle('show');
+});
+
+closeProfile.addEventListener('click', ()=>{
+    console.log("dsadgas");
+    profile.classList.toggle('show');
 });
