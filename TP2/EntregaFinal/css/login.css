@@ -36,7 +36,7 @@
 }
 .inputs label{
     margin-left: .3125rem;
-    margin-bottom: .0625rem;
+    margin-bottom: -0.125rem;
 }
 .input-email {
     padding-left: 30px;
@@ -46,6 +46,7 @@
     background: url(../Iconos/candadoChiquito.svg) no-repeat center;
 }
 .form-login label{
+    font-family: var(--body);
     color: var(--transparent-white);
     display: block;
 }
@@ -84,19 +85,73 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .captcha{
+    position: relative;
+    font-family: var(--body);
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--secondary-dark);
-    width: 12.5rem;
-    height: 3.125rem;
+    width: 15.625rem;
+    height: 3.75rem;
     color: var(--white);
     border-radius: .5rem; 
     border:solid var(--white) 2px;
     margin-top:.625rem;
-    margin-bottom: -10px;
+    
 }   
+.captcha label{
+    color: var(--white);
+}
 
+.captcha input{
+    width: 25px;
+    margin: 0;
+}
+.logo-captcha{
+    display: flex;
+    flex-direction: column;
+}
+.logo-captcha img{
+    width: 38px;
+}
+.input-captcha{
+    align-items: center;
+    display: flex;
+    margin-right: 22px;
+}
+.captcha span{
+    margin-right: 22px;
+    margin-left: 12px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    width: 25px;
+    height: 25px;
+}
+.tick-icon {
+    display: none;
+    width: 45px;
+    height: 45px;
+    background-image: url('./Iconos/check.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 10%;
+    right: 78%;
+}
+
+.checkbox:checked {
+    opacity: 0;
+}
+
+.checkbox:checked + .checkbox-label .tick-icon {
+    display: block; /* Muestra el icono cuando está seleccionado */
+}
 .form-register input{
     padding-left: 1rem;
 }
@@ -119,7 +174,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-bottom: 1.6875rem;
 }
 .form-login p{
-    margin: 1.5rem 0;
+    font-family: var(--body);
+    margin-bottom: 1.5rem;
     color: var(--white);
 }
 button{
@@ -166,11 +222,14 @@ button{
     background-color: #166AD8;
 }
 a{
+    font-family: var(--body);
     font-style: none;
     text-decoration: none;
     color: var(--white);
     font-weight: var(--font-weight-bold);
 }
+
+
 @media (max-width:1280px) {
     .login-img{
         width: 30rem;
@@ -217,9 +276,6 @@ a{
 .slide img{
     min-width: 100%;
     height: auto;
-}
-a{
-    color: black;
 }
 .slide{
     position: relative;
