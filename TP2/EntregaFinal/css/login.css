@@ -1,3 +1,9 @@
+:root{
+    --size:0;
+    --x:0;
+    --y:0;
+}
+
 /*login and register*/
 .login-container{
     display: flex;
@@ -190,14 +196,6 @@ button{
     transition: background 300ms ease-in-out;/*preguntar porque no funciona con background*/
 }
 
-.login-button{
-    background: var(--primary-gradient-1);
-    font-family: var(--button);
-}
-.login-button:hover{   
-    background: var(--primary-gradient-2);
-}
-
 .external-btn img {
     padding: 0 1rem  0 .8125rem;
     height:1rem ;
@@ -326,4 +324,38 @@ a{
     position: absolute;
     left: 3%;
     top: 85%;
+}
+
+
+/* Botón gradiente tracker */
+.button-gradient-tracking {
+    position: relative;
+    background: var(--primary);
+    overflow: hidden;
+}
+
+.button-gradient-tracking span {
+    position: relative;
+    pointer-events: none;
+    font-family: var(--button);
+}
+
+.button-gradient-tracking::before {
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, var(--primary-dark), transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+    pointer-events: none;
+}
+
+.button-gradient-tracking:hover::before {
+    --size: 120px;
+}
+body{
+    background-color: var(--secondary);
 }
