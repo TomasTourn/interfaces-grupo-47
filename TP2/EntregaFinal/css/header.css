@@ -21,8 +21,35 @@ header {
 }
 
 
-.search-bar{
+.search-bar-nav{
     display: none;
+}
+
+.search-sidebar {    
+    display:flex;
+    position: relative;
+    
+    align-items: center;
+    width: 70%;
+    margin: 20px 30px 10px 30px;
+    
+}
+
+.search-input {
+    width: 100%;
+    height: 25px;    
+    padding: .3125rem 20px .3125rem 1.25rem;
+    border-radius:.5rem;
+    border: none;
+    outline: none;
+    background-color:var(--secondary-light);
+    color: var(--white); 
+    font-size: 1rem;    
+}
+.search-lupa{
+    position: absolute;
+    right: 15px;
+    pointer-events: none;
 }
 
 .navbar-left {
@@ -88,17 +115,17 @@ header {
 }
 
 .sidebar .icon-cruz-menu{
-    width: 1.875rem;
-    height: 1.875rem;  
+    width: 38px;
+    height: 38px;  
     position: absolute; 
-    top: .625rem; 
+    top: 20px; 
     right: .625rem;
     cursor: pointer;  
 }
 
 .sidebar ul{    
     list-style: none;
-    padding: 2.5rem 1.625rem ;
+    padding: 0 30px ;
     
 }
 .sidebar a{
@@ -132,13 +159,12 @@ header {
 
 .user-menu{     
     display: none;          
-    position: absolute;
-    right: 0;
-    top: 3.125rem; 
+    position: absolute;   
+    
     background-color: var(--secondary-dark); 
-    width: 15.625rem;        
-    padding-top: 3.625rem;
-    padding-bottom: 1.25rem;
+    width: 100%;
+    height: 100%;        
+    padding-top: 100px;    
     border-radius: 0 0 0 .5rem;
     box-shadow: 0 0 .3125rem var(--secondary);
     z-index: 2;
@@ -151,8 +177,9 @@ header {
 }
 
 .user-menu p {
-    margin: .625rem 0 2.1875rem 0 ;
+    margin: .625rem 0 60px 0 ;
     font-family: var(--title);
+    font-size: 25px;
     font-weight: var(--font-weight-bold);
     text-align: center;
 }
@@ -164,7 +191,7 @@ header {
 }
 
 .user-menu li {
-    padding: .3125rem 2.5rem;    
+    padding: 10px 2.5rem;    
     font-family: var(--body);
 }
 
@@ -178,19 +205,19 @@ header {
 }
 
 .user-menu .user-avatar {
-    width: 3.75rem;
-    height: 3.75rem;
+    width: 80px;
+    height: 80px;
     display: block;
     margin: 0 auto;
 }
 
 .user-menu .icon-cruz-profile {
-    position: absolute;
-    top: .625rem;
+    width: 38px;
+    height: 38px;  
+    position: absolute; 
+    top: 20px; 
     right: .625rem;
-    cursor: pointer;
-    width: 1.875rem;
-    height: 1.875rem;
+    cursor: pointer;  
 }
 
 
@@ -201,7 +228,7 @@ header {
         padding: .625rem 1.25rem;
     }
 
-    .search-bar {    
+    .search-bar-nav {    
         display:flex;
         position: relative;
         justify-content: end;
@@ -303,7 +330,38 @@ header {
         list-style: none;
         padding: 1.25rem 1.625rem ;
     }
-    .user-menu{    
+
+    .search-sidebar{
+        display: none;
+    }
+    
+    .user-menu{     
+        right: 0;
         top: 4.375rem; 
-    }   
+        width: 15.625rem;
+        height: 330px;        
+        padding-top: 3.625rem;
+        padding-bottom: 1.25rem;
+        
+    }
+    
+    .user-menu p {
+        margin: .625rem 0 2.1875rem 0 ;
+    font-family: var(--title);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    }
+    
+    .user-menu li {
+        padding: .3125rem 2.5rem;    
+    }
+        
+    .user-menu li a:hover {
+        color: #bbb;
+    }
+    
+    .user-menu .user-avatar {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
 }
