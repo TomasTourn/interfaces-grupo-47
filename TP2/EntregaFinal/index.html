@@ -9,44 +9,148 @@
     <link rel="stylesheet" href="./css/header.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img src="Iconos/Hamburguesa.svg" alt="menu hamburguesa" class="menu-button">
+                <a href="#" class="logo"> 
+                    <img src="Iconos/Logo.svg" alt="Logo" class="logo-img"> 
+                </a>
+            </div>
+
+            <div class="search-bar-nav">
+                <input type="text" placeholder="Buscar..." class="search-input">
+                <img src="Iconos/Lupa.svg" alt="" class="search-lupa">
+            </div>
+
+            <div class="navbar-right">
+
+                <div class="corazon icon"></div>
+                <div class="campana icon"></div> 
+                <div class="carrito icon"></div>              
+                
+                <img src="Iconos/Avatar con imagen.svg" alt="icono avatar" class="user-icon"> 
+                
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar">
+        
+        <img src="Iconos/icono-cruz.svg" alt="" class="icon-cruz-menu">
+        
+        <div class="search-sidebar">
+            <input type="text" placeholder="Buscar..." class="search-input">
+            <img src="Iconos/Lupa.svg" alt="" class="search-lupa">
+        </div>
+
+        <ul>
+            
+            <li><img src="iconos/iconos-sidebar/home.svg" alt="Inicio" /><a href="#">Inicio</a></li>
+            <li><img src="iconos/iconos-sidebar/recientes.svg" alt="Recientes" /><a href="#">Recientes</a></li>
+            <li><img src="iconos/iconos-sidebar/nuevos.svg" alt="Nuevos" /><a href="#">Nuevos</a></li>
+            <li><img src="iconos/iconos-sidebar/demoda.svg" alt="De moda" /><a href="#">De moda</a></li>
+            <li><img src="iconos/iconos-sidebar/actualizados.svg" alt="Actualizados" /><a href="#">Actualizados</a></li>
+            <hr>
+            <li><img src="iconos/iconos-sidebar/2jugadores.svg" alt="2 jugadores" /><a href="#">2 jugadores</a></li>
+            <li><img src="iconos/iconos-sidebar/accion.svg" alt="Acción" /><a href="#">Acción</a></li>
+            <li><img src="iconos/iconos-sidebar/aventuras.svg" alt="Aventuras" /><a href="#">Aventuras</a></li>
+            <li><img src="iconos/iconos-sidebar/baloncesto.svg" alt="Baloncesto" /><a href="#">Baloncesto</a></li>
+            <li><img src="iconos/iconos-sidebar/belleza.svg" alt="Belleza" /><a href="#">Belleza</a></li>
+            <li><img src="iconos/iconos-sidebar/billar.svg" alt="Billar" /><a href="#">Billar</a></li>
+            <li><img src="iconos/iconos-sidebar/cartas.svg" alt="Cartas" /><a href="#">Cartas</a></li>
+            <li><img src="iconos/iconos-sidebar/casual.svg" alt="Casual" /><a href="#">Casual</a></li>
+            <li><img src="iconos/iconos-sidebar/click.svg" alt="Click" /><a href="#">Click</a></li>
+            <li><img src="iconos/iconos-sidebar/coches.svg" alt="Coches" /><a href="#">Coches</a></li>
+            <li><img src="iconos/iconos-sidebar/conducir.svg" alt="Conducir" /><a href="#">Conducir</a></li>
+            <li><img src="iconos/iconos-sidebar/controller.svg" alt="Controller" /><a href="#">Controller</a></li>
+            <li><img src="iconos/iconos-sidebar/deportes.svg" alt="Deportes" /><a href="#">Deportes</a></li>
+            <li><img src="iconos/iconos-sidebar/terror.svg" alt="Terror" /><a href="#">Terror</a></li>
+            <li><img src="iconos/iconos-sidebar/vestir.svg" alt="Vestir" /><a href="#">Vestir</a></li>
+            <li><img src="iconos/iconos-sidebar/futbol.svg" alt="Fútbol" /><a href="#">Fútbol</a></li>
+            <li><img src="iconos/iconos-sidebar/multijugador.svg" alt="Multijugador" /><a href="#">Multijugador</a></li>
+            <li><img src="iconos/iconos-sidebar/puzzle.svg" alt="Puzzle" /><a href="#">Puzzle</a></li>
+            <li><img src="iconos/iconos-sidebar/io.svg" alt="Io" /><a href="#">Io</a></li>
+            <li><img src="iconos/iconos-sidebar/flash.svg" alt="Flash" /><a href="#">Flash</a></li>
+            <li><img src="iconos/iconos-sidebar/minecraft.svg" alt="Minecraft" /><a href="#">Minecraft</a></li>
+            <li><img src="iconos/iconos-sidebar/stickman.svg" alt="Stickman" /><a href="#">Stickman</a></li>
+            <li><img src="iconos/iconos-sidebar/disparos.svg" alt="Disparos" /><a href="#">Disparos</a></li>
+            <li><img src="iconos/iconos-sidebar/defensa.svg" alt="Defensa" /><a href="#">Defensa</a></li>
+            <li><img src="iconos/iconos-sidebar/mahjong.svg" alt="Mahjong" /><a href="#">Mahjong</a></li>
+            <li><img src="iconos/iconos-sidebar/firstperson.svg" alt="First Person" /><a href="#">First Person</a></li>
+            <li><img src="iconos/iconos-sidebar/motos.svg" alt="Motos" /><a href="#">Motos</a></li>
+        </ul>
+    </div>    
+    <div class="user-menu">
+        <img src="Iconos/Avatar con imagen.svg" alt="Avatar" class="user-avatar">
+        <p>¡Hola, Lolita!</p>
+        <ul>
+            <li><a href="#">Mi perfil</a></li>
+            <li><a href="#">Editar perfil</a></li>
+            <li><a href="#">Configuración de cuenta</a></li>
+            <li><a href="#">Soporte</a></li>
+            <li><a href="login.html">Cerrar sesión</a></li>
+        </ul>
+        <img src="Iconos/icono-cruz.svg" alt="Cerrar" class="icon-cruz-profile">
+    </div>
     <div class="slider-container">
         <div class="slides">
 
         
         <div class="slide active">
-            <img class="deadpool" src="./Images/sliderdeadpool.jpg" alt="deadpool vs wolverine">
+            <picture>
+                <source media="(max-width: 767px)" srcset="./images/deadpoolvswolverinemobile.jpg">
+                <source media="(min-width: 768px)" srcset="./images/deadpoolvswolverine.jpg">
+                <img src="" alt="">
+            </picture>
             <button class="slider-button" data-url="login.html">Ver Más</button>
         </div>
+       
         <div class="slide">
-            <img class="re4" src="./Images/re4slider.jpg" alt="Resident Evil 4">
+            <picture>
+                <source media="(max-width: 767px)" srcset="./images/angrymobile.jpg">
+                <source media="(min-width: 768px)" srcset="./images/angrybirds2.png">
+                <img src="" alt="">
+            </picture>
             <button class="slider-button" data-disabled="true">Ver Más</button>
         </div>
         <div class="slide">
-            <img class="angry" src="./Images/angrybird.png" alt="Angry Birds">
+            <picture>
+                <source media="(max-width: 767px)" srcset="./images/clashmobile.png">
+                <source media="(min-width: 768px)" srcset="./images/clashroyale.png">
+                <img src="" alt="">
+            </picture>
             <button class="slider-button" data-disabled="true">Ver Más</button>
         </div>
         <div class="slide">
-            <img class="clash" src="./Images/clashroyaleslider.jpg" alt="Clash Royale">
+            <picture>
+                <source media="(max-width: 767px)" srcset="./images/re4gigante.png">
+                <source media="(min-width: 768px)" srcset="./images/re4slider.png">
+                <img src="" alt="">
+            </picture>
             <button class="slider-button" data-disabled="true">Ver Más</button>
         </div>
+
         </div>
+        <div class="dots">
+            <span  class="dot active"></span>
+            <span  class="dot"></span>
+            <span  class="dot"></span>
+            <span  class="dot"></span>
+        </div>
+        <img src="./Iconos/flecha-sombra-izquierda.svg" id="prev" class="prev" alt="Anterior">
+        <img src="./Iconos/flecha-sombra-derecha.svg" id="next" class="next" alt="Siguiente">
     </div> 
 
 
-    <img src="./Iconos/flecha-sombra-izquierda.svg" id="prev" class="prev" alt="Anterior">
-    <img src="./Iconos/flecha-sombra-derecha.svg" id="next" class="next" alt="Siguiente">
+
     
-    <div class="dots">
-        <span  class="dot active"></span>
-        <span  class="dot"></span>
-        <span  class="dot"></span>
-        <span  class="dot"></span>
-    </div>
+
 
     <button class="button-gradient-tracking">
         <span>Jugar</span>
     </button>
     <script src="./js/buttonGradient.js"></script>
     <script src="./js/slider.js"></script>
+    
 </body>
 </html>

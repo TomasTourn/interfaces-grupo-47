@@ -228,41 +228,10 @@ a{
 }
 
 
-@media (max-width:1280px) {
-    .login-img{
-        width: 30rem;
-    }
-    .form-login input{
-        width: 12.5rem;
-        height: 1.875rem;
-        margin-bottom: 0.7rem;
-    }
-    .form-login h2{
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-    .form-register{
-        padding: 0;
-    }
-    .form-login p{
-        margin-top: 0;
-        margin-bottom: 0.8rem;
-    }
-    .date-container img{
-        top: .4375rem;
-     }
-     .form-register input{
-        padding-left: 0.5rem;
-    }
-}
-@media (min-width:2000px) {
-    .login-img{
-        width: 60rem;
-    }
-}
 
 /*slider*/
 .slider-container{
+    width: 100%;
     position: relative;
   overflow: hidden;
 
@@ -270,9 +239,11 @@ a{
 .slides{
     display: flex;
     transition: transform 1200ms ease;
+    width: 100%;
 }
 .slide img{
-    min-width: 100%;
+    min-width: 100vw;
+    max-width: 100vw;
     height: auto;
 }
 .slide{
@@ -288,17 +259,16 @@ a{
 .prev,.next{
     cursor: pointer;
     position: absolute;
-    top: 30%;
+    top: 45%;
     width: auto;
     padding:0 16px;
     color: white;
-   
 }
 .dots{
     position: absolute;
     left: 50%; /* Posiciona el contenedor de los puntos al 50% del ancho del contenedor padre */
     transform: translateX(-50%); /* Ajusta el punto de referencia para centrarlo */
-    top:63%
+    top:94%
 }
 .dot{
     display: inline-block;
@@ -358,4 +328,48 @@ a{
 }
 body{
     background-color: var(--secondary);
+}
+@media (max-width:768px) {
+    .slider-button{
+
+        width: 100px;
+        height: 30px;
+        top:88%
+    }
+
+    .prev,.next{
+       display: none;
+    }
+}
+@media (max-width:1280px) {
+    .login-img{
+        width: 30rem;
+    }
+    .form-login input{
+        width: 12.5rem;
+        height: 1.875rem;
+        margin-bottom: 0.7rem;
+    }
+    .form-login h2{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .form-register{
+        padding: 0;
+    }
+    .form-login p{
+        margin-top: 0;
+        margin-bottom: 0.8rem;
+    }
+    .date-container img{
+        top: .4375rem;
+     }
+     .form-register input{
+        padding-left: 0.5rem;
+    }
+}
+@media (min-width:2000px) {
+    .login-img{
+        width: 60rem;
+    }
 }
