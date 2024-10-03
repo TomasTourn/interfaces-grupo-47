@@ -1,0 +1,148 @@
+@import url(style.css);
+.breadcrumbs{
+    padding: .625rem;
+    font-family: var(--body);
+}
+.breadcrumbs-item{
+    display:inline-block;
+}
+.breadcrumbs-item:not(:last-of-type)::after{
+    content: '/';
+    margin: 0 .3125rem;
+    color: var( --transparent-white);
+}
+.breadcrumbs-link{
+    text-decoration: none;
+    color: var( --transparent-white);
+    font-size: var(--normal);
+}
+.breadcrumbs-link:hover{
+    text-decoration: underline;
+}
+.breadcrumbs-link-active{
+    color: var(--white);
+    font-weight: bold;
+}
+.container-game{
+    padding-top: 4.375rem;
+    background-color: var(--secondary) ;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.container-game-screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
+.container-img-game{
+    position: relative;
+    display: inline-block;
+}
+.img-game-screen{
+    display: block;
+}
+.overlay{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.btn-game{
+    cursor: pointer;
+    border-radius: 8px;
+    width: 12.5625rem;
+    height: 3.4375rem;
+    border-style: none;
+    color: var(--white);
+    background: var(--primary-gradient-1);
+    font-size: var(--large);
+    font-family: var(--button);
+}
+.title-game{
+    color: var(--white);
+    font-family: var(--title);
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-bottom: .3125rem;
+}
+.game-info{
+    background-color: var(--secondary-dark);
+    width: 70.5625rem;
+    height: 2.8125rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.title-game-info{
+    margin: 0;
+    text-align: right;
+    color: var(--white);
+    font-family: var(--title);
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-left: 1.25rem;
+}
+.list-game-info{
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding */
+    margin: 0; /* Elimina el margen */
+    display: flex; /* Usar flexbox para alinear los elementos en fila */
+    align-items: center;
+}
+.item-game-info {
+    margin-top: .3125rem;
+    margin-right: 20px;
+}
+.container-description-game{
+    background-color: var(--secondary-light);
+    width: 70.5rem;
+    height: 41.0625rem;
+    border-radius: .5rem;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
+ 
+}
+.title-description-game,.description-game{
+    color: var(--white);
+}
+.title-description-game{
+    font-family: var(--title);
+    font-size: 1.5rem;
+}
+.description-game a {
+    text-decoration: none;
+    color: var(--white);
+}
+.description-game a:hover{
+    text-decoration: underline;
+}
+.description-game{
+    font-family: var(--body);
+    font-size: var(--normal);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px; /* Separación desde el top */
+    margin-bottom: 30px; /* Separación desde abajo */
+   
+}
+.text-description-game{
+    display: flex;
+    flex-direction: column;
+    width:24.875rem;
+    height: 22.3125rem;
+   
+}
+.video-simulation-game{
+    padding-top:1.875rem;
+    display: flex;
+    justify-content:center;
+    gap:1.375rem;
+}
+
+

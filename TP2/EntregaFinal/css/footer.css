@@ -9,20 +9,20 @@ footer{
     flex-direction: column;
     position: relative;
 }
-h2, ul li{
+.footer-title, .footer-section  li{
     color: var(--white);
 }
-h2{
+.footer-title{
     font-size: .75rem;
     font-weight: bold;
     font-family: "Noto Sans", sans-serif;
 }
-ul li{
+.footer-section  li{
     font-size: .6875rem;
     list-style-type: none;
     font-family: 'Hind',sans-serif;
 }
-p{
+.copyright-rights{
     color: var(--transparent-white);
     font-size: .5rem;
 
@@ -39,7 +39,7 @@ p{
     width: .5625rem;
     height: .5625rem;
 }
-.container{
+.container-footer{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
@@ -110,25 +110,26 @@ p{
                                 Esto significa que sigue ocupando su espacio original en el diseño*/
 
     }
-    .container{
+    .container-footer{
         display: grid;
         grid-template-columns: auto;
         grid-template-areas: 
         "about help contact account category socialNetworks";
-        gap:2.5rem
+        gap:5rem;
+        padding-bottom: 5.625rem;
 
     }
 
-    h2{
+    .footer-title {
         font-size: 1.25rem;
         margin-bottom: .625rem;
     }
 
-    ul li {
+    .footer-section  li {
         font-size: var(--font-size-normal);
         list-style-type: none;
     }
-    p{
+    .copyright-rights {
         font-size: var(--font-size-small);
     }
     .container-copyright{
