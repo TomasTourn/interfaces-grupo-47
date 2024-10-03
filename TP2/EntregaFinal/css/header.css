@@ -10,7 +10,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;    
-    position:fixed;
+    /*position:fixed;*/
     z-index: 1;
     appearance: 95;    
 }
@@ -30,11 +30,9 @@ header {
 .search-sidebar {    
     display:flex;
     position: relative;
-    
     align-items: center;
     width: 70%;
     margin: 1.25rem 1.875rem .625rem 1.875rem;
-    
 }
 
 .search-input {
