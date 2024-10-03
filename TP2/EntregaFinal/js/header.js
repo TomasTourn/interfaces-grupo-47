@@ -1,5 +1,5 @@
 const menuBtn = document.querySelector('.menu-button');
-const sidebar = document.getElementById('sidebar');
+const sidebar = document.querySelector('.sidebar');
 const closeMenu = document.querySelector('.icon-cruz-menu');
 
 const profileBtn = document.querySelector('.user-icon');
@@ -15,11 +15,9 @@ closeMenu.addEventListener('click', ()=>{
 });
 
 profileBtn.addEventListener('click', ()=>{
-    console.log("dsadgas");
     profile.classList.toggle('show');
 });
 
 closeProfile.addEventListener('click', ()=>{
-    console.log("dsadgas");
     profile.classList.toggle('show');
 });

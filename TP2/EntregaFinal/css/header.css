@@ -1,16 +1,18 @@
 @import url(style.css);
 
+
 header {
     box-sizing: border-box;
     height: 3.125rem;
     width: 100%;   
-    background-color:var(--secondary-dark);
+    background-color:rgba(21, 22, 29, 0.95);
     padding: .3125rem .625rem;
     display: flex;
     justify-content: space-between;
     align-items: center;    
     position:fixed;
-    z-index: 1;    
+    z-index: 1;
+    appearance: 95;    
 }
 
 .navbar {
@@ -31,14 +33,14 @@ header {
     
     align-items: center;
     width: 70%;
-    margin: 20px 30px 10px 30px;
+    margin: 1.25rem 1.875rem .625rem 1.875rem;
     
 }
 
 .search-input {
     width: 100%;
-    height: 25px;    
-    padding: .3125rem 20px .3125rem 1.25rem;
+    height: 1.5625rem;    
+    padding: .3125rem 1.25rem .3125rem 1.25rem;
     border-radius:.5rem;
     border: none;
     outline: none;
@@ -48,7 +50,7 @@ header {
 }
 .search-lupa{
     position: absolute;
-    right: 15px;
+    right: .9375rem;
     pointer-events: none;
 }
 
@@ -115,17 +117,17 @@ header {
 }
 
 .sidebar .icon-cruz-menu{
-    width: 38px;
-    height: 38px;  
+    width: 2.375rem;
+    height: 2.375rem;  
     position: absolute; 
-    top: 20px; 
+    top: 1.25rem; 
     right: .625rem;
     cursor: pointer;  
 }
 
 .sidebar ul{    
     list-style: none;
-    padding: 0 30px ;
+    padding: 0 1.875rem ;
     
 }
 .sidebar a{
@@ -160,11 +162,11 @@ header {
 .user-menu{     
     display: none;          
     position: absolute;   
-    
+    position: fixed;
     background-color: var(--secondary-dark); 
     width: 100%;
     height: 100%;        
-    padding-top: 100px;    
+    padding-top: 6.25rem;    
     border-radius: 0 0 0 .5rem;
     box-shadow: 0 0 .3125rem var(--secondary);
     z-index: 2;
@@ -177,9 +179,9 @@ header {
 }
 
 .user-menu p {
-    margin: .625rem 0 60px 0 ;
+    margin: .625rem 0 3.75rem 0 ;
     font-family: var(--title);
-    font-size: 25px;
+    font-size: 1.5625rem;
     font-weight: var(--font-weight-bold);
     text-align: center;
 }
@@ -191,7 +193,7 @@ header {
 }
 
 .user-menu li {
-    padding: 10px 2.5rem;    
+    padding: .625rem 2.5rem;    
     font-family: var(--body);
 }
 
@@ -205,22 +207,89 @@ header {
 }
 
 .user-menu .user-avatar {
-    width: 80px;
-    height: 80px;
+    width: 5rem;
+    height: 5rem;
     display: block;
     margin: 0 auto;
 }
 
 .user-menu .icon-cruz-profile {
-    width: 38px;
-    height: 38px;  
+    width: 2.375rem;
+    height: 2.375rem;  
     position: absolute; 
-    top: 20px; 
+    top: 1.25rem; 
     right: .625rem;
     cursor: pointer;  
 }
 
+/*PRUEBA card, luego se quita del css del header*/
 
+.carrusel{
+    padding-top: 100px;
+    padding-left: 100px;
+    display: flex;
+}
+.card{
+    width: 330px;
+    height: 275px;    
+    font-family: Arial, sans-serif;
+    color: white; 
+    margin-left: 15px;
+}
+
+.card-content{
+    width: 100%;
+    height: 275px;
+    background-color: var(--secondary-dark);
+    border-radius:8px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.card img{
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+    border-radius:8px 8px 0 0;
+    
+}
+
+
+.card-title {
+    font-size: 12px;
+    color: #c4c4c4;
+    font-family: var(--title);
+    font-weight: var(--font-weight-semibold);
+    margin: 3px 0 10px 10px;
+}
+
+
+.card-price {
+    font-size: var(--large);
+    font-weight: var(--title);
+    font-weight: var(--font-weight-bold);
+}
+
+
+.card-button {
+    background-color: #6d44fc;
+    color: white;
+    border: none;
+    width: 130px;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card-button:hover {
+    background-color: #5633cc;
+}
 
 @media (min-width: 768px) {
     header{
@@ -258,8 +327,8 @@ header {
     
 
     .icon {
-        height: 24px;
-        width: 24px;
+        height: 1.5rem;
+        width: 1.5rem;
         display: flex;
         cursor: pointer;        
         margin: 0 .3125rem;
@@ -268,27 +337,27 @@ header {
     }
 
     .corazon {    
-        background-image: url('/Iconos/Corazon.svg');
+        background-image: url('../Iconos/Corazon.svg');
     }
     
     .corazon:hover {
-        background-image: url('/Iconos/CorazonRellenado.svg');
+        background-image: url('../Iconos/CorazonRellenado.svg');
     }
 
     .campana{
-        background-image: url('/Iconos/Campana.svg')
+        background-image: url('../Iconos/Campana.svg')
     }
 
     .campana:hover{
-        background-image: url('/Iconos/camapanaRellenado.svg')
+        background-image: url('../Iconos/camapanaRellenado.svg')
     }
 
     .carrito{
-        background-image: url('/Iconos/carrito.svg');
+        background-image: url('../Iconos/carrito.svg');
     }
 
     .carrito:hover{
-        background-image: url('/Iconos/carritoRellenado.svg')
+        background-image: url('../Iconos/carritoRellenado.svg')
     }
     
     .lupa-icon{
@@ -296,14 +365,14 @@ header {
     }
 
     .user-icon{
-        width: 50px;
-        height: 50px;
-        margin-left: 40px;
+        width: 3.125rem;
+        height: 3.125rem;
+        margin-left: 2.5rem;
     }
 
     .menu-button{
-        width: 28px;
-        height: 28px;
+        width: 1.75rem;
+        height: 1.75rem;
     }
 
     .logo-img{
@@ -339,7 +408,7 @@ header {
         right: 0;
         top: 4.375rem; 
         width: 15.625rem;
-        height: 330px;        
+        height: 20.625rem;        
         padding-top: 3.625rem;
         padding-bottom: 1.25rem;
         
@@ -347,9 +416,9 @@ header {
     
     .user-menu p {
         margin: .625rem 0 2.1875rem 0 ;
-    font-family: var(--title);
-    font-weight: var(--font-weight-bold);
-    text-align: center;
+        font-family: var(--title);
+        font-weight: var(--font-weight-bold);
+        text-align: center;
     }
     
     .user-menu li {
