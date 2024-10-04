@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = document.querySelectorAll('.dot');
     const totalSlides = slides.length;
     const buttons=document.querySelectorAll('.slider-button');
+    let isDragging=false;
+    let startX=0;
+    let endX=0;
+    let slideInterval;
+
 
 
     document.querySelector('.next').addEventListener('click', () => {
@@ -13,13 +18,53 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.prev').addEventListener('click', () => {
         changeSlide(currentSlide-1);
     });
+    
+
+    slides.forEach(slide=>{
+        slide.addEventListener('mousedown',e=>{
+            console.log("hsfdsfds")
+        })
+    })
+
+
+
+    
+    slides.forEach(slide=>{
+        slide.addEventListener('touchstart',(e)=>{
+            console.log("entra")
+            isDragging=true;
+            startX = e.touches[0].clientX;
+        })
+    })
+
+    document.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+            endX = e.touches[0].clientX;
+            console.log("toda")
+        }
+    });
+  
+    document.addEventListener('touchend', () => {
+        if (isDragging) {
+            isDragging = false;
+            const distance = startX - endX;
+            if (distance > 50 && endX!==0) {
+                changeSlide(currentSlide + 1);
+                endX=0;
+            }
+             else if (distance < -50 && endX!==0) {
+                changeSlide(currentSlide - 1);
+                endX=0;
+            }
+        }
+    });
 
     dots.forEach((dot,index)=>{
         dot.addEventListener('click',()=>{
             changeSlide(index);
         })
     })
-
+    
     buttons.forEach(button=>{
         button.addEventListener('click',function(){
             const disabled = this.getAttribute('data-disabled');
@@ -49,7 +94,19 @@ document.addEventListener('DOMContentLoaded', () => {
         dots.forEach((dot,i)=>{
             dot.classList.toggle('active',i===currentSlide);
     })
+    resetInterval();
     }
+
+    function resetInterval(){
+        clearInterval(slideInterval);
+        sliderInterval();
+    }
+    function sliderInterval(){
+        slideInterval=setInterval(()=>{
+            changeSlide(currentSlide+1);
+        },5000)
+    }
+  
 
 
 });
