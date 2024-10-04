@@ -3,14 +3,14 @@
 
 header {
     box-sizing: border-box;
-    height: 3.125rem;
+    height: 4.375rem;
+    padding: .625rem 1.25rem;
     width: 100%;   
     background-color:rgba(21, 22, 29, 0.95);
-    padding: .3125rem .625rem;
     display: flex;
     justify-content: space-between;
     align-items: center;    
-    /*position:fixed;*/
+    position:fixed;
     z-index: 1;
     appearance: 95;    
 }
@@ -58,15 +58,15 @@ header {
 }
 
 .logo-img{
-    width: 3.75rem;
-    height: 2.5rem;
+    height:2.5rem ;
+    width: 4.375rem;
     margin: .1875rem 0 0 .4375rem;
 }
 
 .menu-button {
     margin: .3125rem .4375rem 0 0 ;   
-    height: 1.4375rem;
-    width: 1.4375rem;   
+    width: 1.75rem;
+    height: 1.75rem; 
     cursor: pointer;
         
 }
@@ -89,9 +89,9 @@ header {
 
 .user-icon{
     cursor: pointer;
-    height: 2.1875rem;
-    width: 2.1875rem;
-    margin-left: .625rem;
+    width: 3.125rem;
+    height: 3.125rem;
+    margin-left: 2.5rem;
 }
 
 .sidebar{
@@ -222,10 +222,6 @@ header {
 
 
 @media (min-width: 768px) {
-    header{
-        height: 4.375rem;
-        padding: .625rem 1.25rem;
-    }
 
     .search-bar-nav {    
         display:flex;
