@@ -6,16 +6,13 @@
     display: flex;
 }
 .card{
-    width: 330px;
-    height: 275px;    
+    width: 330px;   
     font-family: Arial, sans-serif;
     color: white; 
     margin-left: 15px;
 }
 
 .card-content{
-    width: 100%;
-    height: 275px;
     background-color: var(--secondary-dark);
     border-radius:8px;
 }
@@ -26,11 +23,17 @@
     align-items: center;
     padding: 0 10px;
 }
-
+.card-info p{
+    padding-top: 6px;
+    letter-spacing: 0.5px;
+    padding-bottom: 3px;
+}
+.card-button{
+    margin-bottom: 9px;
+}
 .card img{
     object-fit: cover;
     width: 100%;
-    height: 200px;
     border-radius:8px 8px 0 0;
 }
 
@@ -39,7 +42,7 @@
     color: #c4c4c4;
     font-family: var(--title);
     font-weight: var(--font-weight-semibold);
-    margin: 3px 0 10px 10px;
+    margin: 0 0 0 10px;
 }
 
 
