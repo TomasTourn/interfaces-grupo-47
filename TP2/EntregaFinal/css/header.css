@@ -306,8 +306,8 @@ header {
     }
 
     .logo-img{
-        height:2.5rem ;
-        width: 4.375rem;
+        height:auto ;
+        width: 9rem;
     }
 
     .sidebar{
