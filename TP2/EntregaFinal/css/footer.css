@@ -149,8 +149,8 @@ footer{
         gap: 0.125rem;
     }
     .logo-footer{
-        width: 4.6875rem;
-        height: 2.625rem;
+        width: 9rem;
+        height: auto;
     }
     .logo-copyright{
         width: 1.5rem;
