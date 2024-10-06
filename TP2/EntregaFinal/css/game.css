@@ -303,7 +303,7 @@
     flex-direction: column;
 }
 .container-comment:not(:first-child) {
-    margin-top:1.875rem;
+    margin-top: 25px;
 }
   
 .comment-header {
@@ -417,4 +417,6 @@
     font-weight: var(--font-weight-semibold);
     font-size: 1rem;
 }
-
+.disable{
+    visibility: hidden;
+}
