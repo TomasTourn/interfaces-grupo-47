@@ -24,7 +24,7 @@
     font-weight: bold;
 }
 .container-game{
-    padding-top: 4.375rem;
+    padding-top: 2.5rem;
     background-color: var(--secondary) ;
     display: flex;
     align-items: center;
