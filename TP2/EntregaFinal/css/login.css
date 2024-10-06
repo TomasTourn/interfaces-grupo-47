@@ -238,6 +238,7 @@ a{
     width: 100%;
     position: relative;
   overflow: hidden;
+  padding-top: 4.375rem;
 
 }
 .slides{
@@ -339,7 +340,7 @@ a{
 }
 
 /*Scroll Bar*/
-::-webkit-scrollbar,.sidebar::-webkit-scrollbar{
+::-webkit-scrollbar{
     width: 8px; /* Barra delgada */
 }
 ::-webkit-scrollbar-thumb{
@@ -354,10 +355,7 @@ a{
 ::-webkit-scrollbar-track{
     background-color: transparent;
 }
-.sidebar{
-    scrollbar-width: thin; /* Establece el ancho del scrollbar como delgado */
-    scrollbar-color: rgba(255, 255, 255, 0.2) #222328; 
-}
+
 
 /*Queries*/
 @media (max-width:768px) {
