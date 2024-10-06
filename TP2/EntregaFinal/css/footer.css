@@ -24,6 +24,7 @@ footer{
 }
 .copyright-rights{
     color: var(--transparent-white);
+    font-family: var(--title);
     font-size: .5rem;
 
 }
@@ -131,16 +132,17 @@ footer{
     }
     .copyright-rights {
         font-size: var(--font-size-small);
+        font-family: var(--title);
     }
     .container-copyright{
         display: grid;
         grid-template-columns: auto;
         grid-template-areas: 
         ". . . copyright . .";
-        gap: .25rem;
         position: absolute; /* se posiciona en relación al elemento contenedor más cercano que tenga una posición distinta de static (que es el valor predeterminado).*/
         bottom: .5rem; /* Mueve el elemento 10px del borde inferior del contenedor */
-        
+        margin-bottom: 1.25rem;
+        gap: .625rem;
     }
     .copyright{
         display: flex;
