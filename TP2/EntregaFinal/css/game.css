@@ -34,8 +34,6 @@
 .container-game-screen{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    
 }
 
 .container-img-game{
@@ -113,6 +111,7 @@
 .title-description-game{
     font-family: var(--title);
     font-size: 1.5rem;
+    font-weight: 400;
 }
 .description-game a {
     text-decoration: none;
@@ -145,4 +144,276 @@
     gap:1.375rem;
 }
 
+
+.title-interests h2{
+    font-family: var(--title);
+    font-size: 1.25rem;
+    color: var(--white);
+    font-weight: 400;
+    margin-bottom: .5rem;
+}
+
+.card-interests{
+    width: 17.125rem;
+    height:10.875rem;
+    background-color: var(--secondary-dark);
+    border-radius:8px;
+    
+}
+.card-interests-info{
+    background-color: var(--secondary-dark);
+    width: 17.125rem;
+    height: 2.9375rem;
+    border-radius: 0 0 .5rem .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.title-card-interests{
+    font-size: .625rem;
+    margin-left: .375rem;
+    margin-top: .0281rem;
+    font-weight: var(--font-weight-semibold);
+  
+}
+.price-card-interests{
+    font-size: 1.5rem;
+    margin-left: .375rem;
+    font-weight: var( --font-weight-bold);
+   
+    
+}
+.title-price-container {
+    display: flex;
+    flex-direction: column; /* Pone el título y el precio en columna */
+    align-items: flex-start; /* Alinea ambos elementos a la izquierda */
+}
+.title-card-interests, .price-card-interests{
+    color: var(--white);
+    font-family: var(--title);
+}
+
+.img-card-interests{
+    width: 17.125rem;
+    height: 7.9375rem;
+    border-radius:.5rem .5rem 0 0;
+    /*object-fit: cover;*/
+}
+
+.btn-card-interests-play,.btn-card-interests-add{
+    color:var(--white);
+    border-radius: .5rem;
+    width: 8.125rem;
+    height: 2.1875rem;
+    font-size: var(--button);
+    border: none;
+    cursor: pointer;
+    margin-right: .375rem;
+    margin-bottom: .375rem;
+    margin-left: auto;
+}
+.btn-card-interests-play{
+    background: var(--primary-gradient-1);
+}
+.btn-card-interests-add{
+    background-color: var(--accent);
+    font-size: var(--button);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .1875rem;
+   
+}
+.container-interests{
+    background-color:var(--secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 6.25rem;
+}
+
+.container-interests-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
+    grid-template-rows: repeat(2, auto);   /* 2 filas con altura automática */
+     /* Espacio entre las cards */
+    gap: .625rem;
+    grid-template-areas:
+    "card1 card2 card3 card4"
+    "card5 card6 card7 card8"; 
+
+}
+.cardInterest-one { grid-area: card1;}
+.cardInterest-two { grid-area: card2; }
+.cardInterest-three { grid-area: card3; }
+.cardInterest-four { grid-area: card4; }
+.cardInterest-five { grid-area: card5; }
+.cardInterest-six { grid-area: card6; }
+.cardInterest-seven { grid-area: card7; }
+.cardInterest-eight { grid-area: card8; }
+
+.container-comments{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color: var(--secondary);
+    padding-bottom: 6.25rem;
+}
+.container-splitter-comment{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 67.75rem;
+    border-bottom: .0625rem solid var(--white);
+    padding-bottom: .1875rem;
+    padding-left:1.5625rem;
+    padding-right:1.5625rem;
+}
+.title-splitter-comment{
+    color:var(--white);
+    font-family: var(--body);
+    font-weight: var(--font-weight-semibold);
+    font-size: .9375rem;
+}
+.btn-splitter-comment{
+    color: var(--white);
+    font-family: var(--button);
+    font-size: .9375rem;
+    gap: .125rem;
+    background: none;
+    border-radius: .5rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.comment-box {
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+  
+}
+.container-comment{
+    width: 60.0625rem;
+    display: flex;
+    flex-direction: column;
+   
+}
+  
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+    margin-right: .625rem;
+    position: relative;
+    top: .3125rem;
+}
+  
+.username {
+    color: var(--white);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--body);
+    font-size: var(--normal);
+    margin-left: .5625rem;
+}
+
+.comment-date {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    font-size: .75rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--body);
+    font-size: var(--small);
+}
+
+.comment-body {
+   
+    font-family: var(--body);
+    color: var(--white);
+    font-size: var(--normal);
+    padding-left: 4.1875rem;
+  
+}
+
+.comment-footer {
+    display: flex;
+    flex-direction: row;
+    margin-top: .4375rem;
+    padding-left: 4rem
+}
+
+.like-dislike {
+    display: flex;
+    align-items: center;
+}
+
+.like-btn, .dislike-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 .3125rem ;
+    color: var(--transparent-white);
+    font-family: var(--title);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.reply{
+    margin-left: 2.9375rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.date-comment {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--small);
+    margin-right: .5625rem; 
+    font-family: var(--body);
+
+}
+.reply-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: var(--button);
+    font-weight: var(--font-weight-semibold);
+    font-size: 1.0625rem;
+}
+
+.comment-responses {
+    margin-top: .7188rem;
+    padding-left: 4.1875rem;
+}
+
+.responses-btn {
+    display: flex;
+    align-items: center;
+    gap: .375rem;
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-family: var(--button);
+    font-weight: var(--font-weight-semibold);
+    font-size: 1rem;
+}
 
