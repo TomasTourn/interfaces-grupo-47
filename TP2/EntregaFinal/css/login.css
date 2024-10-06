@@ -339,22 +339,7 @@ a{
     --size: 120px;
 }
 
-/*Scroll Bar*/
-::-webkit-scrollbar{
-    width: 8px; /* Barra delgada */
-}
-::-webkit-scrollbar-thumb{
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px; /* Pulgar redondeado */
-    transition: background-color 0.3s ease;
-}
-::-webkit-scrollbar-thumb:hover{
-    background-color: rgba(255, 255, 255, 0.4);
-}
 
-::-webkit-scrollbar-track{
-    background-color: transparent;
-}
 
 
 /*Queries*/
