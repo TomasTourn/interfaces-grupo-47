@@ -185,8 +185,8 @@
 }
 .title-price-container {
     display: flex;
-    flex-direction: column; /* Pone el título y el precio en columna */
-    align-items: flex-start; /* Alinea ambos elementos a la izquierda */
+    flex-direction: column; 
+    align-items: flex-start; 
 }
 .title-card-interests, .price-card-interests{
     color: var(--white);
@@ -234,9 +234,8 @@
 
 .container-interests-card{
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
-    grid-template-rows: repeat(2, auto);   /* 2 filas con altura automática */
-     /* Espacio entre las cards */
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(2, auto);  
     gap: .625rem;
     grid-template-areas:
     "card1 card2 card3 card4"
@@ -293,14 +292,18 @@
 .comment-box {
     background-color: var(--secondary);
     display: flex;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
   
 }
 .container-comment{
     width: 60.0625rem;
     display: flex;
     flex-direction: column;
-   
+}
+.container-comment:not(:first-child) {
+    margin-top:1.875rem;
 }
   
 .comment-header {
