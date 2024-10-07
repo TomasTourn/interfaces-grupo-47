@@ -73,10 +73,10 @@
     background-color: #6d44fc;
     color: white;
     border: none;
-    width: 130px;
-    height: 35px;
-    font-size: 16px;
-    border-radius: 8px;
+    width: 8.125rem;
+    height: 2.1875rem;
+    font-size: 1rem;
+    border-radius: .5rem;
     cursor: pointer;
 }
 
@@ -98,5 +98,22 @@
     
 }
 .carousel::-webkit-scrollbar {
-    display: none; /* Oculta la barra de desplazamiento en Chrome, Safari y Edge */
+    display: none;
+}
+
+@media (max-width:1280px){
+    .card-button {
+        width: 90px;
+        height: 28px;
+        font-size: 12px;
+    }
+    .card-info p{
+        font-size: 24px;
+        padding-top: 6px;
+        letter-spacing: 0.5px;
+        padding-bottom: 3px;
+    }
+    .card-title{
+        font-size: 9px;
+    }
 }

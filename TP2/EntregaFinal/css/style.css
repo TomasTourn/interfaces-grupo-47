@@ -440,6 +440,10 @@ a{
 
 }
 @media (max-width:1280px) {
+
+    .slider-button{
+        top: 80%;
+    }
     .login-img{
         width: 30rem;
     }
@@ -454,6 +458,7 @@ a{
     }
     .form-register{
         padding: 0;
+        max-height: 100vh;
     }
     .form-login p{
         margin-top: 0;
@@ -465,6 +470,27 @@ a{
      .form-register input{
         padding-left: 0.5rem;
     }
+    .login-button{
+        margin: 1rem 0 1rem 0;
+    }
+    /*captcha*/
+    .captcha input{
+        width: 25px;
+        margin-top: 10px;
+        margin-left:15px;
+    }
+    .captcha{
+        width: 12.5rem;
+        font-size: 14px;
+    }
+    .captcha span{
+        margin:0 .5rem 0 .5rem ;
+    }
+    .tick-icon {
+        right: 73%;
+    }
+
+    
 }
 @media (min-width:2000px) {
     .login-img{
