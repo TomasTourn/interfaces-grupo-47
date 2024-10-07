@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slides.forEach(slide=>{
         slide.addEventListener('mousedown',e=>{
-            console.log("hsfdsfds")
         })
     })
 
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     slides.forEach(slide=>{
         slide.addEventListener('touchstart',(e)=>{
-            console.log("entra")
             isDragging=true;
             startX = e.touches[0].clientX;
         })
@@ -40,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('touchmove', (e) => {
         if (isDragging) {
             endX = e.touches[0].clientX;
-            console.log("toda")
         }
     });
   

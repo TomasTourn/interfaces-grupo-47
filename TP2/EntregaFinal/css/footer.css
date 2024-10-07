@@ -8,6 +8,7 @@ footer{
     justify-content: center;
     flex-direction: column;
     position: relative;
+    margin-top: 6.25rem;
 }
 .footer-title, .footer-section  li{
     color: var(--white);

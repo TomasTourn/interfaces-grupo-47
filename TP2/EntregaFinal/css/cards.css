@@ -9,6 +9,7 @@
     display: flex;
     position: relative;
     overflow: hidden;
+    padding-top: 6.25rem;
     
 }
 .carousel{
