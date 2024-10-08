@@ -8,6 +8,7 @@ footer{
     justify-content: center;
     flex-direction: column;
     position: relative;
+    margin-top: 6.25rem;
 }
 .footer-title, .footer-section  li{
     color: var(--white);
@@ -165,6 +166,19 @@ footer{
     .hide-mobile, .account, .category{
         display:inline;
     }
+   
+}
+@media (max-width:1280px){
+   .container-footer{
+    gap: 3rem;
+ 
+   }
+   .footer-section li{
+    font-size: .875rem;
+   }
+   .footer-title{
+    font-size: 1rem;
+   }
    
 }
 
