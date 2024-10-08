@@ -95,6 +95,7 @@
 .item-game-info {
     margin-top: .3125rem;
     margin-right: 1.25rem;
+    cursor: pointer;
 }
 .container-description-game{
     background-color: var(--secondary-light);
@@ -420,3 +421,139 @@
 .disable{
     visibility: hidden;
 }
+
+/*Popups*/
+
+.controls-menu{
+    display: none;
+    position: absolute;
+    height: 350px;
+    width: 500px;
+    background-color: var(--secondary-dark);
+    border-radius: 20px;
+    top: 255px;
+    right: 10px;
+    color: var(--white);
+}
+
+.controls-menu.show{
+    display: block;
+}
+
+.controls-menu h1 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.controls-menu h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.controls-menu p {
+    margin-top: 12px;
+    font-family: var(--body);
+    font-size:var(--medium) ;
+}
+
+.controls-menu h1,.controls-menu h2,.share-menu h1{
+    font-family: var(--title);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--medium);
+}
+
+.game-controls{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.control-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+.move-control{
+    margin-left: 25px;
+}
+
+.control-item img {
+    margin-top: 10px; 
+}
+
+
+.share-menu{
+    display: none;
+    position: absolute;
+    height: 155px;
+    width: 500px;
+    background-color: var(--secondary-dark);
+    border-radius: 20px;
+    top: 450px;
+    right: 10px;
+    color: var(--white);
+}
+
+.share-menu h1{   
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.share-menu.show{    
+    display: block;
+}
+
+.share-socials{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px; 
+    margin-top: 15px;
+}
+
+.share-socials div {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+}
+
+.share-socials p {
+    margin: 0;
+    margin: 0;
+    font-family: var(--body);
+    font-size: var(--normal);
+}
+
+.share-socials .icon-mail{
+    margin-bottom: 5px;
+}
+
+.share-socials .icon-x{
+    margin-bottom: 3px;
+}
+
+.icon-cruz-game {
+    width: 1.875rem;
+    height: 1.875rem; 
+    position: absolute; 
+    top: 1.25rem; 
+    right: .625rem;
+    cursor: pointer;  
+}
+
+/*corazon favoritos*/
+.icon-heart-full{
+    display: none;
+}
+.icon-heart-full.show{
+    display: block;
+}
+
+.icon-heart-empty{
+    display: block;
+}
+.icon-heart-empty.show{
+    display: none;
+}
+

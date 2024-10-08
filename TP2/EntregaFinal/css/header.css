@@ -76,13 +76,6 @@ header {
     align-items: center;
 }
 
-.lupa-icon{
-    cursor: pointer;
-    height: 1.25rem;
-    width: 1.25rem;
-    margin: 0 .3125rem;
-}
-
 .icon {
     display: none;       
 }
@@ -159,7 +152,6 @@ header {
 
 .user-menu{     
     display: none;          
-    position: absolute;   
     position: fixed;
     background-color: var(--secondary-dark); 
     width: 100%;
@@ -179,7 +171,7 @@ header {
 .user-menu p {
     margin: .625rem 0 3.75rem 0 ;
     font-family: var(--title);
-    font-size: 1.5625rem;
+    font-size: var(--medium);
     font-weight: var(--font-weight-bold);
     text-align: center;
 }
@@ -248,7 +240,6 @@ header {
     .search-lupa{
         position: absolute;
         right: 1.875rem;
-        pointer-events: none;
     }
     
 
@@ -258,6 +249,7 @@ header {
         display: flex;
         cursor: pointer;        
         margin: 0 .3125rem;
+        padding: 2px;
         background-size: cover;
         transition: background-image 0.1s ease;    
     }
@@ -284,10 +276,6 @@ header {
 
     .carrito:hover{
         background-image: url('../Iconos/carritoRellenado.svg')
-    }
-    
-    .lupa-icon{
-        display: none;
     }
 
     .user-icon{
