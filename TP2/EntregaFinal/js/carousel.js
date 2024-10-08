@@ -1,50 +1,55 @@
-document.addEventListener('DOMContentLoaded',()=>{
-
+document.addEventListener('DOMContentLoaded', () => {
     const carouselContainers = document.querySelectorAll('.carousel-container');
-    let currentIndex=0;
-    const cardWidth = document.querySelector('.card').offsetWidth + 15; // Ancho de la card + margen
 
-    
-    
-    carouselContainers.forEach(container=>{
-        const carousel = container.querySelector('.carousel');
+    carouselContainers.forEach(container => {
+        const cards = container.querySelectorAll('.card');
+        const totalCards = cards.length;
+        const visibleCards = 5; 
+        let currentIndex = 0; 
+
         container.querySelector('.right-arrow').addEventListener('click', () => {
-            const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-
-            if (carousel.scrollLeft >= maxScrollLeft) {
-                carousel.scrollLeft = 0;
-            } else {
-                carousel.scrollLeft += cardWidth;
-            }
+            scrollR();
         });
 
         container.querySelector('.left-arrow').addEventListener('click', () => {
-            if (carousel.scrollLeft <= 0) {
-                carousel.scrollLeft = carousel.scrollWidth - carousel.clientWidth;
-            } else {
-                carousel.scrollLeft -= cardWidth;
-            }
+            scrollL();
         });
 
-    })
+        function scrollR() {
+            console.log(currentIndex)
+            if (currentIndex < totalCards - visibleCards) {
+                currentIndex++;
+            } else if (currentIndex === totalCards - visibleCards) {
+                updateCarouselPosition(currentIndex, true);
+                currentIndex++
+                return;
+            } else {
+                currentIndex = 0;
+            }
+            updateCarouselPosition(currentIndex);
+        }
 
+        function scrollL() {
+            console.log(currentIndex)
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalCards - visibleCards+1;
+            }
+            updateCarouselPosition(currentIndex);
+        }
 
+        function updateCarouselPosition(index, atEnd = false) {
+            let offSetPercentage = -104 * index;
 
+            if (atEnd) {
+                console.log("Desplazando al final");
+                offSetPercentage = -137 * index;
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
+            cards.forEach(card => {
+                card.style.transform = `translateX(${offSetPercentage}%)`;
+            });
+        }
+    });
+});
