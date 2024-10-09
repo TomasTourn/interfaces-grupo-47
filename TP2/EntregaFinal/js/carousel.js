@@ -48,8 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             cards.forEach(card => {
-                card.style.transform = `translateX(${offSetPercentage}%)`;
+                card.style.transform = `translateX(${offSetPercentage}%) skew(15deg)`;
+                setTimeout(() => {
+                    card.style.transform = `translateX(${offSetPercentage}%) skew(0deg)`;
+                }, 500);
             });
         }
     });
+    
 });

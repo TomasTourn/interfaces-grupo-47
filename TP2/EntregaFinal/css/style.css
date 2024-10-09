@@ -236,6 +236,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .login-button{
     background: var(--primary-gradient-1);
+    width: 8.1875rem;
+    height: 2.25rem;
     margin: 1.5625rem 0 1.5625rem 0;
 }
 .form-login hr{
@@ -248,17 +250,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-bottom: 1.5rem;
     color: var(--white);
 }
-button{
+.login-button,.slider-button,.external-btn,.button-gradient-tracking{
     font-family: var(--button);
     font-size: var(--small);
     border-radius: 8px;
-    width: 8.1875rem;
-    height: 2.25rem;
     border-style: none;
     color: var(--white);
     letter-spacing: 0.09rem;
     cursor: pointer;
-    transition: background 300ms ease-in-out;/*preguntar porque no funciona con background*/
 }
 
 .external-btn img {
@@ -372,6 +371,8 @@ a{
 
 /* Botón gradiente tracker */
 .button-gradient-tracking {
+    width: 8.1875rem;
+    height: 2.25rem;
     position: relative;
     background: var(--primary);
     overflow: hidden;
