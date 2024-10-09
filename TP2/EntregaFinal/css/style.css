@@ -239,8 +239,62 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: var(--primary-gradient-1);
     width: 8.1875rem;
     height: 2.25rem;
+    position: absolute;
+}
+
+.container-login-button{
+    position: relative;
+    width: 8.1875rem;
+    height: 2.25rem;
     margin: 1.5625rem 0 1.5625rem 0;
 }
+
+/*animacion de boton*/
+
+.login-button:hover {
+    transform: translateY(-3px);
+}
+
+.login-button:active {
+    transform: translateY(-1px);
+}
+
+.login-button::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.8s;
+    background-color: var(--primary);
+}
+
+.login-button:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.login-button-animated {
+    -webkit-animation: moveInBottom ease-out;
+    animation: moveInBottom ease-out;
+}
+
+@keyframes moveInBottom {
+    0% {
+    opacity: 0;
+    transform: translateY(30px);
+    }
+    100% {
+    opacity: 1;
+    transform: translateY(0px);
+    }
+}
+
+
 .form-login hr{
     border: 1px solid var(--secondary-light);
     width: 15.625rem;
