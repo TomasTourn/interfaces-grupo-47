@@ -10,7 +10,6 @@
     position: relative;
     overflow: hidden;
     padding-top: 6.25rem;
-    
 }
 .carousel{
     display: flex;
@@ -26,8 +25,14 @@
     font-family: Arial, sans-serif;
     color: white; 
     margin-right: 15px;
+    transition: transform 0.5s ease;
 }
-
+.card.addSkew{
+    transform: skew(10deg);
+}
+.card.addSkewEnd{
+    transform: skew(-10deg);
+}
 .card-content{
     background-color: var(--secondary-dark);
     border-radius:8px;
@@ -100,6 +105,11 @@
 .carousel::-webkit-scrollbar {
     display: none;
 }
+.ver-mas{
+    background-color: var(--secondary-dark);
+    border-radius: 8px;
+    color: white;
+}
 
 @media (max-width:1280px){
     .card-button {
@@ -116,4 +126,5 @@
     .card-title{
         font-size: 9px;
     }
+    
 }
