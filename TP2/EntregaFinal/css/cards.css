@@ -26,8 +26,14 @@
     font-family: Arial, sans-serif;
     color: white; 
     margin-right: 15px;
+    transition: transform 0.5s ease;
 }
-
+.card.addSkew{
+    transform: skew(10deg);
+}
+.card.addSkewEnd{
+    transform: skew(-10deg);
+}
 .card-content{
     background-color: var(--secondary-dark);
     border-radius:8px;
