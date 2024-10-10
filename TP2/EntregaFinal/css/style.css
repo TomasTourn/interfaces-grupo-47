@@ -305,7 +305,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-bottom: 1.5rem;
     color: var(--white);
 }
-.login-button,.slider-button,.external-btn,.button-gradient-tracking{
+.login-button,.slider-button,.external-btn,.button-gradient-tracking,.button-cart{
     font-family: var(--button);
     font-size: var(--small);
     border-radius: 8px;
@@ -429,10 +429,27 @@ a{
     width: 8.1875rem;
     height: 2.25rem;
     position: relative;
-    background: var(--primary);
     overflow: hidden;
+    font-size: 1rem;
+}
+.button-free{
+    background: var(--primary);
+}
+.button-cart{
+    background: var(--accent);
+}
+.button-gradient-tracking.button-cart::before{
+    background: radial-gradient(circle closest-side,rgba(255,255,255,0.5), transparent);
 }
 
+.card-button .button-cart span img{
+    width: 25px;
+}
+.card-button .button-cart span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .button-gradient-tracking span {
     position: relative;
     pointer-events: none;
@@ -526,26 +543,18 @@ a{
 
 .card-price {
     font-size: var(--large);
-    font-weight: var(--title);
+    font-family: var(--title);
     font-weight: var(--font-weight-bold);
 }
 
-/*cambiar por el que hizo tomi*/ 
-.card-button {
-    background-color: #6d44fc;
-    color: white;
-    border: none;
-    width: 8.125rem;
-    height: 2.1875rem;
-    font-size: 1rem;
-    border-radius: .5rem;
-    cursor: pointer;
+.carousel-container h2{
+    position: absolute;
+    top: 4rem;
+    left: 12.5%;
+    color: var(--white);
+    font-family: var(--title);
+    font-weight: 200;
 }
-
-.card-button:hover {
-    background-color: #5633cc;
-}
-
 .right-arrow,.left-arrow{
     width: 6.25rem;
     background-color: var(--secondary-dark);
@@ -567,6 +576,8 @@ a{
     border-radius: 8px;
     color: white;
 }
+
+
 
 @media (max-width:1280px){
     .card-button {
@@ -1145,7 +1156,6 @@ a{
 .icon-heart-empty.show{
     display: none;
 }
-
 /*Queries*/
 @media (max-width:768px) {
     .slider-button{
