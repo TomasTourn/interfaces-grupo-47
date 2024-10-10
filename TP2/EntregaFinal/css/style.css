@@ -1158,10 +1158,14 @@ a{
 }
 /*Queries*/
 @media (max-width:768px) {
+    .logo-img{
+        width: 7.5rem;
+        height: auto;
+    }
     .slider-button{
         width: 90px;
         height: 25px;
-        top:88%;
+        top: 88%;
         font-size: small;
         box-shadow: 2px 2px 3px 4px rgba(0, 0, 0,0.81);
     }
@@ -1191,9 +1195,61 @@ a{
         border-radius: 0px; /* Pulgar redondeado */
     }
 
-}
-@media (max-width:1280px) {
+    /*Carousel*/
+    .carousel-container{
+        width: 100%;
+        padding-top: 3.5rem;
+    }
+    .carousel-container h2{
+        top:1.3rem;
+        left: 5%;
 
+    }
+    .card{
+        min-width: 90%;
+    }
+    .right-arrow,.left-arrow{
+        display: none;
+    }
+    .carousel-container{
+        padding-left: 0;
+        padding-right: 0;
+    }
+   .card-info .button-cart,.card-info .button-free{
+    width: 7rem;
+   }
+   .card-button{
+    margin-right: 1.5rem;
+    margin-bottom: 1.2rem;
+   }
+   .card-button .button-cart span img{
+    width: 20px;
+    }
+   .card-info p{
+    margin-right: 3rem;
+   }
+
+
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+    .carousel-container h2{
+        left: 13.5%;
+    }
+    .card{
+        min-width: 28%;
+    }
+    .card-info .button-cart,.card-info .button-free{
+        width: 6.8rem;
+        height: 2rem;
+        font-size: 12px;
+    }
+
+    .card-button .button-cart span img{
+        width: 20px;
+    }
+   .card-info{
+        padding-right:1.5625rem;
+   }
     .slider-button{
         top: 80%;
     }
