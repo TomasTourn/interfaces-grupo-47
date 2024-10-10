@@ -493,6 +493,65 @@ a{
 
     
 }
+@media  (max-width: 1366px) {
+    .slider-button{
+        top: 80%;
+    }
+    .login-img{
+        width: 30rem;
+    }
+    .form-login input{
+        width: 12.5rem;
+        height: 1.875rem;
+        margin-bottom: 0.7rem;
+    }
+    .form-login h2{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .form-register{
+        padding: 0;
+        max-height: 100vh;
+    }
+    .form-login p{
+        margin-top: 0;
+        margin-bottom: 0.8rem;
+    }
+    .date-container img{
+        top: .4375rem;
+     }
+     .form-register input{
+        padding-left: 0.5rem;
+    }
+    .login-button{
+        margin: 1rem 0 1rem 0;
+    }
+    /*captcha*/
+    .captcha input{
+        width: 25px;
+        margin-top: 10px;
+        margin-left:15px;
+    }
+    .captcha{
+        width: 12.5rem;
+        font-size: 14px;
+    }
+    .captcha span{
+        margin:0 .5rem 0 .5rem ;
+    }
+    .tick-icon {
+        right: 73%;
+    }
+    .card-price p{
+        font-size: 1.375rem;
+    }
+    .card-button {
+        width: 90px;
+        height: 28px;
+        font-size: 12px;
+    }
+    
+  }
 @media (min-width:2000px) {
     .login-img{
         width: 60rem;
