@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/game.css">
     <link rel="stylesheet" href="./css/footer.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,13 +114,61 @@
                 <div class="overlay">
                     <h1 class="title-game">Deadpool vs Wolverine: 4 en linea</h1>
                     <button class="btn-game">Jugar</button>
+                </div> 
+
+                <div class="controls-menu">
+                    <h1>Controles</h1>
+                    <div class="game-controls">
+                        <div class="control-item move-control">
+                            <h2>Mover</h2>
+                            <img src="Iconos/mouseSINclick.svg" alt="">
+                            <img src="Iconos/move-arrow.svg" alt="">
+                        </div>
+                        <div class="control-item">
+                            <h2>Seleccionar</h2>
+                            <img src="Iconos/Mouse-left-click.svg" alt="">
+                            <p>click</p>
+                        </div>
+                    </div>                    
+                    <img src="Iconos/icono-cruz.svg" alt="Cerrar" class="icon-cruz-game cruz-control">
                 </div>
+
+                <div class="share-menu">
+                    <h1>Compartir</h1>
+
+                    <div class="share-socials">
+                        <div>
+                            <img src="./Iconos/instagramGrande.svg" alt="">
+                            <p>Instagram</p>
+                        </div>
+                        <div>
+                            <img src="./Iconos/facebookGrande.svg" alt="">
+                            <p>Facebook</p>
+                        </div>
+                        <div>
+                            <img src="./Iconos/twitterGrande.svg" alt="" class="icon-x">
+                            <p>X</p>
+                        </div>
+                        <div>
+                            <img src="./Iconos/mailGrande.svg" alt="" class="icon-mail">
+                            <p>Mail</p>
+                        </div>
+                        <div>
+                            <img src="./Iconos/mensaje.svg" alt="">
+                            <p>Mensaje</p>
+                        </div>
+                    </div>
+
+                    <img src="Iconos/icono-cruz.svg" alt="Cerrar" class="icon-cruz-game cruz-share">
+                </div>
+
+
                 <div class="game-info">
                     <h2 class="title-game-info">Deadpool vs Wolverine: 4 en linea</h2>
                     <ul class="list-game-info">
-                        <li class="item-game-info"> <img src="./Iconos/compartir.svg" alt=""></li>
-                        <li class="item-game-info"> <img src="./Iconos/joystick.svg" alt=""></li>
-                        <li class="item-game-info"> <img src="./Iconos/corazon-juego.svg" alt=""></li>
+                        <li class="item-game-info share-icon"> <img src="./Iconos/compartir.svg" alt=""></li>
+                        <li class="item-game-info control-icon"> <img src="./Iconos/joystick.svg" alt=""></li>
+                        <li class="item-game-info"> <img src="./Iconos/corazon-juego.svg" alt="" class="icon-heart-empty"> <img src="./Iconos/CorazonRellenado.svg" alt="" class="icon-heart-full"> </li>
                         <li class="item-game-info"> <img src="./Iconos/maximizar.svg" alt=""></li>
                     </ul>
                 </div>
@@ -505,6 +552,7 @@
         </div>
 
     </footer>
-    <script src="./js/header.js"></script>    
+    <script src="./js/header.js"></script>
+    <script src="./js/game.js"></script>     
 </body>
 </html>
