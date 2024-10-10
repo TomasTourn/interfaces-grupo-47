@@ -1,64 +1,57 @@
 @import url(style.css);
 
+
 footer{
     background-color: var( --secondary-dark);
-    height: 11.25rem; 
+    height: 31.25rem; /*500px*/ 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: relative;
-    margin-top: 6.25rem;
+    position: relative; /*  se posiciona de manera relativa a su posición normal en el flujo del documento. 
+                            Esto significa que sigue ocupando su espacio original en el diseño*/
+
 }
 .footer-title, .footer-section  li{
     color: var(--white);
 }
 .footer-title{
-    font-size: .75rem;
     font-weight: bold;
     font-family: "Noto Sans", sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: .625rem;
 }
 .footer-section  li{
-    font-size: .6875rem;
     list-style-type: none;
     font-family: 'Hind',sans-serif;
-}
-.copyright-rights{
-    color: var(--transparent-white);
-    font-family: var(--title);
-    font-size: .5rem;
-
-}
-.imgRedes{
-    width: .75rem;
-    height: .75rem;
-}
-.logo-footer{
-    width: 1.8125rem;
-    height: 1.125rem;
-}
-.logo-copyright{
-    width: .5625rem;
-    height: .5625rem;
+    font-size: var(--font-size-normal);
+    list-style-type: none;
 }
 .container-footer{
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: auto;
     grid-template-areas: 
-    "about help"
-    "socialNetworks contact";
-    gap: .9375rem;
-    
+    "about help contact account category socialNetworks";
+    gap:5rem;
+    padding-bottom: 16px;
+
+}
+
+.copyright-rights {
+    font-size: var(--font-size-small);
+    font-family: var(--title);
+    color: var(--transparent-white);
+    font-family: var(--title);
 }
 .container-copyright{
     display: grid;
     grid-template-columns: auto;
     grid-template-areas: 
-    ". copyright . ";
-    gap: .25rem;
+    ". . . copyright . .";
     position: absolute; /* se posiciona en relación al elemento contenedor más cercano que tenga una posición distinta de static (que es el valor predeterminado).*/
-    bottom: .3125rem; 
+    bottom: .5rem; /* Mueve el elemento 10px del borde inferior del contenedor */
+    margin-bottom: 1.25rem;
+    gap: .625rem;
 }
 .copyright{
     display: flex;
@@ -66,108 +59,22 @@ footer{
     grid-area: copyright;
     gap: 0.125rem;
 }
-.about{
-    grid-area: about;
-    
+.logo-footer{
+    width: 9rem;
+    height: auto;
 }
-.help{
-    grid-area: help;
+.logo-copyright{
+    width: 1.5rem;
+    height: 1.5rem;
 }
-.contact{
-    grid-area: contact;
+.imgRedes{
+    width: 1.25rem;
+    height: 1.25rem;
 }
-.account{
-    grid-area: account;
-    display: none;
-}
-.category{
-    grid-area: category;
-    display: none;
-}
-.socialNetworks{
-    grid-area: socialNetworks;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-.social{
-    display: flex;
-    flex-direction:row ;
-    gap: .125rem;
-}
-.hide-mobile{
-    display: none;
+.hide-mobile, .account, .category{
+    display:inline;
 }
 
-@media (min-width: 768px) {
-
-    footer{
-        height: 31.25rem; /*500px*/ 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        position: relative; /*  se posiciona de manera relativa a su posición normal en el flujo del documento. 
-                                Esto significa que sigue ocupando su espacio original en el diseño*/
-
-    }
-    .container-footer{
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-areas: 
-        "about help contact account category socialNetworks";
-        gap:5rem;
-        padding-bottom: 5.625rem;
-
-    }
-
-    .footer-title {
-        font-size: 1.25rem;
-        margin-bottom: .625rem;
-    }
-
-    .footer-section  li {
-        font-size: var(--font-size-normal);
-        list-style-type: none;
-    }
-    .copyright-rights {
-        font-size: var(--font-size-small);
-        font-family: var(--title);
-    }
-    .container-copyright{
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-areas: 
-        ". . . copyright . .";
-        position: absolute; /* se posiciona en relación al elemento contenedor más cercano que tenga una posición distinta de static (que es el valor predeterminado).*/
-        bottom: .5rem; /* Mueve el elemento 10px del borde inferior del contenedor */
-        margin-bottom: 1.25rem;
-        gap: .625rem;
-    }
-    .copyright{
-        display: flex;
-        align-items: center;
-        grid-area: copyright;
-        gap: 0.125rem;
-    }
-    .logo-footer{
-        width: 9rem;
-        height: auto;
-    }
-    .logo-copyright{
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-    .imgRedes{
-        width: 1.25rem;
-        height: 1.25rem;
-    }
-    .hide-mobile, .account, .category{
-        display:inline;
-    }
-   
-}
 @media (max-width:1280px){
    .container-footer{
     gap: 3rem;
@@ -180,5 +87,99 @@ footer{
     font-size: 1rem;
    }
    
+}
+@media (max-width: 600px) {
+    footer{
+        height: 15.625rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        margin-top: 6.25rem;
+    }
+
+    .footer-title{
+        font-size: .75rem;
+    }
+    .footer-section  li{
+        font-size: .6875rem;
+    
+    }
+    .copyright-rights{
+        font-size: .5rem;
+    
+    }
+    .imgRedes{
+        width: .75rem;
+        height: .75rem;
+    }
+    .logo-footer{
+        width: 1.8125rem;
+        height: 1.125rem;
+    }
+    .logo-copyright{
+        width: .5625rem;
+        height: .5625rem;
+    }
+    .container-footer{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "about help"
+        "socialNetworks contact";
+        gap: .9375rem;
+        
+    }
+    .container-copyright{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-areas: 
+        ". copyright . ";
+        gap: .25rem;
+        position: absolute; /* se posiciona en relación al elemento contenedor más cercano que tenga una posición distinta de static (que es el valor predeterminado).*/
+        bottom: .3125rem; 
+    }
+    .copyright{
+        display: flex;
+        align-items: center;
+        grid-area: copyright;
+        gap: 0.125rem;
+    }
+    .about{
+        grid-area: about;
+        
+    }
+    .help{
+        grid-area: help;
+    }
+    .contact{
+        grid-area: contact;
+    }
+    .account{
+        grid-area: account;
+        display: none;
+    }
+    .category{
+        grid-area: category;
+        display: none;
+    }
+    .socialNetworks{
+        grid-area: socialNetworks;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    .social{
+        display: flex;
+        flex-direction:row ;
+        gap: .125rem;
+    }
+    .hide-mobile{
+        display: none;
+    }
+    
 }
 

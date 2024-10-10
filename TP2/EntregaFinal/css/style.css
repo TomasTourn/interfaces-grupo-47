@@ -8,7 +8,8 @@
     --primary-light:#9670FF;
     --primary-gradient-1:linear-gradient(90deg, rgba(121,73,255,1) 0%, rgba(72,44,153,1) 100%);
     --primary-gradient-2:linear-gradient(90deg,  rgba(72,44,153,1)0%, rgba(121,73,255,1) 100%);
-   
+
+    
 
     --secondary:#222328;
     --secondary-dark:#15161D;
@@ -23,6 +24,7 @@
     --transparent-white:rgba(217,217,217,0.5);
     --accent:#2ECC71;
     --error:#D01616;
+    --text-color: hsla(210, 50%, 85%, 1);
 
     /*Fonts*/
     --title:'Noto Sans',sans-serif;
@@ -410,19 +412,119 @@ a{
 #next{
     right: 0;
 }
-.slider-button{
-    font-size: 20px;
-    color: black;
-    font-weight: var(--font-weight-semibold);
-    font-family: var();
-    width: 250px;
-    height: 50px;
-    background-color: var(--accent);
+.container-button{
     position: absolute;
     left: 3%;
-    top: 85%;
-    box-shadow: 5px 5px 6px 8px rgba(0, 0, 0,0.81);
+    top: 75%;
 }
+
+/* Boton slider */
+.slider-button{
+    font-size: 20px;
+    color: var(--white);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--button);
+    width: 250px;
+    height: 50px;
+    position: relative;
+    border: none;
+    background: none;
+    cursor: pointer;
+    background-color: var(--accent);
+    box-shadow: 5px 5px 6px 8px rgba(0, 0, 0,0.81);
+    z-index: 0;  
+    overflow: hidden;   
+}
+.slider-button:focus {
+    outline-color: transparent;
+    box-shadow: var(--btn-color) 2px 2px 22px;
+  }
+ 
+  .button-slider-right::after, .slider-button::after {
+    content: var(--content);
+    display: block;
+    position: absolute;
+    white-space: nowrap;
+    padding: 40px 40px;
+    pointer-events:none;
+    
+  }
+  
+  .slider-button::after{
+    font-weight: 100;
+    color: white;
+    top: -60%;
+    left: 18%;
+   
+  } 
+
+  .button-slider-right, .button-slider-left {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+  .button-slider-right {
+    left: 66%;
+  }
+  .button-slider-left {
+    right: 66%;
+  }
+  .button-slider-right::after {
+    
+    top: -30px;
+    left: calc(-66% - 20px);
+    width: 15.625rem;
+    background-color: #263b2f;
+    color:transparent;
+    transition: transform .4s ease-out;
+    transform: translate(0, -90%)   rotate(0deg)
+  }
+  
+  .slider-button:hover .button-slider-right::after {
+    transform: translate(0, -47%) rotate(0deg);
+    
+  }
+  
+  .slider-button .button-slider-right:hover::after {
+    transform: translate(0, -50%) rotate(-7deg);
+    
+  }
+  
+  .slider-button .button-slider-left:hover ~ .button-slider-right::after {
+    transform: translate(0, -50%) rotate(7deg);
+  }
+  
+  /* bubbles */
+  .slider-button::before {
+    content: '';
+    pointer-events: none;
+    opacity: .6;
+    background:
+        radial-gradient(circle at 5% 20%,  transparent 0,  transparent 2px, var(--text-color) 9px, var(--text-color) 4px, transparent 4px),
+        radial-gradient(circle at 20% 35%,  transparent 0,  transparent 2px, var(--text-color) 12px, var(--text-color) 4px, transparent 4px),
+        radial-gradient(circle at 75% 44%, transparent 0,  transparent 2px, var(--text-color) 10px, var(--text-color) 4px, transparent 4px),
+        radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px),
+        radial-gradient(circle at 90% 55%, transparent 0, transparent 4px, var(--text-color) 7px, var(--text-color) 6px, transparent 6px);
+    width: 100%;
+    height: 300%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    animation: bubbles 5s linear infinite both;
+  }
+  
+  @keyframes bubbles {
+    from {
+      transform: translate();
+    }
+    to {
+      transform: translate(0, -66.666%);
+    }
+  }
+
+
+
 
 /* Botón gradiente tracker */
 .button-gradient-tracking {
@@ -1366,4 +1468,6 @@ a{
         height: 28px;
         font-size: 12px;
     }
-    }
+
+ 
+}
