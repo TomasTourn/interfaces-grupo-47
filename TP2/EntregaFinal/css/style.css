@@ -1963,11 +1963,10 @@ header {
 
 
 .page-container{
-    display: block;
+    display: none;
 }
 
 .loader-container {
-    display: none;
     top: 0;
     left: 0;
     position: absolute;
@@ -2011,21 +2010,21 @@ header {
   .load-inner.load-one {
     left: 0%;
     top: 0%;
-    border-bottom: 3px solid #5c5edc;
+    border-bottom: 3px solid var(--primary-light);
     animation: rotate1 1.15s linear infinite;
   }
   
   .load-inner.load-two {
     right: 0%;
     top: 0%;
-    border-right: 3px solid #9147ff;
+    border-right: 3px solid var(--primary-dark);
     animation: rotate2 1.15s 0.1s linear infinite;
   }
   
   .load-inner.load-three {
     right: 0%;
     bottom: 0%;
-    border-top: 3px solid #3b82f6;
+    border-top: 3px solid var(--primary);
     animation: rotate3 1.15s 0.15s linear infinite;
   }
   
@@ -2081,13 +2080,14 @@ header {
   .progress{
     width: 196px;
     height: 16px;
-    background: var(--primary);
+    background: var(--primary-gradient-1);
     border-radius: 13px;
   }
   .percent{
     position: absolute;
-    left:49.3%;
+    margin-left: 80px;
     color: #ffffff;
+    font-family: var(--body);
     font-size: 15px;
     font-weight: bold;
     letter-spacing: 1px;

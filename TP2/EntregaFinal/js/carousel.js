@@ -8,9 +8,9 @@ var per = 16;
 var loading = setInterval(animate, 50);
 
 function animate() {
-    if (count >= 100 && per >= 196) { 
+    if (count >= 100 && per >= 195) { 
         count = 100; // Aseguramos que count no pase de 100
-        per = 196; // Aseguramos que per no pase de 196
+        per = 195; // Aseguramos que per no pase de 196
         progress.style.width = per + 'px';
         percent.textContent = count + '%';
         text.style.fontSize = "70px";
@@ -26,9 +26,9 @@ function animate() {
 }
 
 setTimeout(function() {
-    document.querySelector('.loader-container').style.display = 'none';
+    /*document.querySelector('.loader-container').style.display = 'none';
     document.querySelector('.page-container').style.display = 'block';
-
+*/
     // Aquí se ejecuta el segundo script
     initializeCarousel();
 
@@ -83,6 +83,5 @@ function initializeCarousel() {
         }
     });
 }
-
 
 })
