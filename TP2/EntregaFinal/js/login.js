@@ -15,13 +15,4 @@ document.addEventListener('DOMContentLoaded',()=>{
         })
     })
 
-
-
-
-
-
-
-
-
-
 })

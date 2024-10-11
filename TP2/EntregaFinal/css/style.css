@@ -90,6 +90,7 @@ body{
     display: flex;
     align-items: center;
 }
+
 .form-login{
     width: 25rem;
     background-color: var(--transparent-dark-20);
@@ -251,6 +252,106 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: 1.5625rem 0 1.5625rem 0;
 }
 
+@keyframes moveAway{
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+@keyframes slideIn{
+    0%{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.success-hidden{
+    display:none;
+}
+
+#successMessage{
+    z-index: 10;
+    text-align: center;
+    color: var(--white);
+    font-size: var(--large);
+}
+.success-visible{
+    font-family: var(--title);
+    display: block;
+    animation: slideIn 1s ease forwards;
+}
+.success-visible h2{
+    color: var(--accent);
+}
+.fade-out{
+    animation: moveAway 1s ease forwards;
+}
+/*check animation*/
+.success-animation { 
+    margin-top: 2rem;
+}
+
+.checkmark {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: var(--accent);
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px var(--accent);
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    position:relative;
+    top: 5px;
+    right: 5px;
+   margin: 0 auto;
+}
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: var(--accent);
+    fill: var(--secondary);
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+ 
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #4bb71b;
+    }
+}
 /*animacion de boton*/
 
 .login-button:hover {
@@ -415,7 +516,7 @@ a{
 .container-button{
     position: absolute;
     left: 3%;
-    top: 75%;
+    top: 84%;
 }
 
 /* Boton slider */
@@ -1508,10 +1609,12 @@ header {
 
 /*Queries*/
 @media (max-width:768px) {    
+    .container-button{
+        top: 88%;
+    }
     .slider-button{
         width: 90px;
         height: 25px;
-        top: 88%;
         font-size: small;
         box-shadow: 2px 2px 3px 4px rgba(0, 0, 0,0.81);
     }
