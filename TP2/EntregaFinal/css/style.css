@@ -1963,10 +1963,11 @@ header {
 
 
 .page-container{
-    display: none;
+    display: block;
 }
 
 .loader-container {
+    display: none;
     top: 0;
     left: 0;
     position: absolute;
