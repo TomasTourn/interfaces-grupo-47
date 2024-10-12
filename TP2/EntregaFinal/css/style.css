@@ -694,6 +694,8 @@ a{
     overflow: hidden;
     padding-top: 6.25rem;
 }
+
+
 .carousel{
     display: flex;
     overflow: hidden;
@@ -1174,8 +1176,6 @@ a{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-bottom: 6.25rem;
-  
 }
 .container-comment{
     width: 60.0625rem;
@@ -1689,8 +1689,8 @@ footer{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: relative; /*  se posiciona de manera relativa a su posición normal en el flujo del documento. 
-                            Esto significa que sigue ocupando su espacio original en el diseño*/
+    position: relative;
+    margin-top: 9.375rem;              
 
 }
 .footer-title, .footer-section  li{
@@ -1966,7 +1966,7 @@ footer{
         justify-content: center;
         flex-direction: column;
         position: relative;
-        margin-top: 6.25rem;
+        margin-top: 9.0625rem;
     }
 
     .footer-title{
