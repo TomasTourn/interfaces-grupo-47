@@ -31,6 +31,20 @@ btnGradient.forEach(btn=>
     })
 )
 
+const btnCardAdd = document.querySelectorAll('.btn-card-interests-add');
+btnCardAdd.forEach(btn=>
+    btn.addEventListener('click',()=>{
+        
+        let buttonText = btn.querySelector('.button-text-game');
+        console.log(buttonText)
+    
+        if (buttonText.textContent.includes('Agregar')) {
+            buttonText.innerHTML = 'Agregado <img class="button-img" id="buttonImg" src="./Iconos/carritoCardAgregado.svg" alt="">';
+        } else if(buttonText.textContent.includes('Agregado')) {
+            buttonText.innerHTML = 'Agregar <img class="button-img" id="buttonImg" src="./Iconos/carritoCard.svg" alt="">';
+        }
+    })
+)
 
 
     

@@ -437,7 +437,7 @@ a{
 }
 .slider-button:focus {
     outline-color: transparent;
-    box-shadow: var(--btn-color) 2px 2px 22px;
+    box-shadow: 5px 5px 6px 8px rgba(0, 0, 0,0.81);
   }
  
   .button-slider-right::after, .slider-button::after {
@@ -455,7 +455,6 @@ a{
     color: white;
     top: -60%;
     left: 18%;
-   
   } 
 
   .button-slider-right, .button-slider-left {
@@ -543,6 +542,9 @@ a{
 .button-gradient-tracking.button-cart::before{
     background: radial-gradient(circle closest-side,rgba(255,255,255,0.5), transparent);
 }
+.button-gradient-tracking.btn-card-interests-add::before{
+    background: radial-gradient(circle closest-side,rgba(255,255,255,0.5), transparent);
+}
 
 .card-button .button-cart span img{
     width: 25px;
@@ -557,7 +559,11 @@ a{
     pointer-events: none;
     font-family: var(--button);
 }
-
+.button-text-game{
+    display: flex;
+    align-items: center;
+    gap: .1875rem;
+}
 .button-gradient-tracking::before {
     content: '';
     position: absolute;
@@ -679,6 +685,75 @@ a{
     color: white;
 }
 
+
+.container-input-comment{
+    width: 60.3125rem;
+    display: flex;
+    margin-bottom:2.5rem;
+}
+.container-input{
+    height: 13.125rem;
+    background-color: var(--secondary-light);
+    border-radius: .5rem;
+    border: .0625rem solid rgba(255, 255, 255, 0.9) ;
+    position: relative;
+}
+
+.input-comment-box input::placeholder{
+    color: var(--transparent-white);
+    font-size: 1.0625rem;
+    font-family: var(--body) ;
+    padding-left: 1%;
+}
+
+.input-comment{
+    background: none;
+    border: none;
+    width: 860px;
+    height: 3.75rem;
+    color: white;
+    border-radius: .5rem;
+    font-family: var(--body);
+    margin-left: 1%;
+    
+}
+.input-comment:focus{
+    outline: none;
+    font-family: var(--body);
+    font-size: 1.0625rem;
+
+}
+
+.container-iconos-button-comment{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top:160px;
+    width: 100%;
+    padding-top: .4375rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.9) ;
+    
+}
+.container-iconos-comment{
+    display: flex;
+    justify-content: space-around;
+    width: 24%;
+}
+
+.btn-input-comment{
+    width: 8.1875rem;
+    height: 2.25rem;
+    background: none;
+    border-radius: .5rem;
+    border: .125rem solid rgba(255, 255, 255, 0.9);
+    color:rgba(255, 255, 255, 0.9);
+    font-size: .875rem;
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--button);
+    cursor: pointer;
+    margin-right: 1.25rem;
+}
 
 
 @media (max-width:1280px){
@@ -899,7 +974,7 @@ a{
     width: 17.125rem;
     height: 7.9375rem;
     border-radius:.5rem .5rem 0 0;
-    /*object-fit: cover;*/
+    object-fit: cover;
 }
 
 .btn-card-interests-play,.btn-card-interests-add{
@@ -958,7 +1033,7 @@ a{
     justify-content: center; 
     align-items: center; 
     background-color: var(--secondary);
-    padding-bottom: 6.25rem;
+    padding-bottom: 4.9375rem;
 }
 .container-splitter-comment{
     display: flex;
@@ -990,13 +1065,14 @@ a{
     cursor: pointer;
 }
 
-
+/*Comentarios de game*/
 .comment-box {
     background-color: var(--secondary);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding-bottom: 9.6875rem;
   
 }
 .container-comment{
@@ -1515,6 +1591,54 @@ header {
         font-size: small;
         box-shadow: 2px 2px 3px 4px rgba(0, 0, 0,0.81);
     }
+    .slider-button::before {
+        content: '';
+        pointer-events: none;
+        opacity: .6;
+        background:
+            radial-gradient(circle at 5% 20%,  transparent 0,  transparent 2px, var(--text-color) 2px, var(--text-color) 4px, transparent 4px),
+            radial-gradient(circle at 20% 35%,  transparent 0,  transparent 2px, var(--text-color) 5px, var(--text-color) 4px, transparent 4px),
+            radial-gradient(circle at 75% 44%, transparent 0,  transparent 2px, var(--text-color) 7px, var(--text-color) 4px, transparent 4px),
+            radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 6px, var(--text-color) 6px, transparent 6px); 
+        width: 100%;
+        height: 300%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        animation: bubbles 5s linear infinite both;
+    }
+    .slider-button::after{
+        font-weight: 100;
+        color: white;
+        top: -150%;
+        left: -25%;
+    } 
+    .button-slider-right::after, .slider-button::after {
+        content: var(--content);
+        display: block;
+        position: absolute;
+        white-space: nowrap;
+        padding: 40px 40px;
+        pointer-events:none; 
+    }
+    .button-slider-right::after {
+    
+        transform: translate(0, -90%)   rotate(0deg)
+      }
+      
+      .slider-button:hover .button-slider-right::after {
+        transform: translate(0, -60%) rotate(0deg);
+        
+      }
+      
+      .slider-button .button-slider-right:hover::after {
+        transform: translate(0, -69%) rotate(-7deg);
+        
+      }
+      
+      .slider-button .button-slider-left:hover ~ .button-slider-right::after {
+        transform: translate(0, -69%) rotate(7deg);
+      }
     .slide img{
         min-width: 100vw;
         max-width: 100vw;
