@@ -84,4 +84,13 @@ function initializeCarousel() {
     });
 }
 
+    btnDeadpool=document.getElementById('deadpool-button');
+
+    btnDeadpool.addEventListener('click',function(){
+        const disabled = this.getAttribute('data-disabled');
+            const url= this.getAttribute('data-url');
+            window.location.href=url;
+    })
+
+
 })
