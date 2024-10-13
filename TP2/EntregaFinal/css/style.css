@@ -713,10 +713,10 @@ a{
     transition: transform 0.5s ease;
 }
 .card.addSkew{
-    transform: skew(10deg);
+    transform: skew(15deg) scale(0.95);
 }
 .card.addSkewEnd{
-    transform: skew(-10deg);
+    transform: skew(-15deg);
 }
 .card-content{
     background-color: var(--secondary-dark);
@@ -1849,11 +1849,11 @@ footer{
 
     }
     ::-webkit-scrollbar {
-        width: 0px; /* Barra delgada */
+        width: 0px;
     }
     
     ::-webkit-scrollbar-thumb {
-        border-radius: 0px; /* Pulgar redondeado */
+        border-radius: 0px;
     }
 
     /*Carousel*/
@@ -1974,6 +1974,7 @@ footer{
         width: 5rem;
         height: 5rem;
     }
+    /*footer*/
     footer{
         height: 15.625rem;
         display: flex;
@@ -2000,8 +2001,8 @@ footer{
         height: .75rem;
     }
     .logo-footer{
-        width: 1.8125rem;
-        height: 1.125rem;
+        width: 3rem;
+        height: auto;
     }
     .logo-copyright{
         width: .5625rem;
@@ -2014,7 +2015,7 @@ footer{
         grid-template-areas: 
         "about help"
         "socialNetworks contact";
-        gap: .9375rem;
+        gap: 2rem;
         
     }
     .container-copyright{
@@ -2024,7 +2025,7 @@ footer{
         ". copyright . ";
         gap: .25rem;
         position: absolute; /* se posiciona en relación al elemento contenedor más cercano que tenga una posición distinta de static (que es el valor predeterminado).*/
-        bottom: .3125rem; 
+        bottom: -.3rem; 
     }
     .copyright{
         display: flex;
@@ -2054,8 +2055,6 @@ footer{
         grid-area: socialNetworks;
         display: flex;
         flex-direction: column;
-        align-items: center;
-    
     }
     .social{
         display: flex;
