@@ -27,7 +27,7 @@ function animate() {
 setTimeout(function() {
     document.querySelector('.loader-container').style.display = 'none';
     document.querySelector('.page-container').style.display = 'block';
-
+    clearInterval(loading);
     // Aquí se ejecuta el segundo script
     initializeCarousel();
 
