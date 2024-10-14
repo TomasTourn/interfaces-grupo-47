@@ -12,8 +12,7 @@ function animate() {
         count = 100; // Aseguramos que count no pase de 100
         per = 195; // Aseguramos que per no pase de 195
         progress.style.width = per + 'px';
-        percent.textContent = count + '%';
-        text.style.fontSize = "70px";
+        percent.textContent = count + '%';        
         text.classList.add("add");
         clearInterval(loading);
     } else {
