@@ -372,7 +372,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     top: 0;
     left: 0;
     z-index: -1;
-    transition: all 0.8s;
+    transition: all 1s;
     background-color: var(--primary);
 }
 
@@ -2397,7 +2397,7 @@ footer{
   }
   .percent{
     position: absolute;
-    margin-left: 80px;
+    margin-left: 82px;
     color: #ffffff;
     font-family: var(--body);
     font-size: 15px;

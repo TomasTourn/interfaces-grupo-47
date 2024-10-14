@@ -5,12 +5,12 @@ var percent = document.querySelector('.percent');
 var progress = document.querySelector('.progress');
 var count = 4;
 var per = 16;
-var loading = setInterval(animate, 50);
+var loading = setInterval(animate, 43);
 
 function animate() {
     if (count >= 100 && per >= 195) { 
         count = 100; // Aseguramos que count no pase de 100
-        per = 195; // Aseguramos que per no pase de 196
+        per = 195; // Aseguramos que per no pase de 195
         progress.style.width = per + 'px';
         percent.textContent = count + '%';
         text.style.fontSize = "70px";
