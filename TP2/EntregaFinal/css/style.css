@@ -1976,24 +1976,25 @@ footer{
     }
     /*footer*/
     footer{
-        height: 15.625rem;
+        height: 35rem;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         position: relative;
-        margin-top: 9.0625rem;
+        margin-top: 4rem;
+        text-align: center;
     }
 
     .footer-title{
-        font-size: .75rem;
+        font-size: 1.25rem;
     }
     .footer-section  li{
-        font-size: .6875rem;
+        font-size: 1rem;
     
     }
     .copyright-rights{
-        font-size: .5rem;
+        font-size: .75rem;
     
     }
     .imgRedes{
@@ -2001,7 +2002,7 @@ footer{
         height: .75rem;
     }
     .logo-footer{
-        width: 3rem;
+        width: 4rem;
         height: auto;
     }
     .logo-copyright{
@@ -2013,8 +2014,10 @@ footer{
         grid-template-columns: auto;
         grid-template-rows: auto;
         grid-template-areas: 
-        "about help"
-        "socialNetworks contact";
+        "about"
+        "help"
+        "socialNetworks"
+        "contact";
         gap: 2rem;
         
     }
@@ -2055,6 +2058,11 @@ footer{
         grid-area: socialNetworks;
         display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+    .socialNetworks img{
+        width: 1.25rem;
+        height: auto;
     }
     .social{
         display: flex;
