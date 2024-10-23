@@ -68,7 +68,7 @@ function startGame(x) {
         150,        // marginTop
         50,        // marginBottom
         100,        // marginRight
-        250         // marginLeft
+        220         // marginLeft
     );
     currentPlayer = 0;  // Reiniciamos el turno al primer jugador
     radius = board.getCellSize() / 2 - 5;
@@ -95,7 +95,7 @@ function switchTurns() {
 }
 
 function displayTurn() {
-    let posX = 500; // Posición horizontal centrada
+    let posX = canvas.width /2;     // Posición horizontal centrada
     let posY = board.marginTop / 2; // Posición vertical entre el tablero y las fichas
     ctx.font = '20px Arial';
     ctx.fillStyle = '#000000';
@@ -240,7 +240,7 @@ function restartGame() {
         150,        // marginTop
         50,        // marginBottom
         100,        // marginRight
-        250         // marginLeft
+        220         // marginLeft
     );
     currentPlayer = 0;
     draw();
