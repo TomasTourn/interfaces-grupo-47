@@ -240,7 +240,7 @@ function restartGame() {
         150,        // marginTop
         50,        // marginBottom
         100,        // marginRight
-        100         // marginLeft
+        250         // marginLeft
     );
     currentPlayer = 0;
     draw();
