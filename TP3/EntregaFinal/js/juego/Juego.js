@@ -297,9 +297,9 @@ function restartGame() {
         ctx,        // Contexto del canvas
         xEnLinea,   // Configuración de x en línea
         150,        // marginTop
-        50,        // marginBottom
-        100,        // marginRight
-        220         // marginLeft
+        120,        // marginBottom
+        0,        // marginRight
+        260         // marginLeft
     );
     currentPlayer = 0;
     draw();
