@@ -296,10 +296,17 @@ function restartGame() {
     board = new Tablero(
         ctx,        // Contexto del canvas
         xEnLinea,   // Configuración de x en línea
+<<<<<<< HEAD
         100,        // marginTop
         60,        // marginBottom
         0,        // marginRight
         300         // marginLeft
+=======
+        150,        // marginTop
+        120,        // marginBottom
+        0,        // marginRight
+        260         // marginLeft
+>>>>>>> 0b3dc44881b3ffa6af3289602f5ee2c26e485409
     );
     currentPlayer = 0;
     draw();
