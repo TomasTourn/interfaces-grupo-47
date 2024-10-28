@@ -24,8 +24,13 @@ turnoWolverine.src = "Images/Juego/turnoWolverine.png"
 let turnoDeadpool = new Image();
 turnoDeadpool.src = "Images/Juego/turnoDeadpool.png"
 
+let imageDeadpool= new Image();
+imageDeadpool.src="Images/Juego/deadpoolgrabbingface.jpg";
 
-let players = [new Jugador('Jugador ROJO', '#981a28'), new Jugador('Jugador AMARILLO', '#E3B22F')]; // Rojo y amarillo
+let imageWolverine= new Image();
+imageWolverine.src="Images/Juego/wolverine.jpg";
+
+let players = [new Jugador('Deadpool',imageDeadpool, '#981a28'), new Jugador('Wolverine',imageWolverine, '#E3B22F')]; // Rojo y amarillo
 let currentPlayer = 0;
 let selectedPiece = null;
 let xEnLinea =0;

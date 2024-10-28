@@ -1,8 +1,8 @@
 class Jugador{
-    constructor(name, color) {
+    constructor(name,image) {
         this.name = name;
-        this.color = color; // Color de la ficha
-        this.nextPiece=null
+        this.nextPiece=null;
+        this.image=image;
     }
 
     getNextPiece(){

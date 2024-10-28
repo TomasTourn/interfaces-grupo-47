@@ -7,6 +7,10 @@ class Ficha{
         this.startY=y;
         this.radius=radius;
         this.resaltado=false;
+        this.imageDeadpool=new Image();
+        this.imageDeadpool.src="Images/Juego/deadpoolgrabbingface.jpg"
+        this.imageWolverine=new Image();
+        this.imageWolverine.src="Images/Juego/deadpoolgrabbingface.jpg"
     }
 
     setResaltado(x){
@@ -14,11 +18,16 @@ class Ficha{
     }
 
     draw(ctx) {
+        console.log(this.player.image )
+        console.log(this.imageDeadpool)
+        ctx.save()
         ctx.beginPath();        
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = this.player.color;        
-        ctx.fill();
         ctx.closePath();
+        ctx.clip()
+        ctx.drawImage(this.player.image,this.x-this.radius,this.y-this.radius,this.radius*2,this.radius*2);
+        ctx.fillStyle = this.player.color;        
+        ctx.restore();
         if(this.resaltado){
             ctx.strokeStyle = "#28a7e1";
             ctx.lineWidth = 3;
