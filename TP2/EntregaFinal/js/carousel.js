@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
 
-    // animación de carga de página
+// animación de carga de página
 var percent = document.querySelector('.percent');
 var progress = document.querySelector('.progress');
 var count = 4;
@@ -13,7 +13,6 @@ function animate() {
         per = 195; // Aseguramos que per no pase de 195
         progress.style.width = per + 'px';
         percent.textContent = count + '%';
-        text.style.fontSize = "70px";
         text.classList.add("add");
         clearInterval(loading);
     } else {
@@ -28,7 +27,7 @@ function animate() {
 setTimeout(function() {
     document.querySelector('.loader-container').style.display = 'none';
     document.querySelector('.page-container').style.display = 'block';
-
+    clearInterval(loading);
     // Aquí se ejecuta el segundo script
     initializeCarousel();
 
