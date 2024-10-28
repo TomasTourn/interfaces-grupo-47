@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
 
-    // animación de carga de página
+// animación de carga de página
 var percent = document.querySelector('.percent');
 var progress = document.querySelector('.progress');
 var count = 4;
