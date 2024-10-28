@@ -26,7 +26,7 @@ class Ficha{
         ctx.closePath();
         ctx.clip()
         ctx.drawImage(this.player.image,this.x-this.radius,this.y-this.radius,this.radius*2,this.radius*2);
-        ctx.fillStyle = this.player.color;        
+        //ctx.fillStyle = this.player.color;        
         ctx.restore();
         if(this.resaltado){
             ctx.strokeStyle = "#28a7e1";

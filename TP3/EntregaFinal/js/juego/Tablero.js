@@ -39,14 +39,6 @@ class Tablero {
         return canvas.height - this.marginTop - this.marginBottom;
     }
 
-    getWidthCasilla() {
-        return this.getWidth() / this.getCantCol();
-    }
-
-    getHeightCasilla() {
-        return this.getHeight() / this.getCantFil();
-    }
-
     getCantFil() {
         return this.rows;
     }
@@ -76,7 +68,9 @@ class Tablero {
         let posX = 0;
         let posY = 0;
         
-        this.radius =  this.cellSize / 2 - 9; // Radio de las casillas (agujeros)...-5 es la distancia del agujero al borde de la casilla
+        this.radius =  this.cellSize / 2 - 11; // Radio de las casillas (agujeros)...-5 es la distancia del agujero al borde de la casilla
+        console.log(this.cellSize);
+        console.log(this.radius);
         this.context.save();
 
         //dibujamos interior del tablero
@@ -97,7 +91,7 @@ class Tablero {
             posY = this.marginTop + this.cellSize * fila;
             for (let columna = 0; columna < this.getCantCol(); columna++) {
                 posX = this.marginLeft + this.cellSize * columna;
-                
+
                 // Dibujar el fondo del tablero (rectángulo)
                 this.context.drawImage(
                     this.cellImage,        // Imagen del tablero
@@ -111,9 +105,9 @@ class Tablero {
 
         this.context.drawImage(
             this.frameImage,        // Imagen del tablero
-            this.marginLeft-5, this.marginTop-5,             // Posición X e Y de la imagen en el canvas
-            this.cellSize*this.cols+13,        // Ancho del tablero (ajustado al tamaño del canvas)
-            this.cellSize*this.rows+10        // Alto del tablero (ajustado al tamaño del canvas)
+            this.marginLeft-9, this.marginTop-8,             // Posición X e Y de la imagen en el canvas
+            this.cellSize*this.cols+20,        // Ancho del tablero (ajustado al tamaño del canvas)
+            this.cellSize*this.rows+15        // Alto del tablero (ajustado al tamaño del canvas)
         );
 
 

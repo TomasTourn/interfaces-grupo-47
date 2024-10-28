@@ -53,24 +53,24 @@ function draw() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         ctx.drawImage(
-            fondoImage,        
+            fondoImage,        // Imagen del tablero
             0, 0,             // Posición X e Y de la imagen en el canvas
             canvas.width,        // Ancho del tablero (ajustado al tamaño del canvas)
             canvas.height+30     // Alto del tablero (ajustado al tamaño del canvas)
         );
 
         ctx.drawImage(
-            testBg1Image,        
-            230, 240,             // Posición X e Y de la imagen en el canvas
-            95,
-            355        // Alto del tablero (ajustado al tamaño del canvas)
+            testBg1Image,        // Imagen del tablero
+            158, 325,             // Posición X e Y de la imagen en el canvas
+            136,        // Ancho del tablero (ajustado al tamaño del canvas)
+            425       // Alto del tablero (ajustado al tamaño del canvas)
         );
             
         ctx.drawImage(
-            testBg2Image,        
-            ((board.cellSize*board.cols)+board.marginLeft)-24, 243,             // Posición X e Y de la imagen en el canvas
-            95,
-            355      
+            testBg2Image,        // Imagen del tablero
+            ((board.cellSize*board.cols)+board.marginLeft)-35, 325,             // Posición X e Y de la imagen en el canvas
+            136,        // Ancho del tablero (ajustado al tamaño del canvas)
+            425       // Alto del tablero (ajustado al tamaño del canvas)
         );
         
 
@@ -114,13 +114,13 @@ function startGame(x) {
     board = new Tablero(
         ctx,        // Contexto del canvas
         xEnLinea,   // Configuración de x en línea
-        100,        // marginTop
-        60,        // marginBottom
+        150,        // marginTop
+        120,        // marginBottom
         0,        // marginRight
-        300         // marginLeft
+        260         // marginLeft
     );
     currentPlayer = 0;  // Reiniciamos el turno al primer jugador
-    radius = board.getCellSize() / 2 - 9;
+    radius = board.getCellSize() / 2 - 11;
     draw();            // Redibujar el tablero con las nuevas dimensiones
 }
 
@@ -299,12 +299,12 @@ canvas.addEventListener('click', function(event) {
 // Reinicia el juego
 function restartGame() {    
     board = new Tablero(
-        ctx,        // Contexto del canvas
-        xEnLinea,   // Configuración de x en línea
-        100,        // marginTop
-        60,        // marginBottom
-        0,        // marginRight
-        300         // marginLeft
+        ctx,      
+        xEnLinea, 
+        150,      
+        120,      
+        0,        
+        260       
     );
     currentPlayer = 0;
     draw();
