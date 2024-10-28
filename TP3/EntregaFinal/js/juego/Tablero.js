@@ -14,7 +14,15 @@ class Tablero {
 
         this.ganador=false;
 
-        this.cellSize = (canvas.height - this.marginTop - this.marginBottom) / this.rows;
+        this.cellSize = ((canvas.height - this.marginTop - this.marginBottom) / this.rows); 
+               
+
+        // Cargar imagen del tablero
+        this.cellImage = new Image();
+        this.cellImage.src = "Images/Juego/celda.png"
+        
+        this.frameImage = new Image();
+        this.frameImage.src = "Images/Juego/marco.png"
 
         //radio del circulo
         this.radius = null
@@ -68,22 +76,40 @@ class Tablero {
         let posX = 0;
         let posY = 0;
         
-        this.radius =  this.cellSize / 2 - 5; // Radio de las casillas (agujeros)...-5 es la distancia del agujero al borde de la casilla
-        
+        this.radius =  this.cellSize / 2 - 12; // Radio de las casillas (agujeros)...-5 es la distancia del agujero al borde de la casilla
+        console.log(this.cellSize);
+        console.log(this.radius);
         this.context.save();
+
+        //dibujamos interior del tablero
+        this.context.fillStyle = "#4475ae";
+        this.context.fillRect( this.marginLeft,this.marginTop, this.cellSize*this.cols, this.cellSize*this.rows);
+
+        for (let fila = 0; fila < this.getCantFil(); fila++) {
+            for (let columna = 0; columna < this.getCantCol(); columna++) {
+                const piece = this.grid[fila][columna];
+                if (piece) {
+                    piece.draw(this.context);  // Dibuja la ficha en la posición correspondiente
+                }
+            }
+        }
+
         // Dibujamos las casillas del tablero
         for (let fila = 0; fila < this.getCantFil(); fila++) {
             posY = this.marginTop + this.cellSize * fila;
             for (let columna = 0; columna < this.getCantCol(); columna++) {
                 posX = this.marginLeft + this.cellSize * columna;
-                
 
                 // Dibujar el fondo del tablero (rectángulo)
-                this.context.fillStyle = '#0000FF'; // Color azul para el fondo del tablero
-                this.context.fillRect(posX, posY, this.cellSize, this.cellSize);
+                this.context.drawImage(
+                    this.cellImage,        // Imagen del tablero
+                    posX, posY,             // Posición X e Y de la imagen en el canvas
+                    this.cellSize,        // Ancho del tablero (ajustado al tamaño del canvas)
+                    this.cellSize        // Alto del tablero (ajustado al tamaño del canvas)
+                );
 
                 // Dibujar el agujero donde cae la ficha (círculo blanco)
-                this.context.beginPath();
+                /*this.context.beginPath();
                 this.context.arc(
                     posX + this.cellSize / 2,  // Coordenada X del centro del círculo
                     posY + this.cellSize / 2, // Coordenada Y del centro del círculo
@@ -93,13 +119,19 @@ class Tablero {
                 this.context.fillStyle = '#ffffff'; // Color blanco para el agujero
                 this.context.fill();
                 this.context.closePath();
-
-                const piece = this.grid[fila][columna];
-                if (piece) {
-                    piece.draw(ctx);
-                }
+*/
+                
             }
         }
+
+        this.context.drawImage(
+            this.frameImage,        // Imagen del tablero
+            this.marginLeft-9, this.marginTop-8,             // Posición X e Y de la imagen en el canvas
+            this.cellSize*this.cols+20,        // Ancho del tablero (ajustado al tamaño del canvas)
+            this.cellSize*this.rows+15        // Alto del tablero (ajustado al tamaño del canvas)
+        );
+
+
         this.context.restore();
     }
 
@@ -126,7 +158,7 @@ class Tablero {
                this.checkDirection(piece, row, col, 1, 1) || // Diagonal \
                this.checkDirection(piece, row, col, 1, -1);  // Diagonal /
 
-        console.log(winner);
+        
         
         if (winner){
             alert(`${piece.player.name} gana!`);

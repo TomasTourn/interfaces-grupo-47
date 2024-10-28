@@ -6,6 +6,11 @@ class Ficha{
         this.startX=x;
         this.startY=y;
         this.radius=radius;
+        this.resaltado=false;
+    }
+
+    setResaltado(x){
+        this.resaltado=x;
     }
 
     draw(ctx) {
@@ -14,11 +19,16 @@ class Ficha{
         ctx.fillStyle = this.player.color;        
         ctx.fill();
         ctx.closePath();
+        if(this.resaltado){
+            ctx.strokeStyle = "#28a7e1";
+            ctx.lineWidth = 3;
+            ctx.stroke();
+        }
     }
 
     animateDrop(piece, targetRow, col,board) {
         const targetY = (targetRow * board.cellSize + board.marginTop)+ board.cellSize / 2
-        console.log(targetY);
+        
         const interval = setInterval(() => {
             piece.y += 10;
             if (piece.y >= targetY) {
@@ -26,7 +36,6 @@ class Ficha{
                 clearInterval(interval);
                 board.checkForWin(piece, targetRow, col)
             }
-            console.log(piece.y)
             draw();
         }, 20);
     }

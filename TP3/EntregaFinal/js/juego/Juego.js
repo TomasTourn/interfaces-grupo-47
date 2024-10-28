@@ -2,9 +2,30 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
+
 let board = null;
 
-let players = [new Jugador('Jugador ROJO', '#FF0000'), new Jugador('Jugador AMARILLO', '#FFFF00')]; // Rojo y amarillo
+//Fondo juego
+
+let fondoImage = new Image();
+fondoImage.src = "Images/Juego/fondo.png" 
+
+let testBg1Image = new Image();
+testBg1Image.src = "Images/Juego/test-bg.png" 
+
+let testBg2Image = new Image();
+testBg2Image.src = "Images/Juego/test-bg2.png" 
+
+//Turnos
+
+let turnoWolverine = new Image();
+turnoWolverine.src = "Images/Juego/turnoWolverine.png"
+
+let turnoDeadpool = new Image();
+turnoDeadpool.src = "Images/Juego/turnoDeadpool.png"
+
+
+let players = [new Jugador('Jugador ROJO', '#981a28'), new Jugador('Jugador AMARILLO', '#E3B22F')]; // Rojo y amarillo
 let currentPlayer = 0;
 let selectedPiece = null;
 let xEnLinea =0;
@@ -25,6 +46,29 @@ function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = '#ffffff'; // Color azul para el fondo del tablero
         ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.drawImage(
+            fondoImage,        // Imagen del tablero
+            0, 0,             // Posición X e Y de la imagen en el canvas
+            canvas.width,        // Ancho del tablero (ajustado al tamaño del canvas)
+            canvas.height+30     // Alto del tablero (ajustado al tamaño del canvas)
+        );
+
+        ctx.drawImage(
+            testBg1Image,        // Imagen del tablero
+            158, 325,             // Posición X e Y de la imagen en el canvas
+            136,        // Ancho del tablero (ajustado al tamaño del canvas)
+            425       // Alto del tablero (ajustado al tamaño del canvas)
+        );
+            
+        ctx.drawImage(
+            testBg2Image,        // Imagen del tablero
+            ((board.cellSize*board.cols)+board.marginLeft)-35, 325,             // Posición X e Y de la imagen en el canvas
+            136,        // Ancho del tablero (ajustado al tamaño del canvas)
+            425       // Alto del tablero (ajustado al tamaño del canvas)
+        );
+        
+
         board.draw(ctx);
         displayTurn(); 
         drawPlayerPieces();
@@ -51,7 +95,7 @@ function draw() {
         }
     }else{
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawButtons();
+        drawButtons();      
     }
     
     if(board.ganador){
@@ -66,12 +110,12 @@ function startGame(x) {
         ctx,        // Contexto del canvas
         xEnLinea,   // Configuración de x en línea
         150,        // marginTop
-        50,        // marginBottom
-        100,        // marginRight
-        220         // marginLeft
+        120,        // marginBottom
+        0,        // marginRight
+        260         // marginLeft
     );
     currentPlayer = 0;  // Reiniciamos el turno al primer jugador
-    radius = board.getCellSize() / 2 - 5;
+    radius = board.getCellSize() / 2 - 12;
     draw();            // Redibujar el tablero con las nuevas dimensiones
 }
 
@@ -79,14 +123,19 @@ function drawPlayerPieces() {
     players.forEach((player, index) => {
         let x=null
         if(index==0){
-            x = board.marginLeft+board.cellSize/2; // Espacio entre fichas
+            x = 100; // Espacio entre fichas
+            
         }else{
-            x = board.marginLeft+(board.cellSize*board.cols)-radius ; // Espacio entre fichas
+            x = 1040; // Espacio entre fichas
         }     
-        let y = 80; // Posición fija en la parte superior del canvas
-        let piece = new Ficha(player,x,y,radius)        
-        piece.draw(ctx,board.cellSize);
+        let y = 460; // Posición fija en la parte superior del canvas
+        let piece = new Ficha(player,x,y,radius)
         player.setNextPiece(piece);
+        if(players[currentPlayer]==player){
+            piece.setResaltado(true)
+        }
+        piece.draw(ctx,board.cellSize);
+        piece.setResaltado(false);
     });
 }
 
@@ -95,12 +144,22 @@ function switchTurns() {
 }
 
 function displayTurn() {
-    let posX = canvas.width /2;     // Posición horizontal centrada
-    let posY = board.marginTop / 2; // Posición vertical entre el tablero y las fichas
-    ctx.font = '20px Arial';
-    ctx.fillStyle = '#000000';
-    ctx.textAlign = 'center';
-    ctx.fillText(`Turno de ${players[currentPlayer].name}`, posX, posY);
+    let posX = 270;     // Posición horizontal centrada
+    let posY = 30; // Posición vertical entre el tablero y las fichas
+    let truno=null;
+
+    if(currentPlayer==0){
+        turno = turnoDeadpool
+    }else{
+        turno = turnoWolverine
+    }
+    
+    ctx.drawImage(
+        turno,        
+        posX, posY,             
+        566,        
+        102    
+    );
 }
 
 
@@ -238,9 +297,9 @@ function restartGame() {
         ctx,        // Contexto del canvas
         xEnLinea,   // Configuración de x en línea
         150,        // marginTop
-        50,        // marginBottom
-        100,        // marginRight
-        220         // marginLeft
+        120,        // marginBottom
+        0,        // marginRight
+        260         // marginLeft
     );
     currentPlayer = 0;
     draw();
@@ -268,19 +327,3 @@ function startTimer() {
 }
 */
 
-
-/*funcion de prueba*/
-function activateGame() {
-    // Obtener el valor del input
-    let inputValue = document.getElementById("gameInput").value;
-
-    // Convertir el valor a número entero
-    let xValue = parseInt(inputValue);
-
-    // Verificar que el valor sea válido (por ejemplo, entre 4 y 6)
-    if (!isNaN(xValue) && xValue >=4) {
-        startGame(xValue);  // Llamar a la función con el valor ingresado
-    } else {
-        alert("Por favor, ingresa un número válido entre 4 y 6");
-    }
-}
