@@ -48,24 +48,24 @@ function draw() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         ctx.drawImage(
-            fondoImage,        // Imagen del tablero
+            fondoImage,        
             0, 0,             // Posición X e Y de la imagen en el canvas
             canvas.width,        // Ancho del tablero (ajustado al tamaño del canvas)
             canvas.height+30     // Alto del tablero (ajustado al tamaño del canvas)
         );
 
         ctx.drawImage(
-            testBg1Image,        // Imagen del tablero
-            158, 325,             // Posición X e Y de la imagen en el canvas
-            136,        // Ancho del tablero (ajustado al tamaño del canvas)
-            425       // Alto del tablero (ajustado al tamaño del canvas)
+            testBg1Image,        
+            230, 240,             // Posición X e Y de la imagen en el canvas
+            95,
+            355        // Alto del tablero (ajustado al tamaño del canvas)
         );
             
         ctx.drawImage(
-            testBg2Image,        // Imagen del tablero
-            ((board.cellSize*board.cols)+board.marginLeft)-35, 325,             // Posición X e Y de la imagen en el canvas
-            136,        // Ancho del tablero (ajustado al tamaño del canvas)
-            425       // Alto del tablero (ajustado al tamaño del canvas)
+            testBg2Image,        
+            ((board.cellSize*board.cols)+board.marginLeft)-24, 243,             // Posición X e Y de la imagen en el canvas
+            95,
+            355      
         );
         
 
@@ -109,13 +109,13 @@ function startGame(x) {
     board = new Tablero(
         ctx,        // Contexto del canvas
         xEnLinea,   // Configuración de x en línea
-        150,        // marginTop
-        120,        // marginBottom
+        100,        // marginTop
+        60,        // marginBottom
         0,        // marginRight
-        260         // marginLeft
+        300         // marginLeft
     );
     currentPlayer = 0;  // Reiniciamos el turno al primer jugador
-    radius = board.getCellSize() / 2 - 12;
+    radius = board.getCellSize() / 2 - 9;
     draw();            // Redibujar el tablero con las nuevas dimensiones
 }
 
@@ -128,7 +128,7 @@ function drawPlayerPieces() {
         }else{
             x = 1040; // Espacio entre fichas
         }     
-        let y = 460; // Posición fija en la parte superior del canvas
+        let y = 350; // Posición fija en la parte superior del canvas
         let piece = new Ficha(player,x,y,radius)
         player.setNextPiece(piece);
         if(players[currentPlayer]==player){
@@ -144,9 +144,9 @@ function switchTurns() {
 }
 
 function displayTurn() {
-    let posX = 270;     // Posición horizontal centrada
+    let posX = 350;     // Posición horizontal centrada
     let posY = 30; // Posición vertical entre el tablero y las fichas
-    let truno=null;
+    let turno=null;
 
     if(currentPlayer==0){
         turno = turnoDeadpool
@@ -156,9 +156,9 @@ function displayTurn() {
     
     ctx.drawImage(
         turno,        
-        posX, posY,             
-        566,        
-        102    
+        posX, 0,             
+        391,        
+        70    
     );
 }
 
@@ -201,7 +201,7 @@ canvas.addEventListener('mouseup', (event) => {
         // Verificar si la ficha está sobre una columna
         for (let col = 0; col < board.cols; col++) {
             let hintX = board.marginLeft + col * board.cellSize;
-            if (x > hintX && x < hintX + board.cellSize && y > board.marginTop) {
+            if (x > hintX && x < hintX + board.cellSize && (y < board.marginTop && y > 35)) {
                 // Colocar la ficha en la columna
                 if (board.dropDisc(col, players[currentPlayer])) {
                     draw(); // Redibuja el tablero
@@ -296,10 +296,10 @@ function restartGame() {
     board = new Tablero(
         ctx,        // Contexto del canvas
         xEnLinea,   // Configuración de x en línea
-        150,        // marginTop
-        50,        // marginBottom
-        100,        // marginRight
-        220         // marginLeft
+        100,        // marginTop
+        60,        // marginBottom
+        0,        // marginRight
+        300         // marginLeft
     );
     currentPlayer = 0;
     draw();

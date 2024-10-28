@@ -76,9 +76,7 @@ class Tablero {
         let posX = 0;
         let posY = 0;
         
-        this.radius =  this.cellSize / 2 - 12; // Radio de las casillas (agujeros)...-5 es la distancia del agujero al borde de la casilla
-        console.log(this.cellSize);
-        console.log(this.radius);
+        this.radius =  this.cellSize / 2 - 9; // Radio de las casillas (agujeros)...-5 es la distancia del agujero al borde de la casilla
         this.context.save();
 
         //dibujamos interior del tablero
@@ -99,7 +97,7 @@ class Tablero {
             posY = this.marginTop + this.cellSize * fila;
             for (let columna = 0; columna < this.getCantCol(); columna++) {
                 posX = this.marginLeft + this.cellSize * columna;
-
+                
                 // Dibujar el fondo del tablero (rectángulo)
                 this.context.drawImage(
                     this.cellImage,        // Imagen del tablero
@@ -107,28 +105,15 @@ class Tablero {
                     this.cellSize,        // Ancho del tablero (ajustado al tamaño del canvas)
                     this.cellSize        // Alto del tablero (ajustado al tamaño del canvas)
                 );
-
-                // Dibujar el agujero donde cae la ficha (círculo blanco)
-                /*this.context.beginPath();
-                this.context.arc(
-                    posX + this.cellSize / 2,  // Coordenada X del centro del círculo
-                    posY + this.cellSize / 2, // Coordenada Y del centro del círculo
-                    this.radius,                 // Radio del círculo
-                    0, Math.PI * 2           // Dibujar círculo completo
-                );
-                this.context.fillStyle = '#ffffff'; // Color blanco para el agujero
-                this.context.fill();
-                this.context.closePath();
-*/
                 
             }
         }
 
         this.context.drawImage(
             this.frameImage,        // Imagen del tablero
-            this.marginLeft-9, this.marginTop-8,             // Posición X e Y de la imagen en el canvas
-            this.cellSize*this.cols+20,        // Ancho del tablero (ajustado al tamaño del canvas)
-            this.cellSize*this.rows+15        // Alto del tablero (ajustado al tamaño del canvas)
+            this.marginLeft-5, this.marginTop-5,             // Posición X e Y de la imagen en el canvas
+            this.cellSize*this.cols+13,        // Ancho del tablero (ajustado al tamaño del canvas)
+            this.cellSize*this.rows+10        // Alto del tablero (ajustado al tamaño del canvas)
         );
 
 
