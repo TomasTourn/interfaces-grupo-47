@@ -18,8 +18,6 @@ class Ficha{
     }
 
     draw(ctx) {
-        console.log(this.player.image )
-        console.log(this.imageDeadpool)
         ctx.save()
         ctx.beginPath();        
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);

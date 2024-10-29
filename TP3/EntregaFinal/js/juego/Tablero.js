@@ -69,8 +69,6 @@ class Tablero {
         let posY = 0;
         
         this.radius =  this.cellSize / 2 - 11; // Radio de las casillas (agujeros)...-5 es la distancia del agujero al borde de la casilla
-        console.log(this.cellSize);
-        console.log(this.radius);
         this.context.save();
 
         //dibujamos interior del tablero

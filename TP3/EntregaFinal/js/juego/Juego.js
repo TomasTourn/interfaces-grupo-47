@@ -98,6 +98,8 @@ function draw() {
         if (draggedPiece) {
             draggedPiece.draw(ctx);
         }
+
+        drawTimer();
     }else{
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawButtons();      
@@ -105,12 +107,11 @@ function draw() {
     
     if(board.ganador){
         board.ganador=false;
-        restartGame();
+        startGame();
     }
 }
 
-function startGame(x) {
-    xEnLinea=x;
+function startGame() {
     board = new Tablero(
         ctx,        // Contexto del canvas
         xEnLinea,   // Configuración de x en línea
@@ -120,8 +121,11 @@ function startGame(x) {
         260         // marginLeft
     );
     currentPlayer = 0;  // Reiniciamos el turno al primer jugador
-    radius = board.getCellSize() / 2 - 11;
+    radius = board.getCellSize() / 2 - 12;
     draw();            // Redibujar el tablero con las nuevas dimensiones
+    if(xEnLinea!=0){
+        startTimer()
+    }    
 }
 
 function drawPlayerPieces() {    
@@ -150,7 +154,7 @@ function switchTurns() {
 
 function displayTurn() {
     let posX = 350;     // Posición horizontal centrada
-    let posY = 30; // Posición vertical entre el tablero y las fichas
+    let posY = 0; // Posición vertical entre el tablero y las fichas
     let turno=null;
 
     if(currentPlayer==0){
@@ -161,7 +165,7 @@ function displayTurn() {
     
     ctx.drawImage(
         turno,        
-        posX, 0,             
+        posX, posY,             
         391,        
         70    
     );
@@ -170,6 +174,7 @@ function displayTurn() {
 
 
 canvas.addEventListener('mousedown', (event) => {
+    if(xEnLinea!=0){
     let rect = canvas.getBoundingClientRect();
     let x = event.clientX - rect.left;
     let y = event.clientY - rect.top;
@@ -184,6 +189,8 @@ canvas.addEventListener('mousedown', (event) => {
     if (distance < radius) {
         draggedPiece = players[currentPlayer].getNextPiece(); // Guarda el jugador actual cuya ficha se arrastra
     }
+    }
+    
 });
 
 canvas.addEventListener('mousemove', (event) => {
@@ -269,11 +276,14 @@ canvas.addEventListener('click', function(event) {
         
         if (x >= buttonX && x <= buttonX + buttonWidth) {
             if (y >= startY && y <= startY + buttonHeight) {
-                startGame(4); // Jugar 4 en línea
+                xEnLinea=4;
+                startGame(); // Jugar 4 en línea
             }else if (y >= startY + buttonHeight + margin && y <= startY + (buttonHeight + margin + buttonHeight)) {
-                startGame(5); // Jugar 5 en línea
+                xEnLinea=5;
+                startGame(); // Jugar 5 en línea
             } else if (y >= startY + (buttonHeight + margin) * 2 && y <= startY + (buttonHeight + margin) * 2 + buttonHeight) {
-                startGame(6); // Jugar 6 en línea
+                xEnLinea=6;
+                startGame(); // Jugar 6 en línea
             }
         }
         
@@ -282,7 +292,8 @@ canvas.addEventListener('click', function(event) {
         let restartButtonX = canvas.width - buttonWidth - 20;
         let restartButtonY = canvas.height - buttonHeight - 20;
         if (x >= restartButtonX && x <= restartButtonX + buttonWidth && y >= restartButtonY && y <= restartButtonY + buttonHeight) {
-            restartGame(); // Reiniciar juego
+            timeLeft=300;
+            startGame(); // Reiniciar juego
         }
 
         // Coordenadas del botón de "Volver"
@@ -290,45 +301,55 @@ canvas.addEventListener('click', function(event) {
         let backButtonY = 20;
         if (x >= backButtonX && x <= backButtonX + buttonBackSize && y >= backButtonY && y <= backButtonY + buttonBackSize) {
             xEnLinea=0;
+            clearInterval(timerInterval); // Limpia el intervalo anterior
             draw() // Función que maneja el volver atrás
         }
     }
 
 });
 
-// Reinicia el juego
-function restartGame() {    
-    board = new Tablero(
-        ctx,      
-        xEnLinea, 
-        150,      
-        120,      
-        0,        
-        260       
-    );
-    currentPlayer = 0;
-    draw();
-}
+
 
 // Inicia el juego
 window.onload = () => {
-    startGame(xEnLinea)
-    //startTimer();
+    startGame()
 };
 
 // Temporizador
-/*
-let timeLeft = 60;
-function startTimer() {
 
-    let timer = setInterval(() => {
+let timeLeft = 300;
+let timerInterval = null;
+
+function drawTimer() {
+
+    ctx.save(); // Guarda el estado actual del contexto
+
+    ctx.font = "bold 60px arial"; // Establecer estilo, tamaño y fuente
+    ctx.fillStyle = "#FF0000";
+    
+    ctx.shadowColor = "rgba(0, 0, 0, 0.5)";  // Color de la sombra
+    ctx.shadowOffsetX = 3;                   // Desplazamiento de la sombra en X
+    ctx.shadowOffsetY = 3;                   // Desplazamiento de la sombra en Y
+    ctx.shadowBlur = 1;                      // Nivel de desenfoque de la sombra
         
-        document.getElementById('timer').innerText = `Tiempo: ${timeLeft--}s`;
+    ctx.fillText(timeLeft, canvas.width-90, 50); 
+
+    ctx.restore(); // Restaura el estado original del contexto
+}
+
+function startTimer() {
+    clearInterval(timerInterval); // Limpia el intervalo anterior
+    timeLeft = 300; // Resetea el tiempo a 60 segundos
+    
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        draw(); // Redibuja el canvas, incluyendo el temporizador actualizado
+
         if (timeLeft <= 0) {
-            clearInterval(timer);
+            clearInterval(timerInterval);
             alert('Tiempo agotado. Empate.');
+            startGame();
         }
     }, 1000);
 }
-*/
 
