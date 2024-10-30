@@ -26,11 +26,20 @@ class Juego{
         this.turnoDeadpool = new Image();
         this.turnoDeadpool.src = "Images/Juego/turnoDeadpool.png"
 
+        this.redButton= new Image();
+        this.redButton.src="Images/Juego/redbutton.png";
+
+        this.yellowButton= new Image();
+        this.yellowButton.src="Images/Juego/yellowbutton.png";
+
+
         this.imageDeadpool= new Image();
-        this.imageDeadpool.src="Images/Juego/deadpoolgrabbingface.jpg";
+        this.imageDeadpool.src="Images/Juego/deadpoolgrabbingface.jpg"
 
         this.imageWolverine= new Image();
-        this.imageWolverine.src="Images/Juego/wolverine.jpg";
+        this.imageWolverine.src="Images/Juego/wolverine.jpg"
+
+
 
         this.players = [new Jugador('Deadpool',this.imageDeadpool, '#981a28'), new Jugador('Wolverine',this.imageWolverine, '#E3B22F')]; // Rojo y amarillo
         this.currentPlayer = 0;
@@ -42,8 +51,8 @@ class Juego{
         this.radius = null;// Tamaño de las fichas que se mostrarán arriba
 
         //botones
-        this.buttonWidth = 200;
-        this.buttonHeight = 40;
+        this.buttonWidth = 300;
+        this.buttonHeight = 60;
 
         this.buttonBackSize = 30;
 
@@ -53,7 +62,7 @@ class Juego{
         this.imagesToLoad = [
             this.fondoImage, this.testBg1Image, this.testBg2Image,
             this.turnoWolverine, this.turnoDeadpool,
-            this.imageDeadpool, this.imageWolverine
+            this.yellowButton, this.redButton
         ];
         this.loadedImagesCount = 0;
         this.setupImages();
@@ -86,16 +95,16 @@ class Juego{
 
             this.ctx.drawImage(
                 this.testBg1Image,        // Imagen del tablero
-                105, 373,             // Posición X e Y de la imagen en el canvas
+                235, 320,             // Posición X e Y de la imagen en el canvas
                 136,        // Ancho del tablero (ajustado al tamaño del canvas)
-                425       // Alto del tablero (ajustado al tamaño del canvas)
+                415      // Alto del tablero (ajustado al tamaño del canvas)
             );
                 
             this.ctx.drawImage(
                 this.testBg2Image,        // Imagen del tablero
-                ((this.board.cellSize*this.board.cols)+this.board.marginLeft)-37, 372,             // Posición X e Y de la imagen en el canvas
+                ((this.board.cellSize*this.board.cols)+this.board.marginLeft)-37, 320,             // Posición X e Y de la imagen en el canvas
                 136,        // Ancho del tablero (ajustado al tamaño del canvas)
-                425       // Alto del tablero (ajustado al tamaño del canvas)
+                415    // Alto del tablero (ajustado al tamaño del canvas)
             );
             
 
@@ -144,7 +153,7 @@ class Juego{
             110,        // marginTop
             75,        // marginBottom
             0,        // marginRight
-            205,         // marginLeft
+            this.canvas.width/4,         // marginLeft
             this
         );
         this.currentPlayer = 0;  // Reiniciamos el turno al primer jugador
@@ -160,10 +169,10 @@ class Juego{
         this.players.forEach((player, index) => {
             let x=null
             if(index==0){
-                x = 100; // Espacio entre fichas
+                x = 200; // Espacio entre fichas
                 
             }else{
-                x = 1040; // Espacio entre fichas
+                x = 1150; // Espacio entre fichas
             }     
             let y = 350; // Posición fija en la parte superior del canvas
             let piece = new Ficha(player,x,y,this.radius,this)
@@ -181,7 +190,7 @@ class Juego{
     }
 
     displayTurn() {
-        let posX = 350;     // Posición horizontal centrada
+        let posX = 460;     // Posición horizontal centrada
         let posY = 0; // Posición vertical entre el tablero y las fichas
         let turno=null;
 
@@ -210,23 +219,33 @@ class Juego{
         this.ctx.textAlign = "center";
         this.ctx.textBaseline = "middle";
 
-        // Botón para Jugar 4 en línea
-        this.ctx.fillRect(this.canvas.width / 2 - this.buttonWidth / 2, startY, this.buttonWidth, this.buttonHeight);
-        this.ctx.fillStyle = "#FFFFFF";
-        this.ctx.fillText("Jugar 4 en línea", this.canvas.width / 2, startY + this.buttonHeight / 2);
-        
-        // Botón para Jugar 5 en línea
-        this.ctx.fillStyle = "#4CAF50";
-        this.ctx.fillRect(this.canvas.width / 2 - this.buttonWidth / 2, startY + this.buttonHeight + margin, this.buttonWidth, this.buttonHeight);
-        this.ctx.fillStyle = "#FFFFFF";
-        this.ctx.fillText("Jugar 5 en línea", this.canvas.width / 2, startY + this.buttonHeight * 1.5 + margin);
 
-        // Botón para Jugar 6 en línea
-        this.ctx.fillStyle = "#4CAF50";
-        this.ctx.fillRect(this.canvas.width / 2 - this.buttonWidth / 2, startY + (this.buttonHeight + margin) * 2, this.buttonWidth, this.buttonHeight);
-        this.ctx.fillStyle = "#FFFFFF";
-        this.ctx.fillText("Jugar 6 en línea", this.canvas.width / 2, startY + this.buttonHeight * 3 + margin);
+        this.drawSingleButton(startY,"4 en linea")
+        this.drawSingleButton(startY +this.buttonHeight *1.2,"5 en linea")
+        this.drawSingleButton(startY +this.buttonHeight *2.4,"6 en linea")
+
     }
+
+    drawSingleButton(yPosition, buttonText) {
+
+    
+        this.ctx.drawImage(
+            this.yellowButton,
+            this.canvas.width / 2 - this.buttonWidth / 2, // X posición para centrar la imagen
+            yPosition,                                   // Y posición
+            this.buttonWidth,                            // Ancho de la imagen
+            this.buttonHeight                            // Alto de la imagen
+        );
+    
+          // Dibuja el texto sobre la imagen
+          this.ctx.fillStyle = "#000000";                 // Color del texto
+          this.ctx.font = "20px 'Dekko', cursive";        // Fuente personalizada
+          this.ctx.textAlign = "center";
+          this.ctx.textBaseline = "middle";
+            this.ctx.fillText(buttonText, this.canvas.width / 2, yPosition + this.buttonHeight / 2);
+    }
+
+
 
     // Temporizador
     drawTimer() {
