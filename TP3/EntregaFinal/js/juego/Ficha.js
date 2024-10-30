@@ -33,7 +33,7 @@ class Ficha{
         }
     }
 
-    animateDrop(piece, targetRow, col,board) {
+    animateDrop(piece, targetRow, col,board,game) {
         const targetY = (targetRow * board.cellSize + board.marginTop)+ board.cellSize / 2
         
         const interval = setInterval(() => {
@@ -43,32 +43,14 @@ class Ficha{
                 clearInterval(interval);
                 board.checkForWin(piece, targetRow, col)
             }
-            draw();
+            game.draw();
         }, 20);
     }
 
-    returnPieceToStart(draggedPiece) {
-        let frames = 20;  // Número de frames para la animación
-        let deltaX = (draggedPiece.startY - draggedPiece.x) / frames;
-        let deltaY = (draggedPiece.startY - draggedPiece.y) / frames;
-        
-        let currentFrame = 0;
+    returnPieceToStart(draggedPiece, game) {
+        draggedPiece.x = draggedPiece.startX;
+        draggedPiece.y = draggedPiece.startY;
     
-        function animateReturn() {
-            if (currentFrame < frames) {
-                draggedPiece.x += deltaX;
-                draggedPiece.y += deltaY;
-                draw();  // Redibujar el tablero y la ficha
-                currentFrame++;
-                requestAnimationFrame(animateReturn);  // Continuar animando
-            } else {
-                // Una vez que termina la animación, devuelve la ficha a su posición original
-                draggedPiece.x = draggedPiece.startX;
-                draggedPiece.y = draggedPiece.startY;
-                draw();
-            }
-        }
-    
-        animateReturn();
+        game.draw();
     }
 }

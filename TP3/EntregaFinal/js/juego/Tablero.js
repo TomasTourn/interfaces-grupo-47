@@ -1,8 +1,10 @@
 class Tablero {
 
-    constructor(context, xEnLinea, marginTop, marginBottom, marginRight, marginLeft) {
+    constructor(context, canvas, xEnLinea, marginTop, marginBottom, marginRight, marginLeft, game) {
         this.context = context;
+        this.canvas= canvas;
         this.xEnLinea = xEnLinea;
+        this.game = game;
         this.rows = this.xEnLinea + 2; // Filas según la configuración de X en línea
         this.cols = this.xEnLinea + 3; // Columnas según la configuración de X en línea
 
@@ -14,8 +16,7 @@ class Tablero {
 
         this.ganador=false;
 
-        this.cellSize = ((canvas.height - this.marginTop - this.marginBottom) / this.rows); 
-               
+        this.cellSize = ((this.canvas.height - this.marginTop - this.marginBottom) / this.rows);
 
         // Cargar imagen del tablero
         this.cellImage = new Image();
@@ -32,11 +33,11 @@ class Tablero {
 
     // Métodos para obtener dimensiones del tablero y las casillas
     getWidth() {
-        return canvas.width - this.marginRight - this.marginLeft;
+        return this.canvas.width - this.marginRight - this.marginLeft;
     }
 
     getHeight() {
-        return canvas.height - this.marginTop - this.marginBottom;
+        return this.canvas.height - this.marginTop - this.marginBottom;
     }
 
     getCantFil() {
@@ -56,7 +57,7 @@ class Tablero {
     }
 
     createGrid() {
-        const grid = [];
+        let grid = [];
         for (let row = 0; row < this.rows; row++) {
             grid[row] = new Array(this.cols).fill(null);
         }
@@ -120,7 +121,7 @@ class Tablero {
             if (!this.grid[row][col]) {
                 let piece = new Ficha(player, (col * this.cellSize + this.marginLeft)+this.cellSize / 2 , this.cellSize, this.radius);
                 this.grid[row][col] = piece;                
-                piece.animateDrop(piece, row, col,this);                
+                piece.animateDrop(piece, row, col,this, this.game);                
                 return true;
             }
         }
