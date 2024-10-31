@@ -50,8 +50,11 @@ class Ficha{
     }
 
     returnPieceToStart(draggedPiece, game) {
+
         draggedPiece.x = draggedPiece.startX;
         draggedPiece.y = draggedPiece.startY;
+
         game.draw();
+
     }
 }

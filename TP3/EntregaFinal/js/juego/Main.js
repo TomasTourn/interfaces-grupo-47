@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let juego = new Juego(canvas,ctx);  // Inicializa el juego con el ID del canvas
 
-
     // Inicia el juego
     window.onload = () => {
         juego.startGame()
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
                 if (distance < juego.radius) {
                     juego.draggedPiece = piece; // Asigna la ficha seleccionada para ser arrastrada
-                    currentPieces.splice(i, 1); // Elimina la ficha del array del jugador
                     juego.draw(); // Redibuja para actualizar la vista sin la ficha
                     break;
                 }
@@ -34,18 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
    juego.canvas.addEventListener('mousemove', (event) => {
+        
+        if (juego.draggedPiece) {
+                let rect = canvas.getBoundingClientRect();
+                juego.draggedPiece.x = event.clientX - rect.left;
+                juego.draggedPiece.y = event.clientY - rect.top;
 
-   
+                juego.updateActiveColumn(juego.draggedPiece.x, juego.draggedPiece.y);
 
-      if (juego.draggedPiece) {
-            let rect = canvas.getBoundingClientRect();
-            juego.draggedPiece.x = event.clientX - rect.left;
-            juego.draggedPiece.y = event.clientY - rect.top;
-
-            juego.updateActiveColumn(juego.draggedPiece.x, juego.draggedPiece.y);
-
-            juego.draw(); // Redibujar el canvas con la ficha moviéndose
-      }
+                juego.draw(); // Redibujar el canvas con la ficha moviéndose
+        }
     });
 
     juego.canvas.addEventListener('mouseup', (event) => {
@@ -62,8 +58,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 let hintX = juego.board.marginLeft + col * juego.board.cellSize;
                 if (x > hintX && x < hintX + juego.board.cellSize && (y < juego.board.marginTop && y > 35)) {
                     // Colocar la ficha en la columna
-                    if (juego.board.dropDisc(col, juego.players[juego.currentPlayer]) ){
-                        juego.draw(); // Redibuja el tablero
+                    if (juego.board.dropDisc(col, juego.players[juego.currentPlayer])) {
+                        
+                        let currentPieces = juego.currentPlayer === 0 ? juego.piecePlayer1 : juego.piecePlayer2;
+                        let index = currentPieces.indexOf(juego.draggedPiece);
+                        if (index > -1) {
+                            currentPieces.splice(index, 1);
+
+                            currentPieces.forEach((piece, i) => {
+                                piece.y = 130 + i * 20; // Ajusta 130 y 20 a la posición inicial y el espacio entre fichas
+                                piece.startY=piece.y
+                                
+                            });
+                        }
+                        
+                        
                         juego.switchTurns();
                         pieceDropped = true;
                     }
@@ -74,16 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Si no se ha colocado la ficha, devolverla a su lugar y al array
             if (!pieceDropped) {          
                 juego.draggedPiece.returnPieceToStart(juego.draggedPiece, juego);  // Volver a la posición original
-                // Insertar la ficha de nuevo en el array del jugador actual
-                if (juego.currentPlayer === 0) {
-                    juego.piecePlayer1.push(juego.draggedPiece);
-        
-                } else {
-                    juego.piecePlayer2.push(juego.draggedPiece);
-                }
             }
-    
+            
             juego.draggedPiece = null; // Reseteamos el arrastre
+            juego.draw(); // Redibuja el tablero
             
         }
     });

@@ -7,6 +7,8 @@ class Juego{
         this.board = null;
        
 
+
+        this.totalFichas = 0;
         //Fondo juego
 
         this.fondoImage = new Image();
@@ -141,12 +143,9 @@ class Juego{
             this.board.draw(this.ctx);
             this.drawPlayerPieces();
             this.displayTurn(); 
-           
 
             this.drawEffect();
 
-       
-            
 
             // Dibuja el botón de reiniciar
             let restartButtonX = this.canvas.width - this.buttonWidth - 20;
@@ -168,6 +167,7 @@ class Juego{
                 this.draggedPiece.draw(this.ctx);
             }
 
+
             this.drawTimer();
         }else{
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -179,34 +179,8 @@ class Juego{
             this.startGame();
         }
     }
-    drawPlayerPieces() {
-        this.ctx.clearRect(0,0,this.width,this.height);
-        this.piecePlayer1.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
-        this.piecePlayer2.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
-    }
-    generetePlayerPieces() {
-        this.piecePlayer1 = []; 
-        this.piecePlayer2 = [];
-        const spacingY = 20;
 
-        this.totalFichas= Math.floor((this.board.cols * this.board.rows)/2);
-
-        this.players.forEach((player, index) => {
-            let x = index === 0 ? 200 : 1150;
-            let y = 130; 
-
-            for (let i = 0; i < this.totalFichas; i++) {
-                console.log("asdas");
-                let piece = new Ficha(player, x, y, this.radius);
-                if (index === 0) {
-                    this.piecePlayer1.push(piece);
-                } else {
-                    this.piecePlayer2.push(piece);
-                }
-                y += spacingY; 
-            }
-        });   
-    }
+    
     startGame() {
         
         this.board = new Tablero(
@@ -228,7 +202,6 @@ class Juego{
         if(this.xEnLinea!=0){
             this.startTimer()
         }
-           
     }
 
     
@@ -243,13 +216,14 @@ class Juego{
         this.piecePlayer2 = [];
         const spacingY = 20;
 
-        let totalFichas= Math.floor((this.board.cols * this.board.rows)/2);
+        this.totalFichas= (this.board.cols * this.board.rows)/2;
 
         this.players.forEach((player, index) => {
             let x = index === 0 ? 200 : 1150;
             let y = 130; 
 
-            for (let i = 0; i < totalFichas; i++) {
+            for (let i = 0; i < this.totalFichas; i++) {
+
                 let piece = new Ficha(player, x, y, this.radius);
                 if (index === 0) {
                     this.piecePlayer1.push(piece);
@@ -425,13 +399,8 @@ class Juego{
            for (const btn of this.buttons) {
       
             if( btn.isCursorOver(x,y)){
-                if(event.type=="mousemove"){
-                    console.log("moviendo")
-                }
-
                 if(event.type==="click"){
-                    console.log(btn.getCant())
-                    console.log("me clickeaste!!")
+                    
                     this.xEnLinea=btn.getCant();
                         this.startGame()
             }
@@ -453,7 +422,6 @@ class Juego{
 
             for (let i = 0; i < 4; i++) {
                 const x = 60 +(i*width*1.03); // Posición x
-                console.log(x)
                 const y = 600 ; // Posición y
                 const btn=new button(this.ctx,x, y,width,height,i+4);
                 this.buttons.push(btn);
