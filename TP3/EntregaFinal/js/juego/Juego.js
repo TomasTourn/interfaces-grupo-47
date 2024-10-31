@@ -86,6 +86,7 @@ class Juego{
         ];
         this.loadedImagesCount = 0;
         this.setupImages();
+        
 
 
         
@@ -104,6 +105,7 @@ class Juego{
 
     // Dibuja el tablero y las fichas
     draw() {
+        
         if(this.xEnLinea!=0){
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.ctx.fillStyle = '#ffffff'; // Color azul para el fondo del tablero
@@ -130,13 +132,14 @@ class Juego{
                 415    // Alto del tablero (ajustado al tamaño del canvas)
             );
             
-
+            
             this.board.draw(this.ctx);
             this.displayTurn(); 
             this.drawPlayerPieces();
 
             this.drawEffect();
 
+            
 
             // Dibuja el botón de reiniciar
             let restartButtonX = this.canvas.width - this.buttonWidth - 20;
@@ -181,16 +184,23 @@ class Juego{
             this.canvas.width/4,         // marginLeft
             this
         );
+        
         this.currentPlayer = 0;  // Reiniciamos el turno al primer jugador
         this.radius = this.board.getCellSize() / 2 - 12;
         this.draw();            // Redibujar el tablero con las nuevas dimensiones
-
+        this.generetePlayerPieces(); 
         if(this.xEnLinea!=0){
             this.startTimer()
-        }    
+        }
+           
+    }
+    drawPlayerPieces() {
+        this.ctx.clearRect(0,0,this.width,this.height);
+        this.piecePlayer1.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
+        this.piecePlayer2.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
     }
 
-    drawPlayerPieces() {
+    generetePlayerPieces() {
         this.piecePlayer1 = []; 
         this.piecePlayer2 = [];
         const spacingY = 20;
@@ -212,10 +222,9 @@ class Juego{
                 y += spacingY; 
             }
         });
-
-        this.piecePlayer1.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
-        this.piecePlayer2.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
+        
     }
+    
 
     switchTurns() {
         this.currentPlayer = (this.currentPlayer + 1) % 2;

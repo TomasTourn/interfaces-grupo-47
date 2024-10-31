@@ -12,23 +12,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     juego.canvas.addEventListener('mousedown', (event) => {
-        if (juego.xEnLinea !== 0) {
+        if (juego.xEnLinea != 0) {
             let rect = juego.canvas.getBoundingClientRect();
             let x = event.clientX - rect.left;
             let y = event.clientY - rect.top;
     
-            // Obtiene el arreglo de fichas del jugador actual
-            let playerPieces = juego.currentPlayer === 0 ? juego.piecePlayer1 : juego.piecePlayer2;
-    
-            // Verifica si se hizo clic en alguna de las fichas del jugador actual
-            playerPieces.forEach(piece => {
+            let currentPieces = juego.currentPlayer === 0 ? juego.piecePlayer1 : juego.piecePlayer2;
+            
+            for (let i = 0; i < currentPieces.length; i++) {
+                let piece = currentPieces[i];
                 let distance = Math.sqrt((x - piece.x) ** 2 + (y - piece.y) ** 2);
+    
                 if (distance < juego.radius) {
-                    juego.draggedPiece = piece; // Guarda la ficha que se arrastra
-                    // Elimina la ficha seleccionada del arreglo
-                    playerPieces.splice(index, 1);
+                    juego.draggedPiece = piece; // Asigna la ficha seleccionada para ser arrastrada
+                    currentPieces.splice(i, 1); // Elimina la ficha del array del jugador
+                    juego.draw(); // Redibuja para actualizar la vista sin la ficha
+                    break;
                 }
-            });
+            }
         }
     });
 
@@ -49,9 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let rect = juego.canvas.getBoundingClientRect();
             let x = event.clientX - rect.left;
             let y = event.clientY - rect.top;
-
+    
             let pieceDropped = false;
-
+    
             juego.activeColumn=null;
             // Verificar si la ficha está sobre una columna
             for (let col = 0; col < juego.board.cols; col++) {
@@ -66,16 +67,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
                 }
             }
-
-            // Si no se ha colocado la ficha, devolverla a su lugar
+    
+            // Si no se ha colocado la ficha, devolverla a su lugar y al array
             if (!pieceDropped) {          
-                juego.draggedPiece.returnPieceToStart(juego.draggedPiece,juego);  // Iniciar animación de retorno
+                juego.draggedPiece.returnPieceToStart(juego.draggedPiece, juego);  // Volver a la posición original
+                
+                // Insertar la ficha de nuevo en el array del jugador actual
+                if (juego.currentPlayer === 0) {
+                    juego.piecePlayer1.push(juego.draggedPiece);
+                } else {
+                    juego.piecePlayer2.push(juego.draggedPiece);
+                }
             }
-
+    
             juego.draggedPiece = null; // Reseteamos el arrastre
+            juego.draw(); // Redibuja el juego para actualizar la posición de las fichas
         }
     });
-
     juego.canvas.addEventListener('click', function(event) {
         let rect = juego.canvas.getBoundingClientRect();
         let x = event.clientX - rect.left;
