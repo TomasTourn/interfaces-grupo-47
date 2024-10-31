@@ -2,17 +2,10 @@ class Juego{
     constructor(canvas,ctx) {
 
         this.canvas = canvas;
-        console.log(canvas);
         this.ctx = ctx;
 
         this.board = null;
-        this.btn= new button({
-            ctx:this.ctx,
-            x: 200,
-            y: 400,
-            width: 300,
-            height: 60,
-            text: "4 en Línea"})
+       
 
         //Fondo juego
 
@@ -68,6 +61,12 @@ class Juego{
 
         //botones
         
+ 
+        this.buttons=[]
+        this.initButtons();
+
+        this.isHovering = false; // Estado del hover
+        this.hoveredButton = null; // Botón actualmente en hover
        
   
         this.buttonWidth = 300;
@@ -86,10 +85,11 @@ class Juego{
         ];
         this.loadedImagesCount = 0;
         this.setupImages();
+
+        this.canvas.addEventListener("mousemove", (event) => this.handleHover(event));
+        this.canvas.addEventListener("click", (event) => this.handleHover(event));
         
 
-
-        
     }
 
     setupImages() {
@@ -97,11 +97,16 @@ class Juego{
             image.onload = () => {
                 this.loadedImagesCount++;
                 if (this.loadedImagesCount === this.imagesToLoad.length) {
-                    this.startGame(); // Llamar a startGame una vez que todas las imágenes estén cargadas
+                    this.startGame();
                 }
+            };
+            image.onerror = () => {
+                console.error("Failed to load image:", image.src);
             };
         });
     }
+    
+    
 
     // Dibuja el tablero y las fichas
     draw() {
@@ -139,6 +144,7 @@ class Juego{
 
             this.drawEffect();
 
+       
             
 
             // Dibuja el botón de reiniciar
@@ -174,14 +180,15 @@ class Juego{
     }
 
     startGame() {
+        
         this.board = new Tablero(
-            this.ctx,        // Contexto del canvas
+            this.ctx,          // Contexto del canvas
             this.canvas,
-            this.xEnLinea,   // Configuración de x en línea
-            110,        // marginTop
-            75,        // marginBottom
-            0,        // marginRight
-            this.canvas.width/4,         // marginLeft
+            this.xEnLinea,     // Configuración de x en línea
+            110,               // marginTop
+            75,                // marginBottom
+            0,                 // marginRight
+            this.canvas.width / 4, // marginLeft
             this
         );
         
@@ -194,6 +201,8 @@ class Juego{
         }
            
     }
+
+    
     drawPlayerPieces() {
         this.ctx.clearRect(0,0,this.width,this.height);
         this.piecePlayer1.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
@@ -212,7 +221,6 @@ class Juego{
             let y = 130; 
 
             for (let i = 0; i < totalFichas; i++) {
-                console.log("asdas");
                 let piece = new Ficha(player, x, y, this.radius);
                 if (index === 0) {
                     this.piecePlayer1.push(piece);
@@ -265,21 +273,16 @@ class Juego{
         // Configuraciones básicas de los botones    
         let startY = 600;  // Margen superior para los botones
         let startX = 200;  //inicio en x de los botones
+    
+        for (const btn of this.buttons) {
+            btn.drawSingleButton(); // Dibuja el botón
+        }
 
         // Colores y estilos
         this.ctx.fillStyle = "#4CAF50"; // Verde para el botón
         this.ctx.font = "20px Arial";
         this.ctx.textAlign = "center";
         this.ctx.textBaseline = "middle";
-
-        this.btn.drawSingleButton();
-        this.drawSingleButton(startY,startX,"4 en linea")
-        this.drawSingleButton(startY,startX+315,"5 en linea")
-        this.drawSingleButton(startY,startX+630,"6 en linea")
-
-
-
-
     }
 
     drawSingleButton(yPosition,xPosition, buttonText,isHovered=false) {
@@ -374,8 +377,57 @@ class Juego{
             }
         }, 1000);
     }
-}
 
+
+
+    handleHover(event) {
+    
+        
+        if(this.xEnLinea==0){
+
+            let rect = this.canvas.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+            let y = event.clientY - rect.top;
+    
+           for (const btn of this.buttons) {
+      
+            if( btn.isCursorOver(x,y)){
+                if(event.type=="mousemove"){
+                    console.log("moviendo")
+                }
+
+                if(event.type==="click"){
+                    console.log(btn.getCant())
+                    console.log("me clickeaste!!")
+                    this.xEnLinea=btn.getCant();
+                        this.startGame()
+            }
+            }
+    
+            }
+   
+        
+        }
+       
+        
+    }
+     
+
+
+    initButtons(){
+        let width =300; // Ajusta el tamaño del botón
+        let height = 60;
+
+            for (let i = 0; i < 4; i++) {
+                const x = 60 +(i*width*1.03); // Posición x
+                console.log(x)
+                const y = 600 ; // Posición y
+                const btn=new button(this.ctx,x, y,width,height,i+4);
+                this.buttons.push(btn);
+            }
+    }
+
+}
 
 
 

@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
    juego.canvas.addEventListener('mousemove', (event) => {
+
+   
+
       if (juego.draggedPiece) {
             let rect = canvas.getBoundingClientRect();
             juego.draggedPiece.x = event.clientX - rect.left;
@@ -84,32 +87,19 @@ document.addEventListener('DOMContentLoaded', () => {
             juego.draw(); // Redibuja el juego para actualizar la posición de las fichas
         }
     });
+
+
     juego.canvas.addEventListener('click', function(event) {
         let rect = juego.canvas.getBoundingClientRect();
         let x = event.clientX - rect.left;
         let y = event.clientY - rect.top;
         
-        let startY = 600;
-        let margin = 315;
+        let startY = 50;
+        let margin = 20;
         // Coordenadas del botón de "Jugar 4 en línea"
-        let buttonX = 200;
+        let buttonX = juego.canvas.width / 2 - juego.buttonWidth / 2;
         
-        if(juego.xEnLinea==0){ 
-            
-            if (y >= startY && y <= startY + juego.buttonHeight) {
-                if (x >= buttonX && x <= buttonX + juego.buttonWidth) {
-                    juego.xEnLinea=4;
-                    juego.startGame(); // Jugar 4 en línea
-                }else if (x >= buttonX && x <= buttonX + juego.buttonWidth +margin) {
-                    juego.xEnLinea=5;
-                    juego.startGame(); // Jugar 5 en línea
-                } else if (x >= buttonX && x <= buttonX + juego.buttonWidth +margin*2) {
-                    juego.xEnLinea=6;
-                    juego.startGame(); // Jugar 6 en línea
-                }
-            }
-            
-        }else{
+        if(juego.xEnLinea!=0){ 
             // Coordenadas del botón de "Reiniciar"
             let restartButtonX = canvas.width - juego.buttonWidth - 20;
             let restartButtonY = canvas.height - juego.buttonHeight - 20;
@@ -129,35 +119,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
-  /*
-    //hover al boton
-    juego.canvas.addEventListener('mousemove',function(event){
-        
-        let rect = juego.canvas.getBoundingClientRect();
-        let x = event.clientX - rect.left;
-        let y = event.clientY - rect.top;
-        
-        let startY = 600;
-        let margin = 315;
-        // Coordenadas del botón de "Jugar 4 en línea"
-        let buttonX = 200;
-        
-        if(juego.xEnLinea==0){ 
-            
-            if (y >= startY && y <= startY + juego.buttonHeight) {
-                if (x >= buttonX && x <= buttonX + juego.buttonWidth) {
-                    isHovered=true;
-                   juego.drawSingleButton(startY,buttonX,"4 en linea",isHovered)
-
-                }else if (x >= buttonX && x <= buttonX + juego.buttonWidth +margin) {
-                    juego.drawSingleButton(startY,buttonX+margin,"5 en linea",true)
-                } 
-                else if (x >= buttonX && x <= buttonX + juego.buttonWidth +margin*2) {
-                    juego.drawSingleButton(startY,buttonX+margin*2,"6 en linea",true)
-                }
-            }
-            
-    }
-    })*/
 });
