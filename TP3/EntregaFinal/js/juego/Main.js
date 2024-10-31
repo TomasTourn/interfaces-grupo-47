@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let rect = canvas.getBoundingClientRect();
             juego.draggedPiece.x = event.clientX - rect.left;
             juego.draggedPiece.y = event.clientY - rect.top;
+
+            juego.updateActiveColumn(juego.draggedPiece.x, juego.draggedPiece.y);
+
             juego.draw(); // Redibujar el canvas con la ficha moviéndose
       }
     });
@@ -48,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let pieceDropped = false;
 
+            juego.activeColumn=null;
             // Verificar si la ficha está sobre una columna
             for (let col = 0; col < juego.board.cols; col++) {
                 let hintX = juego.board.marginLeft + col * juego.board.cellSize;

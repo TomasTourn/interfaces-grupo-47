@@ -39,10 +39,19 @@ class Juego{
         this.imageWolverine.src="Images/Juego/wolverine.jpg"
 
 
+        //efecto
+        this.effectImageD = new Image();  
+        this.effectImageD.src = "Images/Juego/efectoD.png";
 
-        this.players = [new Jugador('Deadpool',this.imageDeadpool, '#981a28'), new Jugador('Wolverine',this.imageWolverine, '#E3B22F')]; // Rojo y amarillo
+        this.effectImageW= new Image();  
+        this.effectImageW.src = "Images/Juego/efectoW.png";
+
+        this.activeColumn = null; // Columna actual sobre la que está la ficha
+
+        this.players = [new Jugador('Deadpool',this.imageDeadpool,this.effectImageD), new Jugador('Wolverine',this.imageWolverine, this.effectImageW)]; 
+
         this.currentPlayer = 0;
-        this.selectedPiece = null;
+
         this.xEnLinea =0;
 
         this.draggedPiece = null; // Ficha que se está arrastrando
@@ -61,7 +70,8 @@ class Juego{
         this.imagesToLoad = [
             this.fondoImage, this.testBg1Image, this.testBg2Image,
             this.turnoWolverine, this.turnoDeadpool,
-            this.yellowButton, this.redButton
+            this.yellowButton, this.redButton,
+            this.imageDeadpool, this.imageWolverine, this.effectImageD,this.effectImageW
         ];
         this.loadedImagesCount = 0;
         this.setupImages();
@@ -110,6 +120,8 @@ class Juego{
             this.board.draw(this.ctx);
             this.displayTurn(); 
             this.drawPlayerPieces();
+
+            this.drawEffect();
 
 
             // Dibuja el botón de reiniciar
@@ -251,7 +263,34 @@ class Juego{
             this.ctx.fillText(buttonText, this.canvas.width / 2, yPosition + this.buttonHeight / 2);
     }
 
+    drawEffect() {
+        for (let col = 0; col < this.board.cols; col++) {
+            
+            if(col === this.activeColumn){
+                this.ctx.drawImage(
+                    this.players[this.currentPlayer].effect, 
+                    col * this.board.cellSize + this.board.marginLeft+5,
+                    this.board.marginTop-this.board.cellSize,
+                    this.board.cellSize-10,
+                    this.board.cellSize);
+            }
+        }
+    }
 
+    updateActiveColumn(mouseX,mouseY) {
+        
+        // Calcula la columna en función de la posición del mouse y el tamaño de la celda
+        this.activeColumn = Math.floor((mouseX - this.board.marginLeft) / this.board.cellSize);
+    
+        // Asegura que la columna esté dentro de los límites del tablero
+        if (this.activeColumn < 0 || this.activeColumn >= this.board.cols 
+            || mouseY > this.board.marginTop || mouseY < 35 ) {
+            this.activeColumn = null; // Fuera de los límites
+        }
+        // Redibuja el canvas para actualizar las flechas
+        this.draw();
+
+    }
 
     // Temporizador
     drawTimer() {
