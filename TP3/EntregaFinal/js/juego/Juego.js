@@ -3,7 +3,7 @@ class Juego{
 
         this.canvas = canvas;
         this.ctx = ctx;
-
+        this.totalFichas= 0;
         this.board = null;
        
 
@@ -139,8 +139,9 @@ class Juego{
             
             
             this.board.draw(this.ctx);
-            this.displayTurn(); 
             this.drawPlayerPieces();
+            this.displayTurn(); 
+           
 
             this.drawEffect();
 
@@ -178,7 +179,34 @@ class Juego{
             this.startGame();
         }
     }
+    drawPlayerPieces() {
+        this.ctx.clearRect(0,0,this.width,this.height);
+        this.piecePlayer1.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
+        this.piecePlayer2.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
+    }
+    generetePlayerPieces() {
+        this.piecePlayer1 = []; 
+        this.piecePlayer2 = [];
+        const spacingY = 20;
 
+        this.totalFichas= Math.floor((this.board.cols * this.board.rows)/2);
+
+        this.players.forEach((player, index) => {
+            let x = index === 0 ? 200 : 1150;
+            let y = 130; 
+
+            for (let i = 0; i < this.totalFichas; i++) {
+                console.log("asdas");
+                let piece = new Ficha(player, x, y, this.radius);
+                if (index === 0) {
+                    this.piecePlayer1.push(piece);
+                } else {
+                    this.piecePlayer2.push(piece);
+                }
+                y += spacingY; 
+            }
+        });   
+    }
     startGame() {
         
         this.board = new Tablero(
@@ -194,8 +222,9 @@ class Juego{
         
         this.currentPlayer = 0;  // Reiniciamos el turno al primer jugador
         this.radius = this.board.getCellSize() / 2 - 12;
-        this.draw();            // Redibujar el tablero con las nuevas dimensiones
         this.generetePlayerPieces(); 
+        this.draw();            // Redibujar el tablero con las nuevas dimensiones
+        
         if(this.xEnLinea!=0){
             this.startTimer()
         }
@@ -232,6 +261,10 @@ class Juego{
         });
         
     }
+    
+
+    
+
     
 
     switchTurns() {

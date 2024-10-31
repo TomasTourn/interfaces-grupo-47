@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let rect = juego.canvas.getBoundingClientRect();
             let x = event.clientX - rect.left;
             let y = event.clientY - rect.top;
-    
+
             let pieceDropped = false;
     
             juego.activeColumn=null;
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let hintX = juego.board.marginLeft + col * juego.board.cellSize;
                 if (x > hintX && x < hintX + juego.board.cellSize && (y < juego.board.marginTop && y > 35)) {
                     // Colocar la ficha en la columna
-                    if (juego.board.dropDisc(col, juego.players[juego.currentPlayer])) {
+                    if (juego.board.dropDisc(col, juego.players[juego.currentPlayer]) ){
                         juego.draw(); // Redibuja el tablero
                         juego.switchTurns();
                         pieceDropped = true;
@@ -70,21 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
                 }
             }
-    
+            
             // Si no se ha colocado la ficha, devolverla a su lugar y al array
             if (!pieceDropped) {          
                 juego.draggedPiece.returnPieceToStart(juego.draggedPiece, juego);  // Volver a la posición original
-                
                 // Insertar la ficha de nuevo en el array del jugador actual
                 if (juego.currentPlayer === 0) {
                     juego.piecePlayer1.push(juego.draggedPiece);
+        
                 } else {
                     juego.piecePlayer2.push(juego.draggedPiece);
                 }
             }
     
             juego.draggedPiece = null; // Reseteamos el arrastre
-            juego.draw(); // Redibuja el juego para actualizar la posición de las fichas
+            
         }
     });
 
