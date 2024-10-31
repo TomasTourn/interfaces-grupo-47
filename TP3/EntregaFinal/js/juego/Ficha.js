@@ -11,6 +11,7 @@ class Ficha{
         this.imageDeadpool.src="Images/Juego/deadpoolgrabbingface.jpg"
         this.imageWolverine=new Image();
         this.imageWolverine.src="Images/Juego/deadpoolgrabbingface.jpg"
+
     }
 
     setResaltado(x){

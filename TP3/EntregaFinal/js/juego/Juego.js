@@ -1,10 +1,18 @@
 class Juego{
     constructor(canvas,ctx) {
+
         this.canvas = canvas;
         console.log(canvas);
         this.ctx = ctx;
 
         this.board = null;
+        this.btn= new button({
+            ctx:this.ctx,
+            x: 200,
+            y: 400,
+            width: 300,
+            height: 60,
+            text: "4 en Línea"})
 
         //Fondo juego
 
@@ -59,6 +67,9 @@ class Juego{
         this.radius = null;// Tamaño de las fichas que se mostrarán arriba
 
         //botones
+        
+       
+  
         this.buttonWidth = 300;
         this.buttonHeight = 60;
 
@@ -75,6 +86,9 @@ class Juego{
         ];
         this.loadedImagesCount = 0;
         this.setupImages();
+
+
+        
     }
 
     setupImages() {
@@ -226,10 +240,22 @@ class Juego{
         );
     }
 
+
+
+
+
     drawButtons() {
+        
+        this.ctx.drawImage(
+            this.fondoImage,        // Imagen del tablero
+            0, 0,             // Posición X e Y de la imagen en el canvas
+            this.canvas.width,        // Ancho del tablero (ajustado al tamaño del canvas)
+            this.canvas.height+30     // Alto del tablero (ajustado al tamaño del canvas)
+        );
+
         // Configuraciones básicas de los botones    
-        let startY = 50;  // Margen superior para los botones
-        let margin = 20;  // Espacio entre botones
+        let startY = 600;  // Margen superior para los botones
+        let startX = 200;  //inicio en x de los botones
 
         // Colores y estilos
         this.ctx.fillStyle = "#4CAF50"; // Verde para el botón
@@ -237,30 +263,45 @@ class Juego{
         this.ctx.textAlign = "center";
         this.ctx.textBaseline = "middle";
 
+        this.btn.drawSingleButton();
+        this.drawSingleButton(startY,startX,"4 en linea")
+        this.drawSingleButton(startY,startX+315,"5 en linea")
+        this.drawSingleButton(startY,startX+630,"6 en linea")
 
-        this.drawSingleButton(startY,"4 en linea")
-        this.drawSingleButton(startY +this.buttonHeight *1.2,"5 en linea")
-        this.drawSingleButton(startY +this.buttonHeight *2.4,"6 en linea")
+
+
 
     }
 
-    drawSingleButton(yPosition, buttonText) {
+    drawSingleButton(yPosition,xPosition, buttonText,isHovered=false) {
 
     
-        this.ctx.drawImage(
-            this.yellowButton,
-            this.canvas.width / 2 - this.buttonWidth / 2, // X posición para centrar la imagen
-            yPosition,                                   // Y posición
-            this.buttonWidth,                            // Ancho de la imagen
-            this.buttonHeight                            // Alto de la imagen
-        );
+        if(isHovered==true){
+
+            this.ctx.drawImage(
+                this.redButton,
+                xPosition, // X posición para centrar la imagen
+                yPosition,                                   // Y posición
+                this.buttonWidth,                            // Ancho de la imagen
+                this.buttonHeight                            // Alto de la imagen
+            );
+        }else{
+            this.ctx.drawImage(
+                this.yellowButton,
+                xPosition, // X posición para centrar la imagen
+                yPosition,                                   // Y posición
+                this.buttonWidth,                            // Ancho de la imagen
+                this.buttonHeight                            // Alto de la imagen
+            );
+        }
+
     
           // Dibuja el texto sobre la imagen
           this.ctx.fillStyle = "#000000";                 // Color del texto
           this.ctx.font = "20px 'Dekko', cursive";        // Fuente personalizada
           this.ctx.textAlign = "center";
           this.ctx.textBaseline = "middle";
-            this.ctx.fillText(buttonText, this.canvas.width / 2, yPosition + this.buttonHeight / 2);
+            this.ctx.fillText(buttonText, xPosition+this.buttonWidth/2, yPosition + this.buttonHeight / 2);
     }
 
     drawEffect() {
