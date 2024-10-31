@@ -55,6 +55,10 @@ class Tablero {
     getganador(){
         return this.ganador;
     }
+    
+    getCantPiecesBoard(){
+        return (this.getCantCol * this.getCantFil) / 2;
+    }
 
     createGrid() {
         let grid = [];

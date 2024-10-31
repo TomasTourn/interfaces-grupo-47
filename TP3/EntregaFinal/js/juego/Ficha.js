@@ -18,6 +18,11 @@ class Ficha{
     }
 
     draw(ctx) {
+        if (!this.player.image.complete) {
+            // Si la imagen aún no está cargada, espera y vuelve a intentar después
+            this.player.image.onload = () => this.draw(ctx);
+            return;
+        }
         ctx.save()
         ctx.beginPath();        
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);

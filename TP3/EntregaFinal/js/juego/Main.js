@@ -11,32 +11,33 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     juego.canvas.addEventListener('mousedown', (event) => {
-        if(juego.xEnLinea!=0){
-        let rect = juego.canvas.getBoundingClientRect();
-        let x = event.clientX - rect.left;
-        let y = event.clientY - rect.top;
-
-        // Verifica si se hace clic en una de las fichas del jugador actual
-        let currentPlayerPiece = juego.players[juego.currentPlayer].getNextPiece(); // Ficha del jugador actual    
-        
-        let distance = Math.sqrt((x - currentPlayerPiece.x) ** 2 + (y - currentPlayerPiece.y) ** 2);
-        
-
-        // Solo permite arrastrar la ficha si es del jugador actual
-        if (distance < juego.radius) {
-            juego.draggedPiece = juego.players[juego.currentPlayer].getNextPiece(); // Guarda el jugador actual cuya ficha se arrastra
+        if (juego.xEnLinea !== 0) {
+            let rect = juego.canvas.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+            let y = event.clientY - rect.top;
+    
+            // Obtiene el arreglo de fichas del jugador actual
+            let playerPieces = juego.currentPlayer === 0 ? juego.piecePlayer1 : juego.piecePlayer2;
+    
+            // Verifica si se hizo clic en alguna de las fichas del jugador actual
+            playerPieces.forEach(piece => {
+                let distance = Math.sqrt((x - piece.x) ** 2 + (y - piece.y) ** 2);
+                if (distance < juego.radius) {
+                    juego.draggedPiece = piece; // Guarda la ficha que se arrastra
+                    // Elimina la ficha seleccionada del arreglo
+                    playerPieces.splice(index, 1);
+                }
+            });
         }
-        }
-        
     });
 
-    juego.canvas.addEventListener('mousemove', (event) => {
-        if (juego.draggedPiece) {
+   juego.canvas.addEventListener('mousemove', (event) => {
+      if (juego.draggedPiece) {
             let rect = canvas.getBoundingClientRect();
             juego.draggedPiece.x = event.clientX - rect.left;
             juego.draggedPiece.y = event.clientY - rect.top;
             juego.draw(); // Redibujar el canvas con la ficha moviéndose
-        }
+      }
     });
 
     juego.canvas.addEventListener('mouseup', (event) => {

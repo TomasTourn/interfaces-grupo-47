@@ -4,7 +4,6 @@ class Juego{
         console.log(canvas);
         this.ctx = ctx;
 
-
         this.board = null;
 
         //Fondo juego
@@ -165,24 +164,31 @@ class Juego{
         }    
     }
 
-    drawPlayerPieces() {    
+    drawPlayerPieces() {
+        this.piecePlayer1 = []; 
+        this.piecePlayer2 = [];
+        const spacingY = 20;
+
+        let totalFichas= Math.floor((this.board.cols * this.board.rows)/2);
+
         this.players.forEach((player, index) => {
-            let x=null
-            if(index==0){
-                x = 200; // Espacio entre fichas
-                
-            }else{
-                x = 1150; // Espacio entre fichas
-            }     
-            let y = 350; // Posición fija en la parte superior del canvas
-            let piece = new Ficha(player,x,y,this.radius,this)
-            player.setNextPiece(piece);
-            if(this.players[this.currentPlayer]==player){
-                piece.setResaltado(true)
+            let x = index === 0 ? 200 : 1150;
+            let y = 130; 
+
+            for (let i = 0; i < totalFichas; i++) {
+                console.log("asdas");
+                let piece = new Ficha(player, x, y, this.radius);
+                if (index === 0) {
+                    this.piecePlayer1.push(piece);
+                } else {
+                    this.piecePlayer2.push(piece);
+                }
+                y += spacingY; 
             }
-            piece.draw(this.ctx,this.board.cellSize);
-            piece.setResaltado(false);
         });
+
+        this.piecePlayer1.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
+        this.piecePlayer2.forEach(piece => piece.draw(this.ctx, this.board.cellSize));
     }
 
     switchTurns() {
