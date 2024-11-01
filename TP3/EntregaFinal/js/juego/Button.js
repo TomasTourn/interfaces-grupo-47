@@ -6,16 +6,23 @@ class button {
         this.width=width;
         this.height=height;
         this.cant=cant;
-        this.image=new Image();
-        this.image.src="Images/Juego/yellowButton.png"
+        this.hovered = false;
+        this.imageDefault=new Image();
+        this.imageDefault.src="Images/Juego/yellowButton.png"
+        this.imageHover=new Image();
+        this.imageHover.src="Images/Juego/redButton.png"
     }
 
 
     drawSingleButton() {
-    
-
+        let actualImage;
+        if (this.hovered){
+            actualImage=this.imageHover;
+        }else{
+            actualImage=this.imageDefault;
+        }
         this.ctx.drawImage(
-            this.image,
+            actualImage,
             this.x, // X posición para centrar la imagen
             this.y,                                   // Y posición
             this.width,                            // Ancho de la imagen
@@ -27,7 +34,7 @@ class button {
             this.ctx.font = "20px 'Dekko', cursive";        // Fuente personalizada
             this.ctx.textAlign = "center";
             this.ctx.textBaseline = "middle";
-                this.ctx.fillText(`${this.cant} en Línea`, this.x+ this.width/2, this.y + this.height / 2);
+            this.ctx.fillText(`${this.cant} en Línea`, this.x+ this.width/2, this.y + this.height / 2);
      
     }
 

@@ -62,14 +62,10 @@ class Juego{
         this.radius = null;// Tamaño de las fichas que se mostrarán arriba
 
         //botones
-        
+        this.isHovering = false; // Estado del hover
  
         this.buttons=[]
         this.initButtons();
-
-        this.isHovering = false; // Estado del hover
-        this.hoveredButton = null; // Botón actualmente en hover
-       
   
         this.buttonWidth = 300;
         this.buttonHeight = 60;
@@ -113,17 +109,17 @@ class Juego{
     // Dibuja el tablero y las fichas
     draw() {
         
-        if(this.xEnLinea!=0){
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            this.ctx.fillStyle = '#ffffff'; // Color azul para el fondo del tablero
-            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            
             this.ctx.drawImage(
                 this.fondoImage,        // Imagen del tablero
                 0, 0,             // Posición X e Y de la imagen en el canvas
                 this.canvas.width,        // Ancho del tablero (ajustado al tamaño del canvas)
                 this.canvas.height+30     // Alto del tablero (ajustado al tamaño del canvas)
             );
+
+        if(this.xEnLinea!=0){
 
             this.ctx.drawImage(
                 this.testBg1Image,        // Imagen del tablero
@@ -170,7 +166,6 @@ class Juego{
 
             this.drawTimer();
         }else{
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.drawButtons();      
         }
         
@@ -269,17 +264,9 @@ class Juego{
 
 
     drawButtons() {
-        
-        this.ctx.drawImage(
-            this.fondoImage,        // Imagen del tablero
-            0, 0,             // Posición X e Y de la imagen en el canvas
-            this.canvas.width,        // Ancho del tablero (ajustado al tamaño del canvas)
-            this.canvas.height+30     // Alto del tablero (ajustado al tamaño del canvas)
-        );
 
-        // Configuraciones básicas de los botones    
-        let startY = 600;  // Margen superior para los botones
-        let startX = 200;  //inicio en x de los botones
+        // Configuraciones básicas de los botones  
+
     
         for (const btn of this.buttons) {
             btn.drawSingleButton(); // Dibuja el botón
@@ -293,8 +280,6 @@ class Juego{
     }
 
     drawSingleButton(yPosition,xPosition, buttonText,isHovered=false) {
-
-    
         if(isHovered==true){
 
             this.ctx.drawImage(
@@ -386,34 +371,42 @@ class Juego{
     }
 
 
-
     handleHover(event) {
-    
-        
-        if(this.xEnLinea==0){
-
+        if (this.xEnLinea === 0) {
             let rect = this.canvas.getBoundingClientRect();
             let x = event.clientX - rect.left;
             let y = event.clientY - rect.top;
     
-           for (const btn of this.buttons) {
-      
-            if( btn.isCursorOver(x,y)){
-                if(event.type==="click"){
-                    
-                    this.xEnLinea=btn.getCant();
-                        this.startGame()
-            }
-            }
+            this.isHovering = false;
+            let hoveredButton = null;
     
+            for (const btn of this.buttons) {
+                if (btn.isCursorOver(x, y)) {
+                    btn.hovered = true;
+                    this.isHovering = true;
+                    hoveredButton = btn;
+                    
+                    if (event.type === "click") {
+                        this.xEnLinea = btn.getCant();
+                        this.isHovering = false
+                        this.startGame();
+
+                    }
+                } else {
+                    btn.hovered = false;
+                    
+                }
             }
-   
-        
+
+            if (this.isHovering) {
+                this.canvas.style.cursor = "pointer";
+            } else {
+                this.canvas.style.cursor = "default";
+            }
+            
+            this.draw(); // Redraw the canvas with updated button colors
         }
-       
-        
     }
-     
 
 
     initButtons(){
