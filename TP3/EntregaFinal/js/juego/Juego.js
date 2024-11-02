@@ -90,20 +90,38 @@ class Juego{
 
     }
 
+    async loadSources() {
+        await this.setupImages();
+        await this.setupFonts();
+        console.log("All resources loaded. Starting the game...");
+        this.startGame(); // Aquí puedes iniciar tu juego
+    }
+
     setupImages() {
-        this.imagesToLoad.forEach(image => {
-            image.onload = () => {
-                this.loadedImagesCount++;
-                if (this.loadedImagesCount === this.imagesToLoad.length) {
-                    this.startGame();
-                }
-            };
-            image.onerror = () => {
-                console.error("Failed to load image:", image.src);
-            };
+        return new Promise((resolve, reject) => {
+            this.imagesToLoad.forEach(image => {
+                image.onload = () => {
+                    this.loadedImagesCount++;
+                    if (this.loadedImagesCount === this.imagesToLoad.length) {
+                        console.log("All images loaded");
+                        resolve(); // Resuelve la promesa cuando todas las imágenes estén cargadas
+                    }
+                };
+                image.onerror = () => {
+                    console.error("Failed to load image:", image.src);
+                    reject(new Error("Image loading failed"));
+                };
+                image.src = image.src; // Asigna la fuente para iniciar la carga
+            });
         });
     }
-    
+
+    async setupFonts() {
+        const font = new FontFace('Luckiest Guy', 'url(./fonts/LuckiestGuy-Regular.ttf)'); // Asegúrate de que la ruta y el nombre del archivo sean correctos
+        await font.load();
+        document.fonts.add(font);
+        console.log("Font loaded");
+    }
     
 
     // Dibuja el tablero y las fichas
@@ -169,15 +187,15 @@ class Juego{
             this.drawButtons();      
         }
         
-        if(this.board.ganador){
-            this.board.ganador=false;
+        if(this.board.finishedBoard){
+            this.board.finishedBoard=false;
             this.startGame();
         }
     }
 
     
     startGame() {
-        
+
         this.board = new Tablero(
             this.ctx,          // Contexto del canvas
             this.canvas,
@@ -341,15 +359,17 @@ class Juego{
     drawTimer() {
         this.ctx.save(); // Guarda el estado actual del contexto
 
-        this.ctx.font = "bold 60px arial"; // Establecer estilo, tamaño y fuente
+        this.ctx.font = "45px Luckiest Guy";// Establecer estilo, tamaño y fuente
         this.ctx.fillStyle = "#FF0000";
-        
-        this.ctx.shadowColor = "rgba(0, 0, 0, 0.5)";  // Color de la sombra
-        this.ctx.shadowOffsetX = 3;                   // Desplazamiento de la sombra en X
-        this.ctx.shadowOffsetY = 3;                   // Desplazamiento de la sombra en Y
-        this.ctx.shadowBlur = 1;                      // Nivel de desenfoque de la sombra
-            
+
+        // Configuración de la sombra
+        this.ctx.shadowColor = "black";
+        this.ctx.shadowOffsetX = 6; // Ajusta para más profundidad
+        this.ctx.shadowOffsetY = 6;
+        this.ctx.shadowBlur = 8;
+
         this.ctx.fillText(this.timeLeft, this.canvas.width-90, 50); 
+        
 
         this.ctx.restore(); // Restaura el estado original del contexto
     }

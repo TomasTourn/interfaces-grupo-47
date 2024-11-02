@@ -1,13 +1,11 @@
-document.addEventListener('DOMContentLoaded', () => {
+
+document.addEventListener('DOMContentLoaded', async () => {
     let canvas = document.getElementById('gameCanvas');
     let ctx = canvas.getContext('2d');
 
     let juego = new Juego(canvas,ctx);  // Inicializa el juego con el ID del canvas
 
-    // Inicia el juego
-    window.onload = () => {
-        juego.startGame()
-    };
+    await juego.loadSources();
 
     
     juego.canvas.addEventListener('mousedown', (event) => {

@@ -14,9 +14,11 @@ class Tablero {
         this.marginRight = marginRight;
         this.marginLeft = marginLeft;
 
-        this.ganador=false;
+        this.finishedBoard=false;
 
         this.cellSize = ((this.canvas.height - this.marginTop - this.marginBottom) / this.rows);
+
+        this.occupiedcells=0;
 
         // Cargar imagen del tablero
         this.cellImage = new Image();
@@ -52,9 +54,6 @@ class Tablero {
         return this.cellSize
     }
 
-    getganador(){
-        return this.ganador;
-    }
     
     getCantPiecesBoard(){
         return (this.getCantCol * this.getCantFil) / 2;
@@ -125,7 +124,8 @@ class Tablero {
             if (!this.grid[row][col]) {
                 let piece = new Ficha(player, (col * this.cellSize + this.marginLeft)+this.cellSize / 2 , this.cellSize, this.radius);
                 this.grid[row][col] = piece;                
-                piece.animateDrop(piece, row, col,this, this.game);                
+                piece.animateDrop(piece, row, col,this, this.game);
+                this.occupiedcells++                
                 return true;
             }
         }
@@ -144,7 +144,10 @@ class Tablero {
         
         if (winner){
             alert(`${piece.player.name} gana!`);
-            this.ganador=true;
+            this.finishedBoard=true;
+        }else if(this.occupiedcells == this.rows*this.cols){
+            alert("Hay empate");
+            this.finishedBoard=true;
         }
     }
 
