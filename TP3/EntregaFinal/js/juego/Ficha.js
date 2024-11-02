@@ -7,11 +7,6 @@ class Ficha{
         this.startY=y;
         this.radius=radius;
         this.resaltado=false;
-        this.imageDeadpool=new Image();
-        this.imageDeadpool.src="Images/Juego/deadpoolgrabbingface.jpg"
-        this.imageWolverine=new Image();
-        this.imageWolverine.src="Images/Juego/deadpoolgrabbingface.jpg"
-
     }
 
     setResaltado(x){

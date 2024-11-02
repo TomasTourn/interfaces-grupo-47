@@ -39,6 +39,7 @@ class button {
     }
 
     isCursorOver(x,y){
+        
         if(x > this.x && x < this.x + this.width && y > this.y && y < this.y + this.height){
             return true;
         }else{
@@ -48,5 +49,8 @@ class button {
 
     getCant(){
         return this.cant;
+    }
+    getImage(){
+        return this.imageDefault;
     }
 }

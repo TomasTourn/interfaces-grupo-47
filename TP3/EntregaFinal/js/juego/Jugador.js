@@ -5,5 +5,8 @@ class Jugador{
         this.effect=effect
     }
 
+    setImage(image){
+        this.image=image;
+    }
     
 }

@@ -36,12 +36,23 @@ class Juego{
 
 
         this.imageDeadpool= new Image();
-        this.imageDeadpool.src="Images/Juego/deadpoolgrabbingface.jpg"
+        this.imageDeadpool.src="Images/Juego/deadpoolficha1.png"
 
         this.imageWolverine= new Image();
-        this.imageWolverine.src="Images/Juego/wolverine.jpg"
+        this.imageWolverine.src="Images/Juego/fichawolverine1.png"
 
+        //imagenes texto
 
+        this.imageElegirFichas=new Image();
+        this.imageElegirFichas.src="Images/juego/eligefichas.png"
+
+        this.imageDeadpoolText=new Image();
+        this.imageDeadpoolText.src="Images/juego/deadpooltext.png"
+
+        this.imageWolverineText=new Image();
+        this.imageWolverineText.src="Images/juego/wolverinetext.png"
+
+        
         //efecto
         this.effectImageD = new Image();  
         this.effectImageD.src = "Images/Juego/efectoD.png";
@@ -50,6 +61,7 @@ class Juego{
         this.effectImageW.src = "Images/Juego/efectoW.png";
 
         this.activeColumn = null; // Columna actual sobre la que está la ficha
+
 
         this.players = [new Jugador('Deadpool',this.imageDeadpool,this.effectImageD), new Jugador('Wolverine',this.imageWolverine, this.effectImageW)]; 
 
@@ -66,6 +78,12 @@ class Juego{
  
         this.buttons=[]
         this.initButtons();
+
+        this.botonesFicha1=[];
+        this.initBotonesFichaP1();
+     
+        this.botonesFicha2=[]
+        this.initBotonesFichaP2()
   
         this.buttonWidth = 300;
         this.buttonHeight = 60;
@@ -79,7 +97,7 @@ class Juego{
             this.fondoImage, this.testBg1Image, this.testBg2Image,
             this.turnoWolverine, this.turnoDeadpool,
             this.yellowButton, this.redButton,
-            this.imageDeadpool, this.imageWolverine, this.effectImageD,this.effectImageW
+            this.imageDeadpool, this.imageWolverine, this.effectImageD,this.effectImageW,this.imageDeadpoolText,this.imageWolverineText,this.imageElegirFichas
         ];
         this.loadedImagesCount = 0;
         this.setupImages();
@@ -184,7 +202,9 @@ class Juego{
 
             this.drawTimer();
         }else{
-            this.drawButtons();      
+            this.drawButtons();  
+            this.initBotonesFichaP1();    
+            this.initBotonesFichaP2();
         }
         
         if(this.board.finishedBoard){
@@ -283,8 +303,42 @@ class Juego{
 
     drawButtons() {
 
+        this.ctx.drawImage(
+            this.imageElegirFichas,
+            300, // X posición para centrar la imagen
+            -10,                                   // Y posición
+            700,                            // Ancho de la imagen
+            125                            // Alto de la imagen
+        );
+
+        this.ctx.drawImage(
+            this.imageDeadpoolText,
+            200, // X posición para centrar la imagen
+            150,                                   // Y posición
+            200,                            // Ancho de la imagen
+            50                            // Alto de la imagen
+        );
+
+        this.ctx.drawImage(
+            this.imageWolverineText,
+            900, // X posición para centrar la imagen
+            150,                                   // Y posición
+            200,                            // Ancho de la imagen
+            50                            // Alto de la imagen
+        );
+  
+
+
+
         // Configuraciones básicas de los botones  
 
+        for(const button of this.botonesFicha1){
+            button.drawSingleButton();
+        }
+        for(const button of this.botonesFicha2){
+            button.drawSingleButton();
+        }
+    
     
         for (const btn of this.buttons) {
             btn.drawSingleButton(); // Dibuja el botón
@@ -400,6 +454,42 @@ class Juego{
             this.isHovering = false;
             let hoveredButton = null;
     
+            
+
+            for (const btn of this.botonesFicha1) {
+                if (btn.isCursorOver(x, y)) {
+                    btn.hovered = true;
+                    this.isHovering = true;
+                    hoveredButton = btn;
+                    
+                    if (event.type === "click") {
+                       this.players[0].setImage(btn.getImage())
+
+                    }
+                } else {
+                    btn.hovered = false;
+                    
+                }
+            }
+            
+            for (const btn of this.botonesFicha2) {
+                if (btn.isCursorOver(x, y)) {
+                    btn.hovered = true;
+                    this.isHovering = true;
+                    hoveredButton = btn;
+                    
+                    if (event.type === "click") {
+                        btn.setClicked(true);
+                        this.players[1].setImage(btn.getImage())
+                       
+
+                    }
+                } else {
+                    btn.hovered = false;
+                    btn.setClicked(false)
+                }
+            }
+
             for (const btn of this.buttons) {
                 if (btn.isCursorOver(x, y)) {
                     btn.hovered = true;
@@ -435,10 +525,62 @@ class Juego{
 
             for (let i = 0; i < 4; i++) {
                 const x = 60 +(i*width*1.03); // Posición x
-                const y = 600 ; // Posición y
+                const y = 450 ; // Posición y
                 const btn=new button(this.ctx,x, y,width,height,i+4);
                 this.buttons.push(btn);
             }
+    }
+
+    initBotonesFichaP1(){
+
+        let x= 100
+        let y=225
+        let width =120; // Ajusta el tamaño del botón
+        let height = 120;
+
+        let ficha1=new Image()
+        ficha1.src="Images/Juego/deadpoolficha1.png"
+        let ficha2=new Image()
+        ficha2.src="Images/Juego/deadpoolficha2.png"
+        let ficha3=new Image()
+        ficha3.src="Images/Juego/deadpoolficha3.png"
+
+        let btn1=new BotonFicha(this.ctx,x, y,width,height,4,10,ficha1)
+        this.botonesFicha1.push(btn1);
+
+        let btn2=new BotonFicha(this.ctx,x+150, y,width,height,4,10,ficha2)
+        this.botonesFicha1.push(btn2);
+
+        let btn3=new BotonFicha(this.ctx,x+300, y,width,height,4,10,ficha3)
+        this.botonesFicha1.push(btn3);
+
+
+
+    }
+
+    initBotonesFichaP2(){
+        let x= 800
+        let y=225
+        let width =120; // Ajusta el tamaño del botón
+        let height = 120;
+
+        let ficha1=new Image()
+        ficha1.src="Images/Juego/fichawolverine1.png"
+        let ficha2=new Image()
+        ficha2.src="Images/Juego/fichawolverine2.png"
+        let ficha3=new Image()
+        ficha3.src="Images/Juego/fichawolverine3.png"
+
+        let btn1=new BotonFicha(this.ctx,x, y,width,height,4,10,ficha1);
+        this.botonesFicha2.push(btn1);
+        let btn2=new BotonFicha(this.ctx,x+150, y,width,height,4,10,ficha2);
+        this.botonesFicha2.push(btn2);
+        let btn3=new BotonFicha(this.ctx,x+300, y,width,height,4,10,ficha3);
+        this.botonesFicha2.push(btn3);
+        
+        
+
+
     }
 
 }
