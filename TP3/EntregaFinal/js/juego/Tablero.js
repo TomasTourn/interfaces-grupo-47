@@ -144,27 +144,24 @@ class Tablero {
     
     showWinnerAnimation(image) {
         console.log("Empezo animacion winner");
-        const animationDuration = 3000; // Duración de la animación en milisegundos
+        const animationDuration = 3000; 
         const startTime = performance.now();
     
         const animate = (time) => {
             const elapsed = time - startTime;
-            const alpha = Math.min(elapsed / animationDuration, 1); // Controla la duración de la animación
+            const alpha = Math.min(elapsed / animationDuration, 1); 
     
-            // Dibuja la imagen del ganador
-            const imgWidth = 950; // Ancho de la imagen
-            const imgHeight = 950; // Alto de la imagen
-            const imgX = (this.canvas.width - imgWidth) / 2; // Centrar horizontalmente
-            const imgY = (this.canvas.height - imgHeight) / 2; // Centrar verticalmente
+            
+            const imgWidth = 950; 
+            const imgHeight = 950; 
+            const imgX = (this.canvas.width - imgWidth) / 2; 
+            const imgY = (this.canvas.height - imgHeight) / 2; 
     
-            this.ctx.globalAlpha = alpha; // Aplicar la opacidad
-            this.ctx.drawImage(image, imgX, imgY, imgWidth, imgHeight); // Dibuja la imagen del ganador
+            this.ctx.drawImage(image, imgX, imgY, imgWidth, imgHeight); 
     
             if (alpha < 1) {
                 requestAnimationFrame(animate); // Continúa la animación
-            } else {
-                this.ctx.globalAlpha = 1; // Resetea la opacidad para futuras dibujadas
-            }
+            } 
         };
     
         requestAnimationFrame(animate);
@@ -184,7 +181,7 @@ class Tablero {
                     this.showWinnerAnimation(this.deadpoolgana);
                     this.finishedBoard = true;
                 };
-                // También se debe establecer la imagen aquí en caso de que ya esté cargada
+
                 if (this.deadpoolgana.complete) {
                     this.showWinnerAnimation(this.deadpoolgana);
                     this.finishedBoard = true;
@@ -194,15 +191,21 @@ class Tablero {
                     this.showWinnerAnimation(this.wolverinGana);
                     this.finishedBoard = true;
                 };
-                // También se debe establecer la imagen aquí en caso de que ya esté cargada
                 if (this.wolverinGana.complete) {
                     this.showWinnerAnimation(this.wolverinGana);
                     this.finishedBoard = true;
                 }
             }
         } else if (this.occupiedcells == this.rows * this.cols) {
-            this.showWinnerAnimation(this.empate);
-            this.finishedBoard = true;
+
+            this.empate.onload = () => {
+                this.showWinnerAnimation(this.empate);
+                this.finishedBoard = true;
+            };
+            if (this.empate.complete) {
+                this.showWinnerAnimation(this.empate);
+                this.finishedBoard = true;
+            }
         }
     }
     
