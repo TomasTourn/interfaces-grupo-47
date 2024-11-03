@@ -1,59 +1,41 @@
-class BotonFicha extends button{
-
-    constructor(ctx,x,y,width,height,cant,radius,image){
-            super(ctx,x,y,width,height,cant);
-            this.radius=radius;
-            this.imageDefault=image;
-            this.clicked=false;
+class BotonFicha extends button {
+    constructor(ctx, x, y, width, height, cant, radius, image) {
+        super(ctx, x, y, width, height, cant);
+        this.radius = radius;
+        this.imageDefault = image;
+        this.clicked = false;
     }
 
     drawSingleButton() {
         let actualImage = this.imageDefault;
         
-           if(this.clicked){
-              // Set shadow properties to create a glow effect
-              this.ctx.shadowBlur = 25; // Adjust this value for the intensity of the glow
-              this.ctx.shadowColor = 'rgba(0, 255, 100,1)'; // Set glow color (white in this case)
-              this.ctx.shadowOffsetX = 0; // No horizontal offset
-              this.ctx.shadowOffsetY = 0; 
-     
-
-// No vertical offset
+        if (this.clicked) {
+            // Efecto de resplandor solo si está en estado clicked
+            this.ctx.shadowBlur = 25;
+            this.ctx.shadowColor = 'rgba(0, 255, 100,1)';
+            this.ctx.shadowOffsetX = 0;
+            this.ctx.shadowOffsetY = 0;
         } else {
-            // Reset shadow properties
+            // Restablece el efecto si no está seleccionado
             this.ctx.shadowBlur = 0;
             this.ctx.shadowColor = 'rgba(0, 0, 0, 0)';
         }
-    
-        // Draw the button image
+
+        // Dibuja el botón con la imagen
         this.ctx.drawImage(
             actualImage,
-            this.x, // X position
-            this.y, // Y position
-            this.width, // Width of the image
-            this.height // Height of the image
+            this.x, 
+            this.y, 
+            this.width, 
+            this.height
         );
-        
-        // Reset shadow settings after drawing
+
+        // Restablece las propiedades de sombra después de dibujar
         this.ctx.shadowBlur = 0;
         this.ctx.shadowColor = 'rgba(0, 0, 0, 0)';
     }
-    
-    getX(){
-        return this.x;
-    }
-    getY(){
-        return this.y;
-    }
 
-    setClicked(boolean){
-        this.clicked=boolean;
-    }
-    
-    equals(BotonFicha){
-        if (BotonFicha.getX()==this.x && BotonFicha.getY() ==this.y){
-            return true;
-        }
-        return false;
+    setClicked(boolean) {
+        this.clicked = boolean;
     }
 }

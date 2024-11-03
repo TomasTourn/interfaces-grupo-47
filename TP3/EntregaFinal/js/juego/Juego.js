@@ -99,6 +99,9 @@ class Juego{
         this.tiempoagotado = new Image();
         this.tiempoagotado.src = "Images/Juego/tiempoagotado.png"
 
+        this.ficha1Seleccionada = false;
+        this.ficha2Seleccionada = false;
+
         this.imagesToLoad = [
             this.fondoImage, this.testBg1Image, this.testBg2Image,
             this.turnoWolverine, this.turnoDeadpool,
@@ -261,9 +264,17 @@ class Juego{
 
             this.drawTimer();
         }else{
+
             this.drawButtons();  
             this.initBotonesFichaP1();    
             this.initBotonesFichaP2();
+
+            if (!this.ficha1Seleccionada || !this.ficha2Seleccionada) {
+                this.ctx.drawImage(
+                    this.imageSeleccionFicha,415,630,500,100
+                );
+            }
+
         }
         
         if(this.board.finishedBoard){
@@ -513,9 +524,6 @@ class Juego{
     
             this.isHovering = false;
             let hoveredButton = null;
-            let lastClicked =null;
-         
-            
 
             for (const btn of this.botonesFicha1) {
                 if (btn.isCursorOver(x, y)) {
@@ -567,16 +575,14 @@ class Juego{
             let x = event.clientX - rect.left;
             let y = event.clientY - rect.top;
 
-            let ficha1Seleccionada=false;
-            let ficha2Seleccionada=false;
+            
 
             for (const button of this.botonesFicha1) {
                
                 if (button.isCursorOver(x,y)) {
-                    console.log("ds")
                     this.botonesFicha1.forEach(button => button.setClicked(false));
                     this.players[0].setImage(button.getImage());
-                    ficha1Seleccionada=true;
+                    this.ficha1Seleccionada=true;
                     button.setClicked(true);
                     // You might want to reset the state after some time or perform other actions here
                 }
@@ -585,11 +591,11 @@ class Juego{
             for (const button of this.botonesFicha2) {
                
                 if (button.isCursorOver(x,y)) {
-                    console.log("ds")
                     this.botonesFicha2.forEach(button => button.setClicked(false));
-                    ficha2Seleccionada=true;
+                    this.ficha2Seleccionada=true;
                     this.players[1].setImage(button.getImage())
                     button.setClicked(true);
+
                     // You might want to reset the state after some time or perform other actions here
 
                 } 
@@ -597,15 +603,10 @@ class Juego{
 
             
                 for (const btn of this.buttons) {
-                    if (btn.isCursorOver(x, y)) {
+                    if (btn.isCursorOver(x, y)&&this.ficha1Seleccionada&&this.ficha2Seleccionada) {
                             this.xEnLinea = btn.getCant();
                             this.startGame();
-                    } else{
-                        console.log("dd")
-                        console.log(this.imageSeleccionFicha)
-
-                    }
-                    
+                    }          
                 } 
                 
                 this.draw(); // Redraw the canvas with updated button colors
@@ -625,7 +626,7 @@ class Juego{
 
             for (let i = 0; i < 4; i++) {
                 const x = 60 +(i*width*1.03); // Posición x
-                const y = 600 ; // Posición y
+                const y = 550 ; // Posición y
                 const btn=new button(this.ctx,x, y,width,height,i+4);
                 this.buttons.push(btn);
             }
@@ -645,17 +646,14 @@ class Juego{
         let ficha3=new Image()
         ficha3.src="Images/Juego/deadpoolficha3.png"
 
-        let btn1=new BotonFicha(this.ctx,x, y,width,height,4,10,ficha1)
+        let btn1=new BotonFicha(this.ctx,x, y,width,height,4,10,ficha1,true)
         this.botonesFicha1.push(btn1);
 
-        let btn2=new BotonFicha(this.ctx,x+150, y,width,height,4,10,ficha2)
+        let btn2=new BotonFicha(this.ctx,x+150, y,width,height,4,10,ficha2,false)
         this.botonesFicha1.push(btn2);
 
-        let btn3=new BotonFicha(this.ctx,x+300, y,width,height,4,10,ficha3)
+        let btn3=new BotonFicha(this.ctx,x+300, y,width,height,4,10,ficha3,false)
         this.botonesFicha1.push(btn3);
-
-
-
     }
 
     initBotonesFichaP2(){
@@ -671,16 +669,12 @@ class Juego{
         let ficha3=new Image()
         ficha3.src="Images/Juego/fichawolverine3.png"
 
-        let btn1=new BotonFicha(this.ctx,x, y,width,height,4,10,ficha1);
+        let btn1=new BotonFicha(this.ctx,x, y,width,height,4,10,ficha1,true);
         this.botonesFicha2.push(btn1);
-        let btn2=new BotonFicha(this.ctx,x+150, y,width,height,4,10,ficha2);
+        let btn2=new BotonFicha(this.ctx,x+150, y,width,height,4,10,ficha2,false);
         this.botonesFicha2.push(btn2);
-        let btn3=new BotonFicha(this.ctx,x+300, y,width,height,4,10,ficha3);
+        let btn3=new BotonFicha(this.ctx,x+300, y,width,height,4,10,ficha3,false);
         this.botonesFicha2.push(btn3);
-        
-        
-
-
     }
 
 }
