@@ -12,7 +12,7 @@ class Juego{
         //Fondo juego
 
         this.fondoImage = new Image();
-        this.fondoImage.src = "Images/Juego/fondo.png" 
+        this.fondoImage.src = "Images/Juego/fondofox.png" 
 
         this.testBg1Image = new Image();
         this.testBg1Image.src = "Images/Juego/test-bg.png" 
