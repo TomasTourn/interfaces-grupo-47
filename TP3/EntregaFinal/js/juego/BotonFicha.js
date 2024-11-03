@@ -10,21 +10,19 @@ class BotonFicha extends button{
     drawSingleButton() {
         let actualImage = this.imageDefault;
         
-        if (this.hovered) {
            if(this.clicked){
-            console.log("clikkkkkk")
-                        // Set shadow properties to create a glow effect
-              this.ctx.shadowBlur = 8; // Adjust this value for the intensity of the glow
-              this.ctx.shadowColor = 'rgba(0, 255, 255, 0.7)'; // Set glow color (white in this case)
+              // Set shadow properties to create a glow effect
+              this.ctx.shadowBlur = 25; // Adjust this value for the intensity of the glow
+              this.ctx.shadowColor = 'rgba(0, 255, 100,1)'; // Set glow color (white in this case)
               this.ctx.shadowOffsetX = 0; // No horizontal offset
               this.ctx.shadowOffsetY = 0; 
-           }
+     
+
 // No vertical offset
         } else {
             // Reset shadow properties
             this.ctx.shadowBlur = 0;
             this.ctx.shadowColor = 'rgba(0, 0, 0, 0)';
-            this.setClicked(false)
         }
     
         // Draw the button image
@@ -41,10 +39,21 @@ class BotonFicha extends button{
         this.ctx.shadowColor = 'rgba(0, 0, 0, 0)';
     }
     
+    getX(){
+        return this.x;
+    }
+    getY(){
+        return this.y;
+    }
 
     setClicked(boolean){
         this.clicked=boolean;
     }
     
-
+    equals(BotonFicha){
+        if (BotonFicha.getX()==this.x && BotonFicha.getY() ==this.y){
+            return true;
+        }
+        return false;
+    }
 }
