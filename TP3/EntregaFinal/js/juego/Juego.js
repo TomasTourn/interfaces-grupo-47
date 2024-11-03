@@ -52,6 +52,9 @@ class Juego{
         this.imageWolverineText=new Image();
         this.imageWolverineText.src="Images/juego/wolverinetext.png"
 
+        this.imageSeleccionFicha=new Image();
+        this.imageSeleccionFicha.src="Images/juego/seleccionaficha.png"
+
         
         //efecto
         this.effectImageD = new Image();  
@@ -100,14 +103,15 @@ class Juego{
             this.fondoImage, this.testBg1Image, this.testBg2Image,
             this.turnoWolverine, this.turnoDeadpool,
             this.yellowButton, this.redButton,
-            this.imageDeadpool, this.imageWolverine, this.effectImageD,this.effectImageW,this.imageDeadpoolText,this.imageWolverineText,this.imageElegirFichas,
+            this.imageDeadpool, this.imageWolverine, this.effectImageD,this.effectImageW,this.imageDeadpoolText,this.imageWolverineText,this.imageElegirFichas,this.imageSeleccionFicha,
         this.tiempoagotado
         ];
         this.loadedImagesCount = 0;
         this.setupImages();
 
         this.canvas.addEventListener("mousemove", (event) => this.handleHover(event));
-        this.canvas.addEventListener("click", (event) => this.handleHover(event));
+
+        this.canvas.addEventListener("click", (event) => this.handleClick(event));
         
 
     }
@@ -307,6 +311,7 @@ class Juego{
 
     drawButtons() {
 
+        
         this.ctx.drawImage(
             this.imageElegirFichas,
             300, // X posición para centrar la imagen
@@ -457,7 +462,8 @@ class Juego{
     
             this.isHovering = false;
             let hoveredButton = null;
-    
+            let lastClicked =null;
+         
             
 
             for (const btn of this.botonesFicha1) {
@@ -465,14 +471,8 @@ class Juego{
                     btn.hovered = true;
                     this.isHovering = true;
                     hoveredButton = btn;
-                    
-                    if (event.type === "click") {
-                       this.players[0].setImage(btn.getImage())
-
-                    }
                 } else {
-                    btn.hovered = false;
-                    
+                    btn.hovered = false;   
                 }
             }
             
@@ -481,16 +481,8 @@ class Juego{
                     btn.hovered = true;
                     this.isHovering = true;
                     hoveredButton = btn;
-                    
-                    if (event.type === "click") {
-                        btn.setClicked(true);
-                        this.players[1].setImage(btn.getImage())
-                       
-
-                    }
                 } else {
                     btn.hovered = false;
-                    btn.setClicked(false)
                 }
             }
 
@@ -499,13 +491,6 @@ class Juego{
                     btn.hovered = true;
                     this.isHovering = true;
                     hoveredButton = btn;
-                    
-                    if (event.type === "click") {
-                        this.xEnLinea = btn.getCant();
-                        this.isHovering = false
-                        this.startGame();
-
-                    }
                 } else {
                     btn.hovered = false;
                     
@@ -519,8 +504,68 @@ class Juego{
             }
             
             this.draw(); // Redraw the canvas with updated button colors
+
         }
     }
+
+    
+    handleClick(event){
+        
+        if (this.xEnLinea === 0) {
+            let rect = this.canvas.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+            let y = event.clientY - rect.top;
+
+            let ficha1Seleccionada=false;
+            let ficha2Seleccionada=false;
+
+            for (const button of this.botonesFicha1) {
+               
+                if (button.isCursorOver(x,y)) {
+                    console.log("ds")
+                    this.botonesFicha1.forEach(button => button.setClicked(false));
+                    this.players[0].setImage(button.getImage());
+                    ficha1Seleccionada=true;
+                    button.setClicked(true);
+                    // You might want to reset the state after some time or perform other actions here
+                }
+            }
+
+            for (const button of this.botonesFicha2) {
+               
+                if (button.isCursorOver(x,y)) {
+                    console.log("ds")
+                    this.botonesFicha2.forEach(button => button.setClicked(false));
+                    ficha2Seleccionada=true;
+                    this.players[1].setImage(button.getImage())
+                    button.setClicked(true);
+                    // You might want to reset the state after some time or perform other actions here
+
+                } 
+            }
+
+            
+                for (const btn of this.buttons) {
+                    if (btn.isCursorOver(x, y)) {
+                            this.xEnLinea = btn.getCant();
+                            this.startGame();
+                    } else{
+                        console.log("dd")
+                        console.log(this.imageSeleccionFicha)
+
+                    }
+                    
+                } 
+                
+                this.draw(); // Redraw the canvas with updated button colors
+                
+            }
+       }
+
+
+    
+
+
 
 
     initButtons(){
@@ -529,7 +574,7 @@ class Juego{
 
             for (let i = 0; i < 4; i++) {
                 const x = 60 +(i*width*1.03); // Posición x
-                const y = 450 ; // Posición y
+                const y = 600 ; // Posición y
                 const btn=new button(this.ctx,x, y,width,height,i+4);
                 this.buttons.push(btn);
             }
