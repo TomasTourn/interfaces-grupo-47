@@ -144,18 +144,18 @@ class Tablero {
     
     showWinnerAnimation(image) {
         console.log("Winner Animation Started");
-        const animationDuration = 3000; // Duración total de la animación en milisegundos
+        const animationDuration = 3000; 
         const startTime = performance.now();
-        const imgWidth = 950; // Ancho de la imagen
-        const imgHeight = 950; // Alto de la imagen
+        const imgWidth = 950; 
+        const imgHeight = 950; 
         const imgX = (this.canvas.width - imgWidth) / 2; // Centrar horizontalmente
         let imgY = (this.canvas.height - imgHeight) / 2; // Centrar verticalmente
-        const bounceHeight = 30; // Altura del rebote
-        const totalFrames = 60; // Número total de cuadros en la animación
+        const bounceHeight = 30; 
+      
     
         const animate = (time) => {
             const elapsed = time - startTime;
-            const alpha = Math.min(elapsed / animationDuration, 1); // Controla la duración de la animación
+            const alpha = Math.min(elapsed / animationDuration, 1); 
             
            
             // Cálculo del rebote
@@ -163,7 +163,7 @@ class Tablero {
             imgY = (this.canvas.height - imgHeight) / 2 - bounceHeight * Math.sin(bouncePhase * Math.PI); // Calcula la posición Y para el rebote
     
         
-            this.ctx.drawImage(image, imgX, imgY, imgWidth, imgHeight); // Dibuja la imagen del ganador
+            this.ctx.drawImage(image, imgX, imgY, imgWidth, imgHeight); 
     
             if (alpha < 1) {
                 requestAnimationFrame(animate); // Continúa la animación

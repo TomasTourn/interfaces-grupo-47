@@ -183,21 +183,72 @@ class Juego{
             this.drawEffect();
 
 
-            // Dibuja el botón de reiniciar
-            let restartButtonX = this.canvas.width - this.buttonWidth - 20;
-            let restartButtonY = this.canvas.height - this.buttonHeight - 20;
-            this.ctx.fillStyle = "#FF0000"; // Rojo para reiniciar
-            this.ctx.fillRect(restartButtonX, restartButtonY, this.buttonWidth, this.buttonHeight);
-            this.ctx.fillStyle = "#FFFFFF";
-            this.ctx.fillText("Reiniciar", restartButtonX + this.buttonWidth / 2, restartButtonY + this.buttonHeight / 2);
+        // Dibuja el boton de reiniciar 
+        let restartButtonX = this.canvas.width - this.buttonWidth - 20;
+        let restartButtonY = this.canvas.height - this.buttonHeight - 20;
 
-            //dibuja boton back
-            let backButtonX = 20;
-            let backButtonY = 20;
-            this.ctx.fillStyle = "#FF5733"; // Naranja para el botón
-            this.ctx.fillRect(backButtonX, backButtonY, this.buttonBackSize, this.buttonBackSize);
-            this.ctx.fillStyle = "#FFFFFF";
-            this.ctx.fillText("X", backButtonX + this.buttonBackSize / 2, backButtonY + this.buttonBackSize / 2); 
+        // Sombras
+        this.ctx.shadowColor = "rgba(0, 0, 0, 0.7)";
+        this.ctx.shadowOffsetX = 2;
+        this.ctx.shadowOffsetY = 2;
+        this.ctx.shadowBlur = 4;
+
+        // Esquinas redondeadas
+        this.ctx.fillStyle = "#E70000"; // Rojo para reiniciar
+        this.ctx.beginPath();
+        this.ctx.moveTo(restartButtonX + 10, restartButtonY); // esquina superior izquierda
+        this.ctx.lineTo(restartButtonX + this.buttonWidth - 10, restartButtonY); // cima
+        this.ctx.quadraticCurveTo(restartButtonX + this.buttonWidth, restartButtonY, restartButtonX + this.buttonWidth, restartButtonY + 10); // esquina superior derecha
+        this.ctx.lineTo(restartButtonX + this.buttonWidth, restartButtonY + this.buttonHeight - 10); // lado derecho
+        this.ctx.quadraticCurveTo(restartButtonX + this.buttonWidth, restartButtonY + this.buttonHeight, restartButtonX + this.buttonWidth - 10, restartButtonY + this.buttonHeight); // esquina inferior derecha
+        this.ctx.lineTo(restartButtonX + 10, restartButtonY + this.buttonHeight); // abajo
+        this.ctx.quadraticCurveTo(restartButtonX, restartButtonY + this.buttonHeight, restartButtonX, restartButtonY + this.buttonHeight - 10); // esquina inferior izquierda
+        this.ctx.lineTo(restartButtonX, restartButtonY + 10); // lado izquierdo
+        this.ctx.quadraticCurveTo(restartButtonX, restartButtonY, restartButtonX + 10, restartButtonY); // cima
+        this.ctx.closePath();
+        this.ctx.fill();
+
+        this.ctx.fillStyle = "#FFFFFF";
+        this.ctx.font = "bold 20px Arial"; // Cambia la fuente y tamaño según tu preferencia
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillText("Reiniciar", restartButtonX + this.buttonWidth / 2, restartButtonY + this.buttonHeight / 2);
+        this.ctx.fillStyle = "#FFFFFF"; 
+        
+
+        // Dibuja el boton back
+        let backButtonX = 20;
+        let backButtonY = 20;
+        let buttonWidth = this.buttonBackSize;
+        let buttonHeight = this.buttonBackSize;
+
+        // Sombras
+        this.ctx.shadowColor = "rgba(0, 0, 0, 0.8)"; 
+        this.ctx.shadowOffsetX = 4; 
+        this.ctx.shadowOffsetY = 4; 
+        this.ctx.shadowBlur = 5; 
+
+        // Esquinas redondeadas
+        this.ctx.fillStyle = "#E70000"; 
+        this.ctx.beginPath();
+        this.ctx.moveTo(backButtonX + 10, backButtonY); // esquina superior izquierda
+        this.ctx.lineTo(backButtonX + buttonWidth - 10, backButtonY); // cima
+        this.ctx.quadraticCurveTo(backButtonX + buttonWidth, backButtonY, backButtonX + buttonWidth, backButtonY + 10); // esquina superior derecha
+        this.ctx.lineTo(backButtonX + buttonWidth, backButtonY + buttonHeight - 10); // lado derecho
+        this.ctx.quadraticCurveTo(backButtonX + buttonWidth, backButtonY + buttonHeight, backButtonX + buttonWidth - 10, backButtonY + buttonHeight); // esquina inferior derecha
+        this.ctx.lineTo(backButtonX + 10, backButtonY + buttonHeight); // abajo
+        this.ctx.quadraticCurveTo(backButtonX, backButtonY + buttonHeight, backButtonX, backButtonY + buttonHeight - 10); // esquina inferior izquierda
+        this.ctx.lineTo(backButtonX, backButtonY + 10); // lado izquierdo
+        this.ctx.quadraticCurveTo(backButtonX, backButtonY, backButtonX + 10, backButtonY); // cima
+        this.ctx.closePath();
+        this.ctx.fill();
+
+        // Texto estilizado
+        this.ctx.fillStyle = "#FFFFFF";
+        this.ctx.font = "bold 20px Arial"; 
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillText("X", backButtonX + buttonWidth / 2, backButtonY + buttonHeight / 2);
 
             if (this.draggedPiece) {
                 this.draggedPiece.draw(this.ctx);
