@@ -93,11 +93,15 @@ class Juego{
         this.timeLeft = 300;
         this.timerInterval = null;
 
+        this.tiempoagotado = new Image();
+        this.tiempoagotado.src = "Images/Juego/tiempoagotado.png"
+
         this.imagesToLoad = [
             this.fondoImage, this.testBg1Image, this.testBg2Image,
             this.turnoWolverine, this.turnoDeadpool,
             this.yellowButton, this.redButton,
-            this.imageDeadpool, this.imageWolverine, this.effectImageD,this.effectImageW,this.imageDeadpoolText,this.imageWolverineText,this.imageElegirFichas
+            this.imageDeadpool, this.imageWolverine, this.effectImageD,this.effectImageW,this.imageDeadpoolText,this.imageWolverineText,this.imageElegirFichas,
+        this.tiempoagotado
         ];
         this.loadedImagesCount = 0;
         this.setupImages();
@@ -438,7 +442,7 @@ class Juego{
 
             if (this.timeLeft <= 0) {
                 clearInterval(this.timerInterval);
-                alert('Tiempo agotado. Empate.');
+                this.board.showWinnerAnimation(this.tiempoagotado);
                 this.startGame();
             }
         }, 1000);

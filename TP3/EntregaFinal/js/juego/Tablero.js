@@ -1,7 +1,7 @@
 class Tablero {
 
-    constructor(context, canvas, xEnLinea, marginTop, marginBottom, marginRight, marginLeft, game) {
-        this.context = context;
+    constructor(ctx, canvas, xEnLinea, marginTop, marginBottom, marginRight, marginLeft, game) {
+        this.ctx = ctx;
         this.canvas= canvas;
         this.xEnLinea = xEnLinea;
         this.game = game;
@@ -26,6 +26,14 @@ class Tablero {
         
         this.frameImage = new Image();
         this.frameImage.src = "Images/Juego/marco.png"
+
+
+        this.wolverinGana = new Image();
+        this.wolverinGana.src = "Images/Juego/wolverinegana.png"
+        this.tiempoAgotado = new Image();
+        this.tiempoAgotado.src = "Images/Juego/tiempoagotado.png"
+        this.deadpoolgana = new Image();
+        this.deadpoolgana.src = "Images/Juego/deadpoolgana.png"
 
         //radio del circulo
         this.radius = null
@@ -73,17 +81,17 @@ class Tablero {
         let posY = 0;
         
         this.radius =  this.cellSize / 2 - 11; // Radio de las casillas (agujeros)...-5 es la distancia del agujero al borde de la casilla
-        this.context.save();
+        this.ctx.save();
 
         //dibujamos interior del tablero
-        this.context.fillStyle = "#4475ae";
-        this.context.fillRect( this.marginLeft,this.marginTop, this.cellSize*this.cols, this.cellSize*this.rows);
+        this.ctx.fillStyle = "#4475ae";
+        this.ctx.fillRect( this.marginLeft,this.marginTop, this.cellSize*this.cols, this.cellSize*this.rows);
 
         for (let fila = 0; fila < this.getCantFil(); fila++) {
             for (let columna = 0; columna < this.getCantCol(); columna++) {
                 const piece = this.grid[fila][columna];
                 if (piece) {
-                    piece.draw(this.context);  // Dibuja la ficha en la posición correspondiente
+                    piece.draw(this.ctx);  // Dibuja la ficha en la posición correspondiente
                 }
             }
         }
@@ -95,7 +103,7 @@ class Tablero {
                 posX = this.marginLeft + this.cellSize * columna;
 
                 // Dibujar el fondo del tablero (rectángulo)
-                this.context.drawImage(
+                this.ctx.drawImage(
                     this.cellImage,        // Imagen del tablero
                     posX, posY,             // Posición X e Y de la imagen en el canvas
                     this.cellSize,        // Ancho del tablero (ajustado al tamaño del canvas)
@@ -105,7 +113,7 @@ class Tablero {
             }
         }
 
-        this.context.drawImage(
+        this.ctx.drawImage(
             this.frameImage,        // Imagen del tablero
             this.marginLeft-9, this.marginTop-8,             // Posición X e Y de la imagen en el canvas
             this.cellSize*this.cols+20,        // Ancho del tablero (ajustado al tamaño del canvas)
@@ -113,7 +121,7 @@ class Tablero {
         );
 
 
-        this.context.restore();
+        this.ctx.restore();
     }
 
 
@@ -133,24 +141,71 @@ class Tablero {
     }
 
 
+    
+    showWinnerAnimation(image) {
+        console.log("Empezo animacion winner");
+        const animationDuration = 3000; // Duración de la animación en milisegundos
+        const startTime = performance.now();
+    
+        const animate = (time) => {
+            const elapsed = time - startTime;
+            const alpha = Math.min(elapsed / animationDuration, 1); // Controla la duración de la animación
+    
+            // Dibuja la imagen del ganador
+            const imgWidth = 950; // Ancho de la imagen
+            const imgHeight = 950; // Alto de la imagen
+            const imgX = (this.canvas.width - imgWidth) / 2; // Centrar horizontalmente
+            const imgY = (this.canvas.height - imgHeight) / 2; // Centrar verticalmente
+    
+            this.ctx.globalAlpha = alpha; // Aplicar la opacidad
+            this.ctx.drawImage(image, imgX, imgY, imgWidth, imgHeight); // Dibuja la imagen del ganador
+    
+            if (alpha < 1) {
+                requestAnimationFrame(animate); // Continúa la animación
+            } else {
+                this.ctx.globalAlpha = 1; // Resetea la opacidad para futuras dibujadas
+            }
+        };
+    
+        requestAnimationFrame(animate);
+    }
+    
     // Verificar si hay 4 fichas en línea
     checkForWin(piece, row, col) {
-        let winner= this.checkDirection(piece, row, col, 1, 0) || // Horizontal
-               this.checkDirection(piece, row, col, 0, 1) || // Vertical
-               this.checkDirection(piece, row, col, 1, 1) || // Diagonal \
-               this.checkDirection(piece, row, col, 1, -1);  // Diagonal /
-
-        
-        
-        if (winner){
-            alert(`${piece.player.name} gana!`);
-            this.finishedBoard=true;
-        }else if(this.occupiedcells == this.rows*this.cols){
-            alert("Hay empate");
-            this.finishedBoard=true;
+        let winner = this.checkDirection(piece, row, col, 1, 0) || // Horizontal
+                     this.checkDirection(piece, row, col, 0, 1) || // Vertical
+                     this.checkDirection(piece, row, col, 1, 1) || // Diagonal \
+                     this.checkDirection(piece, row, col, 1, -1);  // Diagonal /
+    
+        if (winner) {
+            console.log(piece.getPlayerName());
+            if (piece.getPlayerName() == "Deadpool") {
+                this.deadpoolgana.onload = () => {
+                    this.showWinnerAnimation(this.deadpoolgana);
+                    this.finishedBoard = true;
+                };
+                // También se debe establecer la imagen aquí en caso de que ya esté cargada
+                if (this.deadpoolgana.complete) {
+                    this.showWinnerAnimation(this.deadpoolgana);
+                    this.finishedBoard = true;
+                }
+            } else {
+                this.wolverinGana.onload = () => {
+                    this.showWinnerAnimation(this.wolverinGana);
+                    this.finishedBoard = true;
+                };
+                // También se debe establecer la imagen aquí en caso de que ya esté cargada
+                if (this.wolverinGana.complete) {
+                    this.showWinnerAnimation(this.wolverinGana);
+                    this.finishedBoard = true;
+                }
+            }
+        } else if (this.occupiedcells == this.rows * this.cols) {
+            this.showWinnerAnimation(this.empate);
+            this.finishedBoard = true;
         }
     }
-
+    
     // Verificar si hay 4 fichas consecutivas en una dirección
     checkDirection(piece, row, col, rowDir, colDir) {
         let count = 1; // Contar la ficha actual

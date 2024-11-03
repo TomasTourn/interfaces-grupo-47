@@ -52,4 +52,7 @@ class Ficha{
         game.draw();
 
     }
+    getPlayerName() {
+        return this.player.name;
+    }
 }
