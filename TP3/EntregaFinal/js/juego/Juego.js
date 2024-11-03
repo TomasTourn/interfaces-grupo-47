@@ -285,7 +285,7 @@ class Juego{
 
     
     startGame() {
-
+        this.canvas.style.cursor = "default";
         this.board = new Tablero(
             this.ctx,          // Contexto del canvas
             this.canvas,
