@@ -667,7 +667,7 @@ class Juego{
         let ficha2=new Image()
         ficha2.src="Images/Juego/fichawolverine2.png"
         let ficha3=new Image()
-        ficha3.src="Images/Juego/fichawolverine3.png"
+        ficha3.src="Images/Juego/fichaWolverine3.png"
 
         let btn1=new BotonFicha(this.ctx,x, y,width,height,4,10,ficha1,true);
         this.botonesFicha2.push(btn1);
