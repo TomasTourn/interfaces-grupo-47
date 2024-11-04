@@ -8,9 +8,9 @@ class button {
         this.cant=cant;
         this.hovered = false;
         this.imageDefault=new Image();
-        this.imageDefault.src="Images/Juego/yellowButton.png"
+        this.imageDefault.src="Images/Juego/yellowbutton.png"
         this.imageHover=new Image();
-        this.imageHover.src="Images/Juego/redButton.png"
+        this.imageHover.src="Images/Juego/redbutton.png"
     }
 
 

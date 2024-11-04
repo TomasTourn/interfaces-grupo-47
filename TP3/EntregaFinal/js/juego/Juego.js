@@ -44,21 +44,21 @@ class Juego{
         //imagenes texto
 
         this.imageElegirFichas=new Image();
-        this.imageElegirFichas.src="Images/juego/eligefichas.png"
+        this.imageElegirFichas.src="Images/Juego/eligefichas.png"
 
         this.imageDeadpoolText=new Image();
-        this.imageDeadpoolText.src="Images/juego/deadpooltext.png"
+        this.imageDeadpoolText.src="Images/Juego/deadpooltext.png"
 
         this.imageWolverineText=new Image();
-        this.imageWolverineText.src="Images/juego/wolverinetext.png"
+        this.imageWolverineText.src="Images/Juego/wolverinetext.png"
 
         this.imageSeleccionFicha=new Image();
-        this.imageSeleccionFicha.src="Images/juego/seleccionaficha.png"
+        this.imageSeleccionFicha.src="Images/Juego/seleccionaficha.png"
 
         
         //efecto
         this.effectImageD = new Image();  
-        this.effectImageD.src = "Images/Juego/efectoD.png";
+        this.effectImageD.src = "Images/Juego/efectod.png";
 
         this.effectImageW= new Image();  
         this.effectImageW.src = "Images/Juego/efectoW.png";
