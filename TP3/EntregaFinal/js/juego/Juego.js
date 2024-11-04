@@ -298,7 +298,7 @@ class Juego{
         );
         
         this.currentPlayer = 0;  // Reiniciamos el turno al primer jugador
-        this.radius = this.board.getCellSize() / 2 - 12;
+        this.radius = this.board.getCellSize() / 2 - 9;
         this.generetePlayerPieces(); 
         this.draw();            // Redibujar el tablero con las nuevas dimensiones
         

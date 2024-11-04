@@ -30,18 +30,31 @@ class Ficha{
         
     }
 
-    animateDrop(piece, targetRow, col,board,game) {
-        const targetY = (targetRow * board.cellSize + board.marginTop)+ board.cellSize / 2
-        
-        const interval = setInterval(() => {
-            piece.y += 10;
-            if (piece.y >= targetY) {
-                piece.y = targetY;
-                clearInterval(interval);
-                board.checkForWin(piece, targetRow, col)
+    animateDrop(piece, targetRow, col, board, game) {
+        const targetY = (targetRow * board.cellSize + board.marginTop) + board.cellSize / 2;
+        const dropSpeed = 10;  // Velocidad de caída ajustable
+        let lastTime = 0;
+    
+        const drop = (time) => {
+            if (!lastTime) lastTime = time;
+            const delta = time - lastTime;
+            lastTime = time;
+    
+            piece.y += dropSpeed * (delta / 16);
+    
+            // Comprueba si la ficha está cerca del objetivo
+            if (piece.y >= targetY - dropSpeed) {
+                piece.y = targetY;  // Ajusta la posición final exacta
+                board.checkForWin(piece, targetRow, col);
+                game.draw();  // Dibuja la última posición de la ficha
+                return;  // Termina la animación
             }
-            game.draw();
-        }, 20);
+    
+            game.draw();  // Redibuja solo si la pieza no ha alcanzado el objetivo
+            requestAnimationFrame(drop);
+        };
+    
+        requestAnimationFrame(drop);
     }
 
     returnPieceToStart(draggedPiece, game) {
