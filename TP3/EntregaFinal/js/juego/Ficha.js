@@ -52,6 +52,7 @@ class Ficha{
     
             game.draw();  // Redibuja solo si la pieza no ha alcanzado el objetivo
             requestAnimationFrame(drop);
+            
         };
     
         requestAnimationFrame(drop);

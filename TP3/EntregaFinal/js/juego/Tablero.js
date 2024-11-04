@@ -68,6 +68,8 @@ class Tablero {
     }
 
     createGrid() {
+
+        
         let grid = [];
         for (let row = 0; row < this.rows; row++) {
             grid[row] = new Array(this.cols).fill(null);
