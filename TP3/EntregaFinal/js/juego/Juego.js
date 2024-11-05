@@ -88,7 +88,7 @@ class Juego{
         this.botonesFicha2=[]
         this.initBotonesFichaP2()
   
-        this.buttonWidth = 300;
+        this.buttonWidth = 120;
         this.buttonHeight = 60;
 
         this.buttonBackSize = 30;
@@ -195,10 +195,10 @@ class Juego{
         let restartButtonY = this.canvas.height - this.buttonHeight - 20;
 
         // Sombras
-        this.ctx.shadowColor = "rgba(0, 0, 0, 0.7)";
-        this.ctx.shadowOffsetX = 2;
-        this.ctx.shadowOffsetY = 2;
-        this.ctx.shadowBlur = 4;
+        this.ctx.shadowColor = "rgba(0, 0, 0, 0.8)";
+        this.ctx.shadowOffsetX = 6;
+        this.ctx.shadowOffsetY = 6;
+        this.ctx.shadowBlur = 10;
 
         // Esquinas redondeadas
         this.ctx.fillStyle = "#E70000"; // Rojo para reiniciar
@@ -216,7 +216,7 @@ class Juego{
         this.ctx.fill();
 
         this.ctx.fillStyle = "#FFFFFF";
-        this.ctx.font = "bold 20px Arial"; // Cambia la fuente y tamaño según tu preferencia
+        this.ctx.font = "bold 18px Arial"; // Cambia la fuente y tamaño según tu preferencia
         this.ctx.textAlign = "center";
         this.ctx.textBaseline = "middle";
         this.ctx.fillText("Reiniciar", restartButtonX + this.buttonWidth / 2, restartButtonY + this.buttonHeight / 2);
