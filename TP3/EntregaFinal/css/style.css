@@ -251,6 +251,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 2.25rem;
     margin: 1.5625rem 0 1.5625rem 0;
 }
+.photo-img-game{
+    width: 20.875rem;
+    height: 11.625rem;
+}
 
 @keyframes moveAway{
     0%{
