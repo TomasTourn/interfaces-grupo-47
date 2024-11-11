@@ -1,0 +1,69 @@
+header nav{
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 22px;
+}
+body{
+    background-color: var(--gris-footer);
+}
+.btn-comprar{
+    font-family: var(--lato);
+    background-color: var(--verde-boton);
+    width: 12.5rem;
+    height: 3.125rem;
+    color: white;
+    font-weight:900;
+    font-size: 1.25rem;
+    line-height: var(--interlineado);
+ 
+    border-radius: 3.125rem;
+    border: .5rem solid white;
+    box-sizing: content-box; 
+    box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
+    cursor: pointer;
+}
+.hamburguesa{
+    display: flex;
+    flex-direction: column;
+    width: 2.125rem;
+   
+}
+.hamburguesa span{
+    margin-bottom: -1px;
+    background-color: var(--naranja-hamburguesa);
+    width: 100%;
+    height:.25rem ;
+    border-radius: 111px;
+    border: .25rem solid white;
+    box-sizing: content-box; 
+    box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
+    cursor: pointer;
+}
+
+.container-section-1{
+    background-image: url("../images/fondo.png");
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    background-size: cover;
+}
+.logo-img{
+    margin-left: 175px;
+}
+.main-section{
+    display: flex;
+}
+.number-2-home{
+   
+}
+@media(max-width:1280px){
+    .container-section-1{
+        background-image: url("../images/fondo.png");
+        width: 100vw;
+        height: 959px;
+        margin: 0 auto;
+        background-size: cover;
+    }
+}
