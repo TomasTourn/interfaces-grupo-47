@@ -1,12 +1,13 @@
+body{
+    font-family: var(--lato);
+}
+
 header nav{
     max-width: 1080px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     padding-top: 22px;
-}
-body{
-    background-color: var(--gris-footer);
 }
 .btn-comprar{
     font-family: var(--lato);
@@ -114,4 +115,263 @@ body{
     background-size: cover;
     min-width: 120px;
     min-height: 900px;
+}
+
+
+/*Secciones de fran*/
+.seccion7, .seccion8, .seccion9 {
+    width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    color: #000000;
+    
+}
+.seccion7 .container, .seccion9 .container {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+}
+
+.seccion7 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1030px;
+}
+
+.seccion7 .container{
+    border: #e70000 1px solid;
+    padding: 20px;
+    display: flex;
+    overflow: hidden;
+}
+
+.seccion7 .text-container{
+    padding-top:220px ;
+    position: relative;
+    z-index: 2;
+}
+
+.seccion7 h2,.seccion9 h2{
+    width: 746px;
+    margin-bottom: 20px;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 56.7px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
+
+.seccion7 .text-container h2{
+    width: 746px;
+    margin-bottom: 20px;
+    color: var(--rojo-titulo);
+}
+
+
+.seccion7 .text-container p{
+    width: 467px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 18.9px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.seccion7 .model-3d{
+    position: relative;
+    width: 667px;
+    height: 973px;
+    z-index: 1;
+    bottom: 0;
+    left: -250px;
+}
+
+.seccion8 {
+    width: 1280px;
+    height: 729px;
+    background-image: url("../images/Personajesgrilla.png");
+}
+
+.seccion8 img{
+    max-width: 100%;
+    height: auto;
+}
+
+.seccion9 {
+    position: relative;
+    background: linear-gradient(180deg, #FFFFFF 0%, #EDFDFF 20%, #ADF8FD 65%, #E0D299 80%);
+    overflow: hidden;
+    z-index: -99;
+}
+
+.seccion9 .container{
+    padding-top: 188px;
+    height: 1382px;
+}
+
+.seccion9 form {
+    display: flex;
+    min-height: 100px;
+    width: 780px;
+    margin-top: 36px;
+    position: relative;
+    border-radius: 50px;
+    z-index: 1; /* Para que el formulario quede por encima del fondo negro */
+}
+
+.seccion9 form::before {
+    content: "";
+    position: absolute;
+    top: 5px; /* Ajusta la distancia hacia abajo */
+    left: 5px; /* Ajusta la distancia hacia la derecha */
+    width: 100%;
+    height: 100%;
+    background-color: #02187e;
+    border-radius: 50px;
+    z-index: -1; /* Envía el fondo detrás del formulario */
+}
+
+
+.seccion9 form input{
+    padding-left: 52px;
+    border: solid white 9px;
+    width: 553px;
+    background-color: #e8e8e8;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+    font-family: var(--lato);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 18.9px;
+    letter-spacing: 0.11em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
+
+.seccion9 form button {
+    width:218px;
+    border: solid white 9px;
+    border-left: none;
+    font-size: 1em;
+    outline: none;
+    background-color: var(--verde-boton);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+    font-family: var(--lato);
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 18.9px;
+    letter-spacing: 0.11em;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.seccion9 .info{
+    width: 578px;
+    margin-top: 46px;
+    margin-bottom: 20px;
+    font-family: var(--lato);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 18.9px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+.seccion9 span{
+    
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+}
+.seccion9 .gifs{
+    display: flex;
+    max-height: 900px;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+    top: -180px;
+}
+.seccion9 .NumberBlocks2{
+    position: relative;
+    z-index: 2;
+    left: -45px;
+}
+.seccion9 .NumberBlocks3{
+    position: relative;
+    z-index: 3;
+    left: -175px;
+    top: -13px;
+}
+.seccion9 .NumberBlocks7{
+    position: relative;
+    z-index: 4;
+    left: -355px;
+    top: 67px
+}
+.pastoprefooter{
+    width: 8;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+}
+.paralax-prefooter img{
+    position: absolute;
+}
+
+.paralax-prefooter .nubeprefooter1 {
+    z-index: -2;
+    position: absolute;
+    top: 536px;
+    right: -290px;
+    animation: infiniteParallax 20s linear infinite;
+}
+
+.paralax-prefooter .nubeprefooter2 {
+    z-index: -3;
+    position: absolute;
+    top: 560px;
+    right: -400px;
+    animation: infiniteParallax 26s linear infinite;
+}
+
+.paralax-prefooter .nubeprefooter3 {
+    z-index: -1;
+    position: absolute;
+    top: 819px;
+    right:-400px;
+    animation: infiniteParallax 15s linear infinite;
+}
+
+footer{
+    height: 595px;
+    background-color: var(--gris-footer);
+}
+@keyframes infiniteParallax {
+    0% { transform: translateX(50px); }
+    100% { transform: translateX(-1700px); }
+}
+
+@media(max-width:1280px){
+    .container-section-1{
+        background-image: url("../images/fondo.png");
+        width: 100vw;
+        height: 959px;
+        margin: 0 auto;
+        background-size: cover;
+    }
 }
