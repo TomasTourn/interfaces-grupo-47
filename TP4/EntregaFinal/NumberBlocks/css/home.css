@@ -1,13 +1,20 @@
 header nav{
-    max-width: 1080px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 22px;
+    max-width: 1280px;
+    min-height: 103px;
+    min-width: 1280px;
 }
+header {
+    position: fixed;
+    top: 0; 
+    z-index: 1000;
+}
+
 body{
-    background-color: var(--gris-footer);
+    background-color: white;
 }
+
+
+
 .btn-comprar{
     font-family: var(--lato);
     background-color: var(--verde-boton);
@@ -23,12 +30,17 @@ body{
     box-sizing: content-box; 
     box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
     cursor: pointer;
+    position: absolute;
+    left: 980px;
+    top:20px;
 }
 .hamburguesa{
     display: flex;
     flex-direction: column;
     width: 2.125rem;
-   
+   position: absolute;
+   top:20px;
+   left: 100px;
 }
 .hamburguesa span{
     margin-bottom: -1px;
@@ -40,78 +52,255 @@ body{
     box-sizing: content-box; 
     box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
     cursor: pointer;
-    z-index: 1;
+    z-index: 5;
 }
 
 .container-section-1{
     overflow-x: hidden;
     background-image: url("../images/fondo.png");
-    width: 1279px;
+    width: 1280px;
     height: 959px;
     margin: 0 auto;
     background-size: cover;
+    position: relative;
 }
 .logo-img{
-   padding-left: 182px;
-   padding-top: 35px;
+    position: absolute;
+    top: 55px;
+    left: 361px;
+    transition: transform 0.3s ease;
 }
-.main-section{
-    display: flex;
-}
-.number-1-home{
-    padding-top: 123px;
 
-   z-index: 10;
+.number-1-home{
+    
+    position: absolute;
+    top: 501px;
+    left: 411px;
+    z-index: 10;
 }
 .number-2-home{
-    margin-left:-150px ;
-    padding-top: 20px;
+    position: absolute;
+    top:404px;
+    left: 536px;
     z-index: 5;
 }
 .number-3-home{
-    margin-left: -70px;
-    margin-top: -42px;
+    position: absolute;
+    top: 339px;
+    left: 694px;
+    z-index: 2;
 }
 .sombra{
     width: 140px;
     height: 33px;
     background-color: rgba(68, 104, 63, 0.61);
     filter: blur(13.5px);
-    z-index: -1;
+    z-index: 1;
+  
 }
 .sombra-1{
-    margin-left: 90px;
-    margin-top: -80px;
+    position: absolute;
+    bottom: 50px;
+    left: 87px;
 }
 
 
 .sombra-2{
-    margin-left: 70px;
-    margin-top: 38px;
-
+    position: absolute;
+    left: 80px;
+    top: 320px;
+    
 }
 .sombra-3{
-    margin-top: -50px;
-    margin-left: 30px;
+    position: absolute;
+    left: 30px;
+    bottom: 20px;
+}
+.arbol-left,.arbol-right-1,.arbol-right-2{
+    position: relative;
 }
 .arbol-1{
-   margin-top:-375px;
-   margin-left:-145px;
+    position: absolute;
+   left:-150px;
+   z-index: 1;
 }
 .arbol-2{
-    margin-top: -270px;
-    margin-left: -55px;
-    z-index: 1;
+    position: absolute;
+    left: 881px;
+    top: 107px;
+    z-index: 5;
 }
 .arbol-3{
-    margin-left: -230px;
-    margin-top: -100px;
+    position: absolute;
+    left: 1081px;
+    top:278px;
+    z-index:2;
+}
+
+.arbusto-1{
+    position: absolute;
+    left: 165px;
+    top: 715px;
+    z-index: 0;
+}
+.piedra-1{
+    position: absolute;
+    top: 795px;
+    left: 125px;
+    z-index: 5;
+}
+.arbusto-2{
+    position: absolute;
+    top: 825px;
+    left: 195px;
+    z-index: 10;
+}
+.piedra-2{
+    position: absolute;
+    top:785px;
+    left: 1040px;
+    z-index: 10;
+}
+.piedra-3{
+    position: absolute;
+    top:738px;
+    left: 1035px;
+    z-index: 7;
+}
+.piedra-4{
+    position: absolute;
+    top:738px;
+    left: 1070px;
+    z-index: 7;
+}
+.arbusto-3{
+    position: absolute;
+    left: 1080px;
+    top: 650px;
+    z-index: 4;
+}
+.arbusto-4{
+    position: absolute;
+    left: 1030px;
+    top: 619px;
+    z-index: 1;
+}
+/*seccion 2*/
+.container-section-2{
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
+    
+}
+.hero-2{
+    background-image: url("../images/svg/rectangulofade.svg");
+   
+    background-repeat: no-repeat;
+   
+}
+
+/*       <div class="hero-3-4">
+                    <div class="number4"><img src="images/4.png" alt=""></div>
+                    <div class="number5"><img src="images/5.png" alt=""></div>
+                </div>*/
+.app-promo{
+    font-family: var(--lato);
+    color: var(--azul-tipografia);
+    margin-left:100px;
+    padding-top: 50px;
+    height: 894px;
+}
+.app-promo h1{
+    font-size: 47px;
+    font-weight:600;
+    max-width: 508px;
+} 
+.app-promo p{
+    margin-top: 8px;
+    max-width: 700px;
+    font-weight:400;
+    font-size: 20px;
+}
+
+.carousel-card{
+    width: 518px;
+    height: 266px;
+    overflow: hidden;
+    border: solid var(--azul-stroke-video) 29px;
+    border-radius: 77px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 136px;
+    margin-top: 20px;
+}
+.carousel{
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.carousel img{
+    width: 518px;
+    height: auto;
+    object-fit:cover;
+}
+
+@keyframes slide {
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-518px);
+    }
+    50%{
+        transform: translateX(-1036px);
+    }
+    75%{
+        transform: translateX(-1554px);
+    }
+}
+
+.carousel{
+    animation: slide 12s infinite;
+}
+
+.app-numbers{
+    position: relative;
 }
 
 
-.section-2{
-    background-image: url("../images/svg/rectangulofade.svg");
-    background-size: cover;
-    min-width: 120px;
-    min-height: 900px;
+.hero-3{
+    display: flex;
+    width: 1280px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 250px;
+    justify-content: center;
+}
+.number4{
+    position: absolute;
+    right: 629px;
+    top:-125px;
+}
+.number5{
+    position: absolute;
+    left:687px;
+    top:-765px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 333px;
+    height: 303px;
+    font-family: var(--lato);
+    font-size: 20px;
+    margin-right: 40px;
+}
+.card img{
+    width: 315px;
+    border: solid var(--celeste-stroke-card) 9px ;
+    border-radius: 41px;
+    margin-bottom: 14px;
+    box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
 }
