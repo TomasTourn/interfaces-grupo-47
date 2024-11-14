@@ -313,7 +313,8 @@ body{
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
-    margin: 0 auto;
+    margin: 25rem auto;
+
 }
 
 .section-matematica {
