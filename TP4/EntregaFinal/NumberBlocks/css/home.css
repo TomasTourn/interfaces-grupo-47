@@ -305,6 +305,201 @@ body{
     box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
 }
 
+
+/* Seccion 4*/
+.container-section-4 {
+    width: 80rem;
+    height: 72.3125rem;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 0 auto;
+}
+
+.section-matematica {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    color: #fff;
+}
+
+.section-matematica svg {
+    position: absolute; 
+    z-index: 1; 
+}
+
+.title-section-matematica, .btn-descarga {
+    z-index: 3; 
+}
+
+.title-section-matematica {
+    font-family: var(--lato);
+    color: white;
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    font-size: 3.8213rem;
+    font-weight: 500;
+    margin-top: 10.9375rem;
+    margin-bottom: 3.875rem;
+    width: 70%; 
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    
+}
+
+.title-section-matematica span {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.btn-descarga {
+    cursor: pointer;
+    background-color: var(--verde-boton); 
+    width: 33.75rem;
+    height: 66px;
+    border-radius: 6.9375rem;
+    border: .5rem solid white;
+    color: white;
+    font-family: var(--lato);
+    font-size: 1.9463rem;
+    font-weight:600;
+    box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
+    position: absolute;
+    top: 24.375rem;
+    box-sizing: content-box; 
+    
+}
+
+.section-matematica img {
+    position: absolute;
+    bottom: 0;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+    z-index: 2; 
+}
+/* Seccion 5*/
+.container-section-5{
+    width: 80rem;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 10.9375rem auto;
+}
+.section-friend {
+    width: 67.5rem;
+    margin: 0 auto; 
+}
+.title-section-friend h1{
+    font-family: var(--lato);
+    font-size: 3.75rem;
+    font-weight: 600;
+    line-height: var(--interlineado);
+    color: black;
+    
+}
+.container-parrafo h1 {
+    font-size: 2.5rem;
+    font-family: var(--lato);
+    line-height: var(--interlineado);
+    color: black;
+}
+.column-parrafo{
+    margin-top: 5.625rem;
+}
+.column-characters{
+    margin-left: 8.9375rem;
+}
+.container-parrafo p{
+    font-size: 1.25rem;
+    font-family: var(--lato);
+    line-height: var(--interlineado);
+    margin-top: .9375rem;
+    
+}
+.container-parrafo:not(:last-child) {
+    margin-bottom: 267px;
+}
+.container-imgCharacter-parrafo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 8.3125rem;
+}
+.parrafo-title{
+    display: flex;
+    flex-direction: row;
+}
+.container-parrafo{
+    width: 29.1875rem;
+}
+/* Seccion 6*/
+.container-section-6{
+    width: 80rem;
+    height: 90.25rem;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 0 auto;
+}
+
+.container-section-6 svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.section-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.content-video {
+    max-width: 1080px;
+    text-align: start;
+    margin-bottom:150px;
+}
+
+.title-section-video {
+    font-size: 3.75rem;
+    font-family: var(--lato);
+    font-weight: 600;
+    line-height: var(--interlineado);
+    color: white;
+    margin-bottom: 2.875rem;
+}
+
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+}
+
+.video-container iframe {
+   border: 29px solid white;
+   border-radius: 2.8125rem;
+   overflow: hidden;
+   width:50.25rem;
+   height: 28.25rem;
+   box-sizing: border-box;
+}
+
+.img-personaje3Video {
+    position: absolute;
+    z-index: 2;
+    right:-5px;
+    bottom: 7.5rem;
+}
+
 /*Secciones de fran*/
 .seccion7, .seccion8, .seccion9{
     width: 1280px;
