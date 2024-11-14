@@ -313,7 +313,8 @@ body{
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
-    margin: 25rem auto;
+    margin: 0 auto;
+    margin-top: 25rem;
 
 }
 
