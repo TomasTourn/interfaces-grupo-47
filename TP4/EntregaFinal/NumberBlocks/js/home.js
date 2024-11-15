@@ -22,21 +22,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     let hamburguesa=document.querySelector('.hamburguesa');
         hamburguesa.addEventListener('click',()=>{
-            hamburguesa.classList.toggle('open');
-            let data=hamburguesa.getAttribute('data-open');
-            if(data==false){
-                hamburguesa.classList.add('notOpen');
-                hamburguesa.classList.remove('Open');
-                hamburguesa.setAttribute('data-open', 'true');
-            }
-            else{
-                hamburguesa.classList.add('Open');
-                hamburguesa.classList.remove('notOpen');
-                hamburguesa.setAttribute('data-open', 'false');
-            }
-            document.querySelector('.hamburguesa-bg').classList.toggle("change-bg");
+            hamburguesa.classList.toggle('active');
+            document.querySelector('.opciones-hamburguesa').classList.toggle("activa");
         })
-
-    
-   
 })

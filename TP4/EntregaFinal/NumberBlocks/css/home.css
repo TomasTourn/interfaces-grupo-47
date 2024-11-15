@@ -36,19 +36,23 @@ body{
     top:20px;
 }
 .btn-comprar:hover{
-    
     transform: scale(1.2);
     background-color: orange;
 }
+
 .hamburguesa{
     display: flex;
     flex-direction: column;
     width: 2.125rem;
-   position: absolute;
-   top:20px;
-   left: 100px;
+    position: absolute;
+    top:20px;
+    left: 100px;
+    transition:all 0.5s ease;
+    cursor: pointer;
+    z-index: 5;
 }
-.hamburguesa span{
+.hamburguesa .line{
+    position: relative;
     margin-bottom: -1px;
     background-color: var(--naranja-hamburguesa);
     width: 100%;
@@ -57,9 +61,57 @@ body{
     border: .25rem solid white;
     box-sizing: content-box; 
     box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
-    cursor: pointer;
-    z-index: 5;
-    transition:all 0.5s ease;
+}
+
+.hamburguesa .line:nth-child(1){
+    top:0;
+    transform: rotate(0);
+    transition: top 0.2s ease, transform 0.4s ease;
+    box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
+}
+.hamburguesa .line:nth-child(2){
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.2s ease;
+    box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
+}
+.hamburguesa .line:nth-child(3){
+    top:0;
+    transform: rotate(0);
+    transition: top 0.2s ease, transform 0.4s ease;
+    box-shadow: 4px 5px 0px 0px var(--azul-drop-shadow);
+}
+.hamburguesa .line:nth-child(4){
+    transition: top 0.2s ease, transform 0.4s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hamburguesa.active .line:nth-child(1){
+    top:10px;
+    transform: rotate(45deg);
+    box-shadow: none;
+}
+.hamburguesa.active .line:nth-child(2){
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hamburguesa.active .line:nth-child(3){
+    top:-12px;
+    transform: rotate(-45deg);
+    box-shadow: none;
+}
+
+.hamburguesa.active .line:nth-child(4){
+    top:-18px;
+    right: -5px;
+    transform: rotate(45deg);
+    box-shadow: none;
+    border:none;
+    border:none;
+    opacity: 1;
+    visibility: visible;
 }
 
 .opciones-hamburguesa{
@@ -67,10 +119,20 @@ body{
     flex-direction: column;
     margin-top: 80px;
     transition: transform 0.5s ease; 
+    opacity: 0;
+    pointer-events: none;
 }
+
+.opciones-hamburguesa.activa {
+    opacity: 1;
+    pointer-events: auto; /* Habilita los clics cuando está visible */
+}
+
 .btn-hamburguesa{
     width: 120px;
     height: 35px;
+    position: relative;
+    left: -150px;
     border-radius: 18px;
     background-color: var(--naranja-hamburguesa);
     border: 5px solid white;
@@ -85,112 +147,26 @@ body{
     background-color: var(--verde-boton);
 }
 /* Animación para que los botones aparezcan uno a uno */
-.btn-hamburguesa:nth-child(1) {
-    animation: deslizarBoton 0.5s forwards 0.2s; /* Con retraso */
+.opciones-hamburguesa.activa .btn-hamburguesa:nth-child(1) {
+    animation: deslizarBoton 0.5s forwards 0.2s;
 }
-.btn-hamburguesa:nth-child(2) {
-    animation: deslizarBoton 0.5s forwards 0.4s; /* Con mayor retraso */
+
+.opciones-hamburguesa.activa .btn-hamburguesa:nth-child(2) {
+    animation: deslizarBoton 0.5s forwards 0.4s;
 }
-.btn-hamburguesa:nth-child(3) {
-    animation: deslizarBoton 0.5s forwards 0.6s; /* Con mayor retraso */
+
+.opciones-hamburguesa.activa .btn-hamburguesa:nth-child(3) {
+    animation: deslizarBoton 0.5s forwards 0.6s;
 }
 @keyframes deslizarBoton {
     0%{
-        transform: translate(-300px);
+        transform: translate(0px);
     }
     100%{
-        transform: translateX(0px);
+        transform: translateX(250px);
         opacity: 1;
     }
 }
-
-/*rotacion hamburguesa*/
-.hamburguesa.open span:nth-child(1) {
-    animation: rotate-top 0.5s forwards;
-    box-shadow: none;
-}
-
-.hamburguesa.open span:nth-child(2) {
-    animation: fade-mid 0.5s forwards;
-    box-shadow: none;
-    border: none;
-}
-
-.hamburguesa.open span:nth-child(3) {
-    animation: rotate-bottom 0.5s forwards;
-    box-shadow: none;
-}
-
-
-
-.hamburguesa span {
-    will-change: transform, opacity;
-}
-.notOpen{
-    animation: rotate-bottom-reverse 0.3s ease forwards;
-}
-
-
-@keyframes rotate-top{
-    0%{
-        transform: translateY(0) rotate(0deg);
-        
-    }
-    100%{
-        transform: translateY(7px)rotate(45deg);
-       
-    }
-}
-@keyframes rotate-bottom {
-    0%{
-        transform: translateY(0) rotate(0deg);
-        
-    }
-    100%{
-        transform: translateY(-7px)rotate(-45deg);
-    }
-}
-
-@keyframes fade-mid {
-    0%{
-        opacity: 0;
-        transform: translateY(0) rotate(0deg);
-    }
-
-    100%{
-        transform: translateY(0px) translateX(4px) rotate(-45deg);
-    }
-}
-@keyframes rotate-top-reverse {
-    0% {
-        transform: translateY(7px) rotate(45deg);
-    }
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
-@keyframes fade-mid-reverse {
-    0% {
-        opacity: 0;
-        transform: translateY(0) translateX(4px) rotate(-45deg);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) rotate(0deg) translateX(0);
-    }
-}
-
-@keyframes rotate-bottom-reverse {
-    0% {
-        transform: translateY(-7px) rotate(-45deg);
-    }
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
-
 
 
 .container-section-1{
@@ -729,7 +705,6 @@ body{
     position: relative;
     background: linear-gradient(180deg, #FFFFFF 0%, #EDFDFF 20%, #ADF8FD 65%, #E0D299 80%);
     overflow: hidden;
-    z-index: -99;
 }
 
 .seccion9 .container{
@@ -744,21 +719,22 @@ body{
     margin-top: 36px;
     position: relative;
     border-radius: 50px;
-    z-index: 1; /* Para que el formulario quede por encima del fondo negro */
+    z-index: 1; 
+    box-shadow: var(--azul-drop-shadow);
 }
 
 .seccion9 form::before {
     content: "";
     position: absolute;
-    top: 5px; /* Ajusta la distancia hacia abajo */
-    left: 5px; /* Ajusta la distancia hacia la derecha */
+    top: 5px; 
+    left: 5px; 
     width: 100%;
     height: 100%;
     background-color: #02187e;
     border-radius: 50px;
-    z-index: -1; /* Envía el fondo detrás del formulario */
+    z-index: -1; 
+    pointer-events: none; 
 }
-
 
 .seccion9 form input{
     padding-left: 52px;
@@ -894,7 +870,11 @@ body{
 }
 .seccion8 img{
     position: relative;
-    bottom: -2px;
+}
+
+.personaje-grilla1,.personaje-grilla2,.personaje-grilla3,.personaje-grilla4,
+.personaje-grilla5,.personaje-grilla7,.personaje-grilla10{
+    bottom: -3px;
 }
 .seccion8 .container {
     display: flex;
@@ -958,7 +938,7 @@ body{
     height: 325px;
     bottom: -15px;
     left: 31px;
-    background-color: #af1a1b;
+    background-image: url(../images/fondomulticolor.png);
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
 
@@ -997,11 +977,11 @@ body{
 
 @keyframes zoomIn {
     0% {
-        transform: scale(1);
-        box-shadow: none;
+        transform: scale(1) translateY(0);
+        filter: none;
     }
     100% {
-        transform: scale(1.1);
+        transform: scale(1.1) translateY(-15px);
         filter: drop-shadow(0 0 20px rgb(252, 243, 67));
     }
 }
