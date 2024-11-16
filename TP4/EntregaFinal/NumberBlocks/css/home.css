@@ -543,10 +543,32 @@ body{
 }
 .column-parrafo{
     margin-top: 5.625rem;
+    overflow: hidden;
 }
 .column-characters{
+    flex: 1;
     margin-left: 8.9375rem;
+    position: sticky;
+    top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.column-characters{
+    flex: 1;
+    margin-left: 8.9375rem;
+    position: sticky;
+    top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.column-characters img {
+    height: auto;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transiciones suaves */
+    opacity: 1;
+  }
 .container-parrafo p{
     font-size: 1.25rem;
     font-family: var(--lato);
@@ -557,10 +579,14 @@ body{
 .container-parrafo:not(:last-child) {
     margin-bottom: 267px;
 }
+
 .container-imgCharacter-parrafo{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: relative;
+    gap: 1.25rem;
+
     margin-top: 8.3125rem;
 }
 .parrafo-title{
@@ -569,6 +595,7 @@ body{
 }
 .container-parrafo{
     width: 29.1875rem;
+    transition: transform 0.3s ease;
 }
 
 /* Seccion 6*/

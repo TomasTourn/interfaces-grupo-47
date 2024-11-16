@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded",()=>{
             let scrollY = window.scrollY;
     
             if (scrollY >= inicioScrollSeccion6) {
-                let desplazamiento = (scrollY - inicioScrollSeccion6-300) * 0.4;
-                let desplazamientovideo = (scrollY - inicioScrollSeccion6-300) * 0.1;
+                let desplazamiento = (scrollY - inicioScrollSeccion6-250) * 0.4;
+                let desplazamientovideo = (scrollY - inicioScrollSeccion6-250) * 0.1;
                 personaje3.style.transform = `translateY(-${desplazamiento}px)`;
                 video.style.transform = `translateY(${desplazamientovideo}px)`; 
             }
@@ -103,6 +103,35 @@ document.addEventListener("DOMContentLoaded",()=>{
                 elem.style.transform = `translate3d(${depth1}px, ${depth2}px, 0) scale(1.2)`;
             }
         })();
+        window.addEventListener('scroll', () => {
+            let seccion5 = document.querySelector('.container-section-5');
+            let characterImage = document.querySelector('.character-image');
+            let parrafos = document.querySelectorAll('.container-parrafo');
+        
+            let inicioScrollSeccion5 = seccion5.offsetTop;
+            let scrollY = window.scrollY;
+        
+            let desplazamiento = (scrollY - inicioScrollSeccion5) * 0.1;
+        
+
+            if (scrollY >= inicioScrollSeccion5) {
+                let activeImage = '';
+                parrafos.forEach((parrafo) => {
+                    if (scrollY >= parrafo.offsetTop - window.innerHeight / 2) {
+                        activeImage = parrafo.getAttribute('data-image');
+                    }
+                });
+        
+        
+                if (activeImage && !characterImage.src.includes(activeImage)) {
+                    characterImage.src = `./images/${activeImage}`;
+                    characterImage.classList.add('active'); 
+                }
+                parrafos.forEach((parrafo) => {
+                    parrafo.style.transform = `translateY(${desplazamiento}px)`;
+                });
+            }
+        });
 
 
 
