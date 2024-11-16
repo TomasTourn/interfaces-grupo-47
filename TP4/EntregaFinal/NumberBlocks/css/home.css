@@ -414,9 +414,14 @@ body{
 }
 .column-parrafo{
     margin-top: 5.625rem;
+    margin-left: 2rem;
+    position: sticky
 }
 .column-characters{
-    margin-left: 8.9375rem;
+    position: sticky;
+    top: 10rem; /* La imagen se mantiene fija hasta que termina el contenido */
+    width: 40%;
+    z-index: 1;  /* Asegura que la imagen quede encima del texto */
 }
 .container-parrafo p{
     font-size: 1.25rem;
@@ -440,6 +445,8 @@ body{
 }
 .container-parrafo{
     width: 29.1875rem;
+    transition: opacity 0.3s ease-out;
+    position: sticky;
 }
 /* Seccion 6*/
 .container-section-6{
