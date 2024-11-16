@@ -19,30 +19,41 @@ document.addEventListener("DOMContentLoaded",()=>{
             header.style.background='linear-gradient(180deg, #00D1D5 0%, rgba(0, 209, 213, 0.12) 87.91%, rgba(1, 208, 213, 0) 100%)';
         }
 
+        let seccion6 = document.querySelector('.container-section-6');
+        let personaje3 = document.querySelector('.img-personaje3Video');
+        let video = document.querySelector('.video');
 
-        
-    })
-    const parrafos = document.querySelectorAll('.container-parrafo');
-    const characterImage = document.querySelector('.character-image');
-    
-    window.addEventListener('scroll', () => {
-        let activeImage = '';
-    
-        // Recorre los bloques de texto para detectar cuál está en viewport
-        parrafos.forEach((parrafo) => {
-            const rect = parrafo.getBoundingClientRect();
-            if (rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
-                activeImage = parrafo.dataset.image; // Obtiene la imagen asociada
-            }
-        });
-    
-        // Si cambia la imagen, actualiza la fuente
-        if (activeImage) {
-            if (characterImage.src.includes(activeImage)) return; // No repite si es la misma
-            characterImage.src = `./images/${activeImage}`;
-            characterImage.classList.add('active');
+        let inicioScrollSeccion6 = seccion6.offsetTop;
+        let scrollY = window.scrollY;
+
+        if (scrollY >= inicioScrollSeccion6) {
+            let desplazamiento = (scrollY - inicioScrollSeccion6) * 0.4;
+            let desplazamientovideo = (scrollY - inicioScrollSeccion6) * 0.1;
+            personaje3.style.transform = `translateY(-${desplazamiento}px)`;
+            video.style.transform = `translateY(${desplazamientovideo}px)`; 
         }
     });
     
+
+    (function() {
+        document.addEventListener("mousemove", moveCharacter);
+        const elem = document.querySelector(".img-conjuntoPersonajes");
+    
+        function moveCharacter(e) {
+            let w = window.innerWidth /2
+            let h = window.innerHeight / 2;
+            let mouseX = e.clientX;
+            let mouseY = e.clientY;
+    
+            
+            let depth1 = -(mouseX - w) * 0.10;
+            let depth2 = -(mouseY - h) * 0.10;
+            
+
+            elem.style.transform = `translate3d(${depth1}px, ${depth2}px, 0) scale(1.2)`;
+        }
+    })();
    
+    
+    
 })
