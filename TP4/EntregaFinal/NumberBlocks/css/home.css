@@ -184,6 +184,7 @@ body{
     left: 361px;
     transition: transform 0.3s ease;
     cursor: pointer;
+    
 }
 
 .number-1-home{
@@ -298,7 +299,13 @@ body{
     position: absolute;
     left: 1030px;
     top: 619px;
-    z-index: 1;
+    z-index: 0;
+}
+/*paralax*/
+
+.hero-1 div,.hero-1 img{
+    transition: transform 0.5s ease-out;
+    will-change: transform;
 }
 /*seccion 2*/
 .container-section-2{
@@ -306,6 +313,12 @@ body{
     width: 1280px;
     margin: 0 auto;
     
+}
+.arbol-right-1{
+    z-index: 5;
+}
+.arbol-right-2{
+    z-index: 2;
 }
 .hero-2{
     background-image: url("../images/svg/rectangulofade.svg");
