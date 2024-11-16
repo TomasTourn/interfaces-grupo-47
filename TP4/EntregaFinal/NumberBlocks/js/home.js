@@ -45,10 +45,19 @@ document.addEventListener("DOMContentLoaded",()=>{
         const rock2 = document.querySelector('.piedra-2');
         const rock3 = document.querySelector('.piedra-3');
         const rock4 = document.querySelector('.piedra-4');
+    
+        //la app mas divertida
+        const number5=document.querySelector('.number5');
+        const number4=document.querySelector('.number4');
+        const carousel=document.querySelector('.carousel-card')
+        const textoApp=document.querySelector('.text-app');
+        
 
         window.addEventListener('scroll',()=>{
             const scrollY=window.scrollY;
 
+
+            //home
             arbol1.style.transform=`translateX(${scrollY * 0.2}px)`
             arbol2.style.transform=`translateX(${-scrollY * 0.15}px)`
        
@@ -67,6 +76,9 @@ document.addEventListener("DOMContentLoaded",()=>{
             rock2.style.transform=`translateX(${-scrollY * 0.21}px)`
             rock3.style.transform=`translateX(${-scrollY * 0.17}px)`
             rock4.style.transform=`translateX(${-scrollY * 0.19}px)`
+
+
+         
 
         });
         window.addEventListener('scroll',()=>{
@@ -103,6 +115,7 @@ document.addEventListener("DOMContentLoaded",()=>{
                 elem.style.transform = `translate3d(${depth1}px, ${depth2}px, 0) scale(1.2)`;
             }
         })();
+
         window.addEventListener('scroll',()=>{
             let seccion5 = document.querySelector('.container-section-5');
             let characterImage = document.querySelector('.character-image');
@@ -133,5 +146,24 @@ document.addEventListener("DOMContentLoaded",()=>{
         });
 
 
+
+        window.addEventListener('scroll',()=>{
+            const section = document.querySelector('.hero-2');
+            const rect = section.getBoundingClientRect();
+            const scrollY = window.scrollY;
+            
+            // rect.top gives position relative to viewport
+            // adding scrollY gives us absolute position
+            const sectionTop = rect.top + scrollY;
+            
+            const relativeScroll = scrollY - sectionTop;
+            const maxTranslation = 200;
+            const translation = Math.min(relativeScroll * 0.04, maxTranslation);
+            
+            textoApp.style.transform=`translateY(${-scrollY * 0.12}px)`
+            carousel.style.transform=`translateY(${-scrollY * 0.08}px)`
+            number4.style.transform=`translateY(${-scrollY * 0.2}px)`
+            number5.style.transform=`translateY(${translation}px)`
+        })
 
 })
