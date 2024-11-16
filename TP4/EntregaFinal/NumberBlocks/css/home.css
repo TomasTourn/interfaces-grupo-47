@@ -435,6 +435,7 @@ body{
 
 
 /* Seccion 4*/
+/* Seccion 4*/
 .container-section-4 {
     width: 80rem;
     height: 72.3125rem;
@@ -512,7 +513,6 @@ body{
     position: absolute;
     bottom: 0;
     transform: scale(1.2);
-    transition: transform 0.5s ease;
     z-index: 2; 
 }
 /* Seccion 5*/
@@ -571,6 +571,7 @@ body{
     width: 29.1875rem;
 }
 /* Seccion 6*/
+/* Seccion 6*/
 .container-section-6{
     width: 80rem;
     height: 90.25rem;
@@ -578,14 +579,10 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
     margin: 0 auto;
+    background-image:url(../images/svg/rectanguloamarillo.svg);
+    
 }
 
-.container-section-6 svg{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
 .section-video {
     display: flex;
     justify-content: center;
@@ -596,6 +593,8 @@ body{
     max-width: 1080px;
     text-align: start;
     margin-bottom:150px;
+    position: relative;
+    bottom: 13.75rem;
 }
 
 .title-section-video {
@@ -611,7 +610,7 @@ body{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-
+    position: absolute;
 }
 
 .video-container iframe {
@@ -626,8 +625,8 @@ body{
 .img-personaje3Video {
     position: absolute;
     z-index: 2;
-    right:-5px;
-    bottom: 7.5rem;
+    right:-100px;
+    top: 2.5rem;
 }
 
 /*Secciones de fran*/
