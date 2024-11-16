@@ -12,6 +12,7 @@ header {
 
 body{
     background-color: white;
+    overflow-x: hidden;
 }
 
 
@@ -232,7 +233,7 @@ body{
     left: 30px;
     bottom: 20px;
 }
-.arbol-left,.arbol-right-1,.arbol-right-2{
+.arbol-left,.piedras-arbol-1,.piedras-arbol-2{
     position: relative;
 }
 .arbol-1{
@@ -301,6 +302,107 @@ body{
     top: 619px;
     z-index: 0;
 }
+/*animacion de entrada home*/
+
+
+/*escondemos elementos y los movemos inicialmente*/
+.entrada-a-1,.entrada-a-2,.entrada-a-3{
+    opacity: 0;
+    transform: translateY(-300px);
+    will-change: transform,opacity;
+}
+
+.img-1{
+    opacity: 0;
+    transform: translateX(-800px);
+}
+
+.img-2 {
+    opacity: 0;
+    transform: translateY(-100px);
+}
+
+.img-3 {
+    opacity: 0;
+    transform: translateX(500px);
+}
+
+
+.logo-img{
+    opacity: 0;
+}
+/*clases para animar la entrada*/
+
+.fade-in-tree{
+    animation: fadeInUp 1s ease forwards;
+}
+.fade-in-rock{
+    animation: fadeInUp 0.8s ease forwards;
+}
+.fade-in-bush{
+    animation: slideInLeft 1s ease forwards;
+}
+.fade-in-bush-right{
+    animation: slideInRight 1s ease forwards;
+}
+.slide-in-left {
+    animation: slideInLeft 1.2s ease forwards;
+}
+
+.slide-in-top {
+    animation: slideInTop 1.4s ease forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 1.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from{
+        opacity: 0;
+        transform: translateY(-300px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-400px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-400px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(500px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /*paralax*/
 
 .hero-1 div,.hero-1 img{
@@ -322,10 +424,10 @@ body{
     margin: 0 auto;
     
 }
-.arbol-right-1{
+.piedras-arbol-1{
     z-index: 5;
 }
-.arbol-right-2{
+.piedras-arbol-2{
     z-index: 2;
 }
 .hero-2{

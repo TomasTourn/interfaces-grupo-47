@@ -1,5 +1,26 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
+        //aplico animacion de entrada a los elementos
+        document.querySelectorAll('.entrada-a-1, .entrada-a-2, .entrada-a-3').forEach(tree => {
+            tree.classList.add('fade-in-tree');
+        });
+        document.querySelectorAll('.img-rock-1, .img-rock-2, .img-rock-3, .img-rock-4').forEach(tree => {
+            tree.classList.add('fade-in-rock');
+        });
+
+        document.querySelectorAll('.img-bush-1, .img-bush-2').forEach(tree => {
+            tree.classList.add('fade-in-bush');
+        });
+        
+        document.querySelectorAll('.img-bush-3, .img-bush-4').forEach(tree => {
+            tree.classList.add('fade-in-bush-right');
+        });
+
+        document.querySelector('.img-1').classList.add('slide-in-left');
+        document.querySelector('.img-2').classList.add('slide-in-top');
+        document.querySelector('.img-3').classList.add('slide-in-right');
+  
+
 
 
     window.addEventListener('scroll',()=>{
@@ -165,5 +186,11 @@ document.addEventListener("DOMContentLoaded",()=>{
             number4.style.transform=`translateY(${-scrollY * 0.2}px)`
             number5.style.transform=`translateY(${translation}px)`
         })
+
+
+
+
+
+
 
 })
