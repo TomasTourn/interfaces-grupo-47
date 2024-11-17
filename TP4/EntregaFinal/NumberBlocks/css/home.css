@@ -329,7 +329,7 @@ body{
 
 
 .logo-img{
-    opacity: 0;
+    opacity: 1;
 }
 /*clases para animar la entrada*/
 
@@ -545,7 +545,6 @@ body{
 
 
 /* Seccion 4*/
-/* Seccion 4*/
 .container-section-4 {
     width: 80rem;
     height: 72.3125rem;
@@ -642,8 +641,9 @@ body{
   
   .column-characters {
     flex: 1;
+    width: 509px;
     position: sticky;
-    top: 20px; /* La posición fija de la imagen dentro de la ventana */
+    top: 100px; /* La posición fija de la imagen dentro de la ventana */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -653,13 +653,14 @@ body{
   .character-image {
     height: auto;
     object-fit: contain;
-    opacity: 0;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transition: opacity 0.3s ease, transform 0.25s ease;
+    opacity: 1;
+    transform: scale(1);
 }
 
-.character-image.active {
-    opacity: 1; 
-    
+.character-image.hidden {
+    opacity: 0; 
+    transform: scale(0.9); 
 }
 
 .section-friend {
@@ -683,9 +684,7 @@ body{
 .column-parrafo{
     margin-top: 5.625rem;
 }
-.column-characters{
-    margin-left: 8.9375rem;
-}
+
 .container-parrafo p{
     font-size: 1.25rem;
     font-family: var(--lato);
@@ -767,7 +766,7 @@ body{
     top: 2.5rem;
 }
 
-/*Secciones de fran*/
+/*Secciones 7,8 y 9*/
 .seccion7, .seccion8, .seccion9{
     width: 1280px;
     margin: 0 auto;
@@ -789,7 +788,6 @@ body{
     align-items: center;
     justify-content: center;
     height: 1030px;
-    padding-top: 220px;
 }
 
 .seccion7 .container{
@@ -869,7 +867,7 @@ body{
     margin-top: 36px;
     position: relative;
     border-radius: 50px;
-    z-index: 1; 
+    z-index: 5; 
     box-shadow: var(--azul-drop-shadow);
 }
 
@@ -927,6 +925,10 @@ body{
     text-decoration-skip-ink: none;
 }
 
+.text-container{
+    position: relative;
+    z-index: 5;
+}
 .seccion9 .info{
     width: 578px;
     margin-top: 46px;
@@ -948,25 +950,24 @@ body{
     max-height: 900px;
     align-items: flex-end;
     position: relative;
-    z-index: 2;
     top: -180px;
 }
 .seccion9 .NumberBlocks2{
     position: relative;
-    z-index: 2;
+    z-index: 10;
     left: -45px;
 }
 .seccion9 .NumberBlocks3{
     position: relative;
-    z-index: 3;
     left: -175px;
     top: -13px;
+    z-index: 10;
 }
 .seccion9 .NumberBlocks7{
     position: relative;
-    z-index: 4;
     left: -355px;
-    top: 67px
+    top: 67px;
+    z-index: 10;
 }
 .pastoprefooter{
     width: 8;
@@ -980,7 +981,7 @@ body{
 }
 
 .paralax-prefooter .nubeprefooter1 {
-    z-index: -2;
+    z-index: 2;
     position: absolute;
     top: 536px;
     right: -290px;
@@ -988,7 +989,7 @@ body{
 }
 
 .paralax-prefooter .nubeprefooter2 {
-    z-index: -3;
+    z-index: 1;
     position: absolute;
     top: 560px;
     right: -400px;
@@ -996,7 +997,7 @@ body{
 }
 
 .paralax-prefooter .nubeprefooter3 {
-    z-index: -1;
+    z-index: 2;
     position: absolute;
     top: 819px;
     right:-400px;
@@ -1174,3 +1175,19 @@ footer span{
 footer .container img{
     padding-top: 35px;
 }
+#animacion-footer{
+    width: 230px; 
+    height: 230px; 
+    position: relative;
+    top: -200px;
+    left: 1050px;
+    background: url(../images/spritesheet/sprite-footer.png)repeat-x;
+    animation:walk 3.5s steps(75) infinite;
+}
+
+@keyframes walk {
+    /* Partimos de la primera viñeta del sprite sheet */
+    0% { background-position:0 }
+    /* El tamaño total de ancho del sprite. Es negativo para que no "camine" hacia atrás */
+    100% { background-position:-17250px}
+  }
