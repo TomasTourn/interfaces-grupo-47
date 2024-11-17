@@ -1,27 +1,25 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
-        //aplico animacion de entrada a los elementos
-        document.querySelectorAll('.entrada-a-1, .entrada-a-2, .entrada-a-3').forEach(tree => {
+
+        document.querySelectorAll('.arbol-1, .arbol-2, .arbol-3').forEach(tree => {
             tree.classList.add('fade-in-tree');
         });
-        document.querySelectorAll('.img-rock-1, .img-rock-2, .img-rock-3, .img-rock-4').forEach(tree => {
-            tree.classList.add('fade-in-rock');
-        });
-
-        document.querySelectorAll('.img-bush-1, .img-bush-2').forEach(tree => {
-            tree.classList.add('fade-in-bush');
-        });
-        
-        document.querySelectorAll('.img-bush-3, .img-bush-4').forEach(tree => {
-            tree.classList.add('fade-in-bush-right');
-        });
-
-        document.querySelector('.img-1').classList.add('slide-in-left');
-        document.querySelector('.img-2').classList.add('slide-in-top');
-        document.querySelector('.img-3').classList.add('slide-in-right');
+    
   
+            document.querySelector('.number-1-home').classList.add('slide-in-left');
+            document.querySelector('.number-2-home').classList.add('slide-in-top');
+            document.querySelector('.number-3-home').classList.add('slide-in-right');
 
 
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+              
+                // ... other parallax calculations
+              
+                // For elements that have finished animating:
+                arbol1.style.transform = `translateX(${scrollY * 0.2}px) translateY(0)`; // Adjust the `translateY(0)` part as needed
+                // ... similar adjustments for other elements
+              });
 
     window.addEventListener('scroll',()=>{
         let logo=document.querySelector('.logo-img');

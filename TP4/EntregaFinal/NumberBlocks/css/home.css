@@ -233,7 +233,7 @@ body{
     left: 30px;
     bottom: 20px;
 }
-.arbol-left,.piedras-arbol-1,.piedras-arbol-2{
+.arbol-left,.arbol-right-1,.arbol-right-2{
     position: relative;
 }
 .arbol-1{
@@ -306,23 +306,23 @@ body{
 
 
 /*escondemos elementos y los movemos inicialmente*/
-.entrada-a-1,.entrada-a-2,.entrada-a-3{
+.arbol-1,.arbol-2,.arbol-3{
     opacity: 0;
     transform: translateY(-300px);
     will-change: transform,opacity;
 }
 
-.img-1{
+.number-1-home {
     opacity: 0;
     transform: translateX(-800px);
 }
 
-.img-2 {
+.number-2-home {
     opacity: 0;
     transform: translateY(-100px);
 }
 
-.img-3 {
+.number-3-home {
     opacity: 0;
     transform: translateX(500px);
 }
@@ -336,15 +336,7 @@ body{
 .fade-in-tree{
     animation: fadeInUp 1s ease forwards;
 }
-.fade-in-rock{
-    animation: fadeInUp 0.8s ease forwards;
-}
-.fade-in-bush{
-    animation: slideInLeft 1s ease forwards;
-}
-.fade-in-bush-right{
-    animation: slideInRight 1s ease forwards;
-}
+
 .slide-in-left {
     animation: slideInLeft 1.2s ease forwards;
 }
@@ -356,19 +348,17 @@ body{
 .slide-in-right {
     animation: slideInRight 1.5s ease forwards;
 }
-
 @keyframes fadeInUp {
-    from{
-        opacity: 0;
-        transform: translateY(-300px);
+    from {
+      opacity: 0;
+      transform: translateY(-300px);
     }
-    to{
-        opacity: 1;
-        transform: translateY(0);
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      animation-fill-mode: forwards;
     }
-    
-}
-
+  }
 
 @keyframes slideInLeft {
     from {
@@ -384,7 +374,7 @@ body{
 @keyframes slideInTop {
     from {
         opacity: 0;
-        transform: translateY(-400px);
+        transform: translateY(-100px);
     }
     to {
         opacity: 1;
@@ -424,10 +414,10 @@ body{
     margin: 0 auto;
     
 }
-.piedras-arbol-1{
+.arbol-right-1{
     z-index: 5;
 }
-.piedras-arbol-2{
+.arbol-right-2{
     z-index: 2;
 }
 .hero-2{
