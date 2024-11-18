@@ -653,7 +653,7 @@ body{
   .character-image {
     height: auto;
     object-fit: contain;
-    transition: opacity 0.3s ease, transform 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease;
     opacity: 1;
     transform: scale(1);
 }
@@ -767,14 +767,14 @@ body{
 }
 
 /*Secciones 7,8 y 9*/
-.seccion7, .seccion8, .seccion9{
+.container-section-7, .container-section-8, .container-section-9{
     width: 1280px;
     margin: 0 auto;
     display: flex;
     color: #000000;
     
 }
-.seccion7 .container, .seccion9 .container, footer .container {
+.container-section-7 .container, .container-section-9 .container, footer .container {
     width: 100%;
     max-width: 1080px;
     margin: 0 auto;
@@ -783,26 +783,26 @@ body{
 
 
 /*seccion 7*/
-.seccion7 {
+.container-section-7 {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 1030px;
 }
 
-.seccion7 .container{
+.container-section-7 .container{
     padding: 20px;
     display: flex;
     overflow: hidden;
 }
 
-.seccion7 .text-container{
+.container-section-7 .text-container{
     padding-top:220px ;
     position: relative;
     z-index: 2;
 }
 
-.seccion7 h2,.seccion9 h2{
+.container-section-7 h2,.container-section-9 h2{
     width: 746px;
     margin-bottom: 20px;
     font-size: 60px;
@@ -814,7 +814,7 @@ body{
 
 }
 
-.seccion7 .text-container h2{
+.container-section-7 .text-container h2{
     width: 746px;
     margin-bottom: 20px;
     font-family: var(--lato);
@@ -822,7 +822,7 @@ body{
 }
 
 
-.seccion7 .text-container p{
+.container-section-7 .text-container p{
     width: 467px;
     margin-bottom: 20px;
     font-size: 20px;
@@ -834,7 +834,7 @@ body{
     text-decoration-skip-ink: none;
 }
 
-.seccion7 .model-3d{
+.container-section-7 .model-3d{
     position: relative;
     width: 667px;
     height: 973px;
@@ -848,19 +848,19 @@ body{
 
 
 /*seccion 9*/
-.seccion9 {
+.container-section-9 {
     font-family: var(--lato);
     position: relative;
     background: linear-gradient(180deg, #FFFFFF 0%, #EDFDFF 20%, #ADF8FD 65%, #E0D299 80%);
     overflow: hidden;
 }
 
-.seccion9 .container{
+.container-section-9 .container{
     padding-top: 188px;
     height: 1382px;
 }
 
-.seccion9 form {
+.container-section-9 form {
     display: flex;
     min-height: 100px;
     width: 780px;
@@ -871,7 +871,7 @@ body{
     box-shadow: var(--azul-drop-shadow);
 }
 
-.seccion9 form::before {
+.container-section-9 form::before {
     content: "";
     position: absolute;
     top: 5px; 
@@ -884,7 +884,7 @@ body{
     pointer-events: none; 
 }
 
-.seccion9 form input{
+.container-section-9 form input{
     padding-left: 52px;
     border: solid white 9px;
     width: 553px;
@@ -903,7 +903,7 @@ body{
 
 }
 
-.seccion9 form button {
+.container-section-9 form button {
     width:218px;
     border: solid white 9px;
     border-left: none;
@@ -929,7 +929,7 @@ body{
     position: relative;
     z-index: 5;
 }
-.seccion9 .info{
+.container-section-9 .info{
     width: 578px;
     margin-top: 46px;
     margin-bottom: 20px;
@@ -941,29 +941,29 @@ body{
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
-.seccion9 span{
+.container-section-9 span{
     text-decoration-line: underline;
     text-decoration-style: solid;
 }
-.seccion9 .gifs{
+.container-section-9 .gifs{
     display: flex;
     max-height: 900px;
     align-items: flex-end;
     position: relative;
     top: -180px;
 }
-.seccion9 .NumberBlocks2{
+.container-section-9 .NumberBlocks2{
     position: relative;
     z-index: 10;
     left: -45px;
 }
-.seccion9 .NumberBlocks3{
+.container-section-9 .NumberBlocks3{
     position: relative;
     left: -175px;
     top: -13px;
     z-index: 10;
 }
-.seccion9 .NumberBlocks7{
+.container-section-9 .NumberBlocks7{
     position: relative;
     left: -355px;
     top: 67px;
@@ -1004,22 +1004,42 @@ body{
     animation: infiniteParallax 15s linear infinite;
 }
 
-
 @keyframes infiniteParallax {
     0% { transform: translateX(50px); }
     100% { transform: translateX(-1700px); }
 }
 
+
+#sprite-prefooter{
+    width: 256px; 
+    height: 256px; 
+    position: relative;
+    top: -1550px;
+    left: 850px;
+    background: url(../images/spritesheet/sprite-prefooter.png)repeat-x;
+    animation:sprite-prefooter 4s steps(101) infinite;
+}
+
+
+  @keyframes sprite-prefooter {
+    /* Partimos de la primera viñeta del sprite sheet */
+    0% { background-position:0 }
+    /* El tamaño total de ancho del sprite. Es negativo para que no "camine" hacia atrás */
+    100% { background-position:-25856px}
+  }
+
+
+
 /*seccion 8*/
 
-.seccion8 {
+.container-section-8 {
     position: relative;
     width: 1280px;
     height: 729px;
     background-image: url("../images/Personajesgrilla.png");
     z-index: 99;
 }
-.seccion8 img{
+.container-section-8 img{
     position: relative;
 }
 
@@ -1027,24 +1047,24 @@ body{
 .personaje-grilla5,.personaje-grilla7,.personaje-grilla10{
     bottom: -3px;
 }
-.seccion8 .container {
+.container-section-8 .container {
     display: flex;
     max-width: 1280px;
     flex-wrap: wrap;
 }
 
-.seccion8 .grilla{
+.container-section-8 .grilla{
     position: relative;
 }
 
-.seccion8 .grilla1{
+.container-section-8 .grilla1{
     width:250px ;
     height: 374px;
     background-color: #af1a1b;
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
 
-.seccion8 .grilla2{
+.container-section-8 .grilla2{
     width:235px ;
     height: 375px;
     left: 28px;
@@ -1052,7 +1072,7 @@ body{
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
 
-.seccion8 .grilla3{
+.container-section-8 .grilla3{
     width:238px ;
     height: 375px;
     left: 59px;
@@ -1060,7 +1080,7 @@ body{
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
 
-.seccion8 .grilla4{
+.container-section-8 .grilla4{
     width:225px ;
     height: 375px;
     left: 89px;
@@ -1068,7 +1088,7 @@ body{
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
 
-.seccion8 .grilla5{
+.container-section-8 .grilla5{
     width:214px ;
     height: 375px;
     left: 120px;
@@ -1076,7 +1096,7 @@ body{
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
 
-.seccion8 .grilla6{
+.container-section-8 .grilla6{
     width:248px ;
     height: 324px;
     bottom: -15px;
@@ -1084,7 +1104,7 @@ body{
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
 
-.seccion8 .grilla7{
+.container-section-8 .grilla7{
     width:236px ;
     height: 325px;
     bottom: -15px;
@@ -1093,7 +1113,7 @@ body{
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
 
-.seccion8 .grilla8{
+.container-section-8 .grilla8{
     width:237px ;
     height: 324px;
     bottom: -15px;
@@ -1102,7 +1122,7 @@ body{
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
 
-.seccion8 .grilla9{
+.container-section-8 .grilla9{
     width:225px ;
     height: 323px;
     bottom: -16px;
@@ -1111,7 +1131,7 @@ body{
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
 
-.seccion8 .grilla10{
+.container-section-8 .grilla10{
     width:216px ;
     height: 326px;
     bottom: -14px;
@@ -1175,19 +1195,37 @@ footer span{
 footer .container img{
     padding-top: 35px;
 }
-#animacion-footer{
+#sprite-footer1{
     width: 230px; 
     height: 230px; 
     position: relative;
-    top: -200px;
+    top: -195px;
     left: 1050px;
-    background: url(../images/spritesheet/sprite-footer.png)repeat-x;
-    animation:walk 3.5s steps(75) infinite;
+    background: url(../images/spritesheet/sprite-footer1.png)repeat-x;
+    animation:sprite1 3.5s steps(75) infinite;
 }
 
-@keyframes walk {
+@keyframes sprite1 {
     /* Partimos de la primera viñeta del sprite sheet */
     0% { background-position:0 }
     /* El tamaño total de ancho del sprite. Es negativo para que no "camine" hacia atrás */
     100% { background-position:-17250px}
+  }
+
+  #sprite-footer2{
+    width: 200px; 
+    height: 178px; 
+    position: relative;
+    top: -375px;
+    left: 650px;
+    background: url(../images/spritesheet/sprite-footer2.png)repeat-x;
+    animation:sprite2 0.8s steps(15) infinite;
+}
+
+
+  @keyframes sprite2 {
+    /* Partimos de la primera viñeta del sprite sheet */
+    0% { background-position:0 }
+    /* El tamaño total de ancho del sprite. Es negativo para que no "camine" hacia atrás */
+    100% { background-position:-3000px}
   }

@@ -137,48 +137,41 @@ document.addEventListener("DOMContentLoaded",()=>{
             }
         })();
 
-        const parrafos = document.querySelectorAll(".container-parrafo");
-        const imagenPersonaje = document.querySelector(".column-characters img");
+        let seccion5 = document.querySelector('.container-section-5');
+        let characterImage = document.querySelector('.character-image');
+        
+        let parrafos = document.querySelectorAll('.container-parrafo');
 
-        let imagenActual = "./images/Personaje0.png"; // Imagen inicial
-        let lastScrollTop = 0; // Almacena la posición previa del scroll
+        let inicioScrollSeccion5 = seccion5.offsetTop;
+        let scrollY = window.scrollY;
+        let imagenactual = '';
+        window.addEventListener('scroll',()=>{
+            
+    
+            if (scrollY >= inicioScrollSeccion5) {
+                let activeImage = '';
+                parrafos.forEach((parrafo) => {
+                    //El getBoundingClientRect(); te da las dimensiones y la posicion de un elemento en relaciopn al viewport
 
-window.addEventListener("scroll", () => {
-    const currentScroll = window.scrollY || document.documentElement.scrollTop;
-    let cambio=0;
-    if (currentScroll > lastScrollTop) {
-        cambio=0.60;//scroll hacia abajo
-    } else if (currentScroll < lastScrollTop) {
-        cambio=0.3;//scroll hacia arriba
-    }
-    lastScrollTop = currentScroll;
+                    const rect = parrafo.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                        activeImage = parrafo.dataset.image; 
+                    }
+                });
+            
+            if (activeImage != imagenactual) {
+                imagenactual=activeImage;
+                characterImage.classList.add('hidden');
 
-    parrafos.forEach((parrafo, index) => {
-        const rect = parrafo.getBoundingClientRect();
 
-        // Detectar si el párrafo está centrado en la pantalla
-        if (rect.top <= (window.innerHeight * cambio) && rect.bottom >= (window.innerHeight * cambio)) {
-            const nuevaImagen = `./images/Personaje${index}.png`;
-
-            console.log(imagenActual);
-            console.log(nuevaImagen);
-            if (imagenActual !== nuevaImagen) {
-                imagenActual = nuevaImagen;
-                console.log("cambio");
-                // Ocultar la imagen actual
-                imagenPersonaje.classList.add("hidden");
-
-                // tiempo de animación
                 setTimeout(() => {
-                    imagenPersonaje.src = nuevaImagen;
+                    characterImage.src = `./images/${activeImage}`;
+                    characterImage.classList.remove("hidden");
+                }, 250);
 
-                    // Mostrar la nueva imagen
-                    imagenPersonaje.classList.remove("hidden");
-                }, 300); //tiene que coincidir con el css el tiempo
             }
-        }
-    });
-});
+            }
+        });
 
 
         window.addEventListener('scroll',()=>{
