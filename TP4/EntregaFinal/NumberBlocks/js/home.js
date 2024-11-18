@@ -193,7 +193,34 @@ window.addEventListener("scroll", () => {
             number5.style.transform=`translateY(${translation}px)`
         })
 
+        const modelViewer = document.getElementById('reveal');
 
+// Valores iniciales de órbita para el centro de la pantalla
+const initialXOrbit = -80;
+const initialYOrbit = 75; 
+
+document.addEventListener('mousemove', (event) => {
+    // Obtener dimensiones de la ventana
+    const { clientX, clientY } = event;
+    const { innerWidth, innerHeight } = window;
+
+    // Calcular ángulos según la posición del mouse
+    const xOrbit = (
+        ((clientX / innerWidth) * 360 - 180) + initialXOrbit
+    ).toFixed(2);
+
+    // Ajustar sensibilidad y rango para el movimiento vertical
+    const maxVerticalAngle = 30; 
+    const yOrbit = (
+        (((clientY / innerHeight) * 2 - 1) * maxVerticalAngle) + initialYOrbit
+    ).toFixed(2);
+
+    // Actualizar la órbita de la cámara en tiempo real
+    modelViewer.cameraOrbit = `${xOrbit}deg ${yOrbit}deg`;
+
+    // Usar requestAnimationFrame para forzar el renderizado
+    requestAnimationFrame(() => modelViewer.updateFraming());
+});
 
 
 
