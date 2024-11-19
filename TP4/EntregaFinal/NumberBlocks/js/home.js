@@ -230,13 +230,7 @@ document.addEventListener('mousemove', (event) => {
         (entries)=>{
             entries.forEach((entry)=>{
                 if(entry.isIntersecting){
-                    console.log("en viewport")
-                    entry.target.classList.remove("reset-animation")
                     entry.target.classList.add("animate-card");
-                }else{
-                    entry.target.classList.remove("animate-card");
-                    entry.target.classList.add("reset-animation")
-                    console.log("no")
                 }
             })
         },{

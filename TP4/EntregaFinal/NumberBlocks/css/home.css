@@ -569,12 +569,6 @@ body{
     transition-delay: 0.4s;
 }
 
-.card.reset-animation {
-    opacity: 0; /* Asegura que vuelva a su estado inicial */
-    transform: translateY(50px);
-    transition: none; /* Evita transiciones mientras se resetea */
-}
-
 /* Seccion 4*/
 .container-section-4 {
     width: 80rem;
