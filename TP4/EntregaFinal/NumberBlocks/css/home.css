@@ -632,6 +632,7 @@ body{
 }
 
 .container-imgCharacter-parrafo {
+    height: 5580px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -653,15 +654,15 @@ body{
   .character-image {
     height: auto;
     object-fit: contain;
+    opacity: 0;
+    transform: scale(0.9);
     transition: opacity 0.25s ease, transform 0.25s ease;
+}
+  
+.character-image.visible {
     opacity: 1;
     transform: scale(1);
-}
-
-.character-image.hidden {
-    opacity: 0; 
-    transform: scale(0.9); 
-}
+  }
 
 .section-friend {
     width: 67.5rem;
@@ -694,6 +695,7 @@ body{
 }
 .container-parrafo:not(:last-child) {
     margin-bottom: 300px;
+
 }
 .container-imgCharacter-parrafo{
     display: flex;
@@ -706,6 +708,7 @@ body{
     flex-direction: row;
 }
 .container-parrafo{
+    padding:20px 0 ;
     width: 29.1875rem;
 }
 
