@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded",()=>{
         document.querySelector('.img-2').classList.add('slide-in-top');
         document.querySelector('.img-3').classList.add('slide-in-right');
   
-
+       
+        
 
 
     window.addEventListener('scroll',()=>{
@@ -216,8 +217,21 @@ document.addEventListener('mousemove', (event) => {
     requestAnimationFrame(() => modelViewer.updateFraming());
 });
 
+ //cards
+    let cards= document.querySelectorAll('.card');
 
+    const observer = new IntersectionObserver(
+        (entries)=>{
+            entries.forEach((entry)=>{
+                if(entry.isIntersecting){
+                    entry.target.classList.add("animate-card");
+                }
+            })
+        },{
+            threshold:0.2,
+        }
+    )
 
-
+    cards.forEach((card)=>observer.observe(card));
 
 })
