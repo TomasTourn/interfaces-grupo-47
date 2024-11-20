@@ -144,30 +144,46 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
         let seccion5 = document.querySelector('.container-section-5');
-        let characterImage = document.querySelector('.character-image');
+        let images = document.querySelectorAll('.character-image');
         let parrafos = document.querySelectorAll('.container-parrafo');
-        let imagenActual = `Personaje0.png`;
+        let imagenActual = 0;
+        
+        // Margen de umbral en píxeles
+        const threshold = 10;
+        let cambioEnProgreso = false; // Bandera para evitar superposiciones
+        
         window.addEventListener('scroll', () => {
-            let inicioScrollSeccion5 = seccion5.offsetTop-1000;
+            let inicioScrollSeccion5 = seccion5.offsetTop - 1000;
             let scrollY = window.scrollY;
-
+        
             if (scrollY >= inicioScrollSeccion5) {
-                let nuevaImagen = ''
-                parrafos.forEach((parrafo) => {
+                let nuevaImagenIndex = imagenActual;
+        
+                parrafos.forEach((parrafo, index) => {
                     const rect = parrafo.getBoundingClientRect();
-                    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-                        nuevaImagen = parrafo.dataset.image
+        
+                    // Ajuste con el umbral
+                    const visibleTop = rect.top + threshold;
+                    const visibleBottom = rect.bottom - threshold;
+        
+                    // Detectar si el párrafo está dentro del rango con el umbral
+                    if (visibleTop >= 0 && visibleBottom <= window.innerHeight) {
+                        nuevaImagenIndex = index; // Índice del párrafo visible
                     }
                 });
-            
-                if (imagenActual !== nuevaImagen) {
-                    imagenActual = nuevaImagen;
-
-                    characterImage.classList.remove('visible');  
+        
+                if (imagenActual !== nuevaImagenIndex && !cambioEnProgreso) {
+                    cambioEnProgreso = true; // Indica que hay un cambio en proceso
+        
+                    images[imagenActual].classList.remove('visible'); // Oculta la imagen actual
                     setTimeout(() => {
-                        characterImage.src = `./images/${imagenActual}`;
-                        characterImage.classList.add('visible');  
-                    }, 250); 
+                        imagenActual = nuevaImagenIndex; // Actualiza el índice actual
+
+                // Muestra la nueva imagen con animación
+                images[nuevaImagenIndex].classList.add('visible');
+        
+                        cambioEnProgreso = false; // Libera la bandera después de completar el cambio
+                    }, 400); // Sincroniza con la animación de transición
                 }
             }
         });

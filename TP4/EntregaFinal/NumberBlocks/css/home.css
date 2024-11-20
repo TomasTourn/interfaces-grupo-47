@@ -655,14 +655,12 @@ body{
     z-index: 2; 
 }
 /* Seccion 5*/
-/* Seccion 5*/
 .container-section-5{
     width: 80rem;
     margin: 10.9375rem auto;
 }
 
 .container-imgCharacter-parrafo {
-    height: 5580px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -674,25 +672,28 @@ body{
     flex: 1;
     width: 509px;
     position: sticky;
-    top: 100px; /* La posición fija de la imagen dentro de la ventana */
+    margin-bottom: 100px;
+    top: 250px; /* La posición fija de la imagen dentro de la ventana */
     display: flex;
     align-items: center;
     justify-content: center;
   }
   
  
-  .character-image {
+    .character-image {
+    padding-top: 230px;
     height: auto;
     object-fit: contain;
     opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transform: scale(0.7);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    position: absolute; /* Para apilar las imágenes */
 }
-  
+
 .character-image.visible {
     opacity: 1;
     transform: scale(1);
-  }
+}
 
 .section-friend {
     width: 67.5rem;
@@ -738,7 +739,7 @@ body{
     flex-direction: row;
 }
 .container-parrafo{
-    padding:20px 0 ;
+    padding:30px 0 ;
     width: 29.1875rem;
 }
 
