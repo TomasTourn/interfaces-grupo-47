@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         let header=document.querySelector('.nav-header');
         let scrollPosition= window.scrollY;
     
-        let scaleFactor=Math.max(0.5,1 - scrollPosition/100);
+        let scaleFactor=Math.max(0.3,1 - scrollPosition/100);
 
         if(scrollPosition==0){
             logo.style.transform=`translate(0,0) scale(1)`
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
         else{
          
-            logo.style.transform=`translate(0,-50%) scale(${scaleFactor})`
+            logo.style.transform=`translate(0,-55%) scale(${scaleFactor})`
             header.style.background='linear-gradient(180deg, #00D1D5 0%, rgba(0, 209, 213, 0.12) 87.91%, rgba(1, 208, 213, 0) 100%)';
         }
     })
