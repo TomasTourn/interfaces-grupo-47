@@ -777,6 +777,26 @@ body{
     flex-direction: row;
     position: absolute;
 }
+.btn-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.video-overlay {
+    position: absolute;
+    top: 0; /* Alinear arriba */
+    left: 0; /* Alinear a la izquierda */
+    width: 100%; /* Ajustar al ancho del contenedor */
+    height: 100%; /* Ajustar al alto del contenedor */
+    z-index: 1; /* Debajo del botón pero encima del iframe */
+}
+
 
 .video-container iframe {
    border: 29px solid white;

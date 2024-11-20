@@ -107,7 +107,8 @@ document.addEventListener("DOMContentLoaded",()=>{
             let seccion6 = document.querySelector('.container-section-6');
             let personaje3 = document.querySelector('.img-personaje3Video');
             let video = document.querySelector('.video');
-    
+            let imgVideo =document.querySelector('.video-overlay');
+        
             let inicioScrollSeccion6 = seccion6.offsetTop;
             let scrollY = window.scrollY;
     
@@ -116,6 +117,9 @@ document.addEventListener("DOMContentLoaded",()=>{
                 let desplazamientovideo = (scrollY - inicioScrollSeccion6-300) * 0.1;
                 personaje3.style.transform = `translateY(-${desplazamiento}px)`;
                 video.style.transform = `translateY(${desplazamientovideo}px)`; 
+                imgVideo.style.transform = `translateY(${desplazamientovideo}px)`;
+                
+
             }
         });
 
@@ -233,5 +237,32 @@ document.addEventListener('mousemove', (event) => {
     )
 
     cards.forEach((card)=>observer.observe(card));
+
+
+
+
+
+    (function() {
+        let playButton = document.querySelector('.btn-play');
+        let videoIframe = document.querySelector('.video');
+        let imgVideo = document.querySelector('.video-overlay');
+
+        videoIframe.style.display='block';
+        if (playButton && videoIframe) {
+
+            playButton.addEventListener('click', function () {
+                imgVideo.style.display='none';
+                const videoSrc = videoIframe.src.split('?')[0]; 
+                const autoplayUrl = `${videoSrc}?autoplay=1&${videoIframe.src.split('?')[1] || ''}`;
+
+                videoIframe.src = autoplayUrl;
+                playButton.style.display = 'none';
+            });
+        } else {
+            console.error('No se encontró el botón de reproducción o el iframe.');
+        }
+    })();
+
+
 
 })
