@@ -982,12 +982,11 @@ header.add-height{
     background-image: url(../images/fondomulticolor.png);
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
-
 .container-section-8 .grilla8{
     width:237px ;
     height: 324px;
-    bottom: -15px;
-    left: 62px;
+    bottom: -16px;
+    left: 61px;
     background-color: #AE1E73;
     box-shadow: inset 0px 4px 50px rgba(0, 0, 0, 0.5);
 }
