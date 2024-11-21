@@ -898,192 +898,6 @@ body{
 }
 
 
-
-
-
-/*seccion 9*/
-.container-section-9 {
-    font-family: var(--lato);
-    position: relative;
-    background: linear-gradient(180deg, #FFFFFF 0%, #EDFDFF 20%, #ADF8FD 65%, #E0D299 80%);
-    overflow: hidden;
-}
-
-.container-section-9 .container{
-    padding-top: 188px;
-    height: 1382px;
-}
-
-.container-section-9 form {
-    display: flex;
-    min-height: 100px;
-    width: 780px;
-    margin-top: 36px;
-    position: relative;
-    border-radius: 50px;
-    z-index: 5; 
-    box-shadow: var(--azul-drop-shadow);
-}
-
-.container-section-9 form::before {
-    content: "";
-    position: absolute;
-    top: 5px; 
-    left: 5px; 
-    width: 100%;
-    height: 100%;
-    background-color: #02187e;
-    border-radius: 50px;
-    z-index: -1; 
-    pointer-events: none; 
-}
-
-.container-section-9 form input{
-    padding-left: 52px;
-    border: solid white 9px;
-    width: 553px;
-    background-color: #e8e8e8;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-
-    font-family: var(--lato);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 18.9px;
-    letter-spacing: 0.11em;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-
-}
-
-.container-section-9 form button {
-    width:218px;
-    border: solid white 9px;
-    border-left: none;
-    font-size: 1em;
-    outline: none;
-    background-color: var(--verde-boton);
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-
-    font-family: var(--lato);
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 18.9px;
-    letter-spacing: 0.11em;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-}
-
-.text-container{
-    position: relative;
-    z-index: 5;
-}
-.container-section-9 .info{
-    width: 578px;
-    margin-top: 46px;
-    margin-bottom: 20px;
-    font-family: var(--lato);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 18.9px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-}
-.container-section-9 span{
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-}
-.container-section-9 .gifs{
-    display: flex;
-    max-height: 900px;
-    align-items: flex-end;
-    position: relative;
-    top: -180px;
-}
-.container-section-9 .NumberBlocks2{
-    position: relative;
-    z-index: 10;
-    left: -45px;
-}
-.container-section-9 .NumberBlocks3{
-    position: relative;
-    left: -175px;
-    top: -13px;
-    z-index: 10;
-}
-.container-section-9 .NumberBlocks7{
-    position: relative;
-    left: -355px;
-    top: 67px;
-    z-index: 10;
-}
-.pastoprefooter{
-    width: 8;
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-}
-.paralax-prefooter img{
-    position: absolute;
-}
-
-.paralax-prefooter .nubeprefooter1 {
-    z-index: 2;
-    position: absolute;
-    top: 536px;
-    right: -290px;
-    animation: infiniteParallax 20s linear infinite;
-}
-
-.paralax-prefooter .nubeprefooter2 {
-    z-index: 1;
-    position: absolute;
-    top: 560px;
-    right: -400px;
-    animation: infiniteParallax 26s linear infinite;
-}
-
-.paralax-prefooter .nubeprefooter3 {
-    z-index: 2;
-    position: absolute;
-    top: 819px;
-    right:-400px;
-    animation: infiniteParallax 15s linear infinite;
-}
-
-@keyframes infiniteParallax {
-    0% { transform: translateX(50px); }
-    100% { transform: translateX(-1700px); }
-}
-
-
-#sprite-prefooter{
-    width: 256px; 
-    height: 256px; 
-    position: relative;
-    top: -1550px;
-    left: 850px;
-    background: url(../images/spritesheet/sprite-prefooter.png)repeat-x;
-    animation:sprite-prefooter 4s steps(101) infinite;
-}
-
-
-  @keyframes sprite-prefooter {
-    /* Partimos de la primera viñeta del sprite sheet */
-    0% { background-position:0 }
-    /* El tamaño total de ancho del sprite. Es negativo para que no "camine" hacia atrás */
-    100% { background-position:-25856px}
-  }
-
-
-
 /*seccion 8*/
 
 .container-section-8 {
@@ -1210,6 +1024,224 @@ body{
         filter: drop-shadow(0 0 20px rgb(252, 243, 67));
     }
 }
+
+
+/*seccion 9*/
+.container-section-9 {
+    font-family: var(--lato);
+    position: relative;
+    background: linear-gradient(180deg, #FFFFFF 0%, #EDFDFF 20%, #ADF8FD 65%, #E0D299 80%);
+    overflow: hidden;
+}
+
+.container-section-9 .container{
+    padding-top: 188px;
+    height: 1382px;
+}
+
+.container-section-9 form {
+    display: flex;
+    min-height: 100px;
+    width: 780px;
+    margin-top: 36px;
+    position: relative;
+    border-radius: 50px;
+    z-index: 5; 
+    box-shadow: var(--azul-drop-shadow);
+}
+
+.container-section-9 form::before {
+    content: "";
+    position: absolute;
+    top: 5px; 
+    left: 5px; 
+    width: 100%;
+    height: 100%;
+    background-color: #02187e;
+    border-radius: 50px;
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+.container-section-9 form input{
+    padding-left: 52px;
+    border: solid white 9px;
+    width: 553px;
+    background-color: #e8e8e8;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+    font-family: var(--lato);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 18.9px;
+    letter-spacing: 0.11em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
+
+.container-section-9 form button {
+    width:218px;
+    border: solid white 9px;
+    border-left: none;
+    font-size: 1em;
+    outline: none;
+    background-color: var(--verde-boton);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+    font-family: var(--lato);
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 18.9px;
+    letter-spacing: 0.11em;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+#successMessage {
+    display: flex;
+    position: absolute;
+    height: 100px;
+    width: 780px;
+    top: 200px;
+    z-index: 10;
+    border-radius: 50px;
+    font-family: var(--lato);
+    font-size: 30px;
+    font-weight: 900;
+
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border: solid white 9px;
+    background-color: var(--verde-boton);    
+    color: white;
+
+    visibility: hidden;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.4s ease,opacity 0.4s ease, visibility 0.4s ease;
+}
+#successMessage.show{
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.text-container{
+    position: relative;
+    z-index: 5;
+}
+.container-section-9 .info{
+    width: 578px;
+    margin-top: 46px;
+    margin-bottom: 20px;
+    font-family: var(--lato);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 18.9px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+.container-section-9 span{
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+}
+.container-section-9 .gifs{
+    display: flex;
+    max-height: 900px;
+    align-items: flex-end;
+    position: relative;
+    top: -180px;
+}
+.container-section-9 .NumberBlocks2{
+    position: relative;
+    z-index: 10;
+    left: -45px;
+}
+.container-section-9 .NumberBlocks3{
+    position: relative;
+    left: -175px;
+    top: -13px;
+    z-index: 10;
+}
+.container-section-9 .NumberBlocks7{
+    position: relative;
+    left: -355px;
+    top: 67px;
+    z-index: 10;
+}
+.pastoprefooter{
+    width: 8;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+}
+.paralax-prefooter img{
+    position: absolute;
+}
+
+.paralax-prefooter .nubeprefooter1 {
+    z-index: 2;
+    position: absolute;
+    top: 536px;
+    right: -290px;
+    animation: infiniteParallax 20s linear infinite;
+}
+
+.paralax-prefooter .nubeprefooter2 {
+    z-index: 1;
+    position: absolute;
+    top: 560px;
+    right: -400px;
+    animation: infiniteParallax 26s linear infinite;
+}
+
+.paralax-prefooter .nubeprefooter3 {
+    z-index: 2;
+    position: absolute;
+    top: 819px;
+    right:-400px;
+    animation: infiniteParallax 15s linear infinite;
+}
+
+@keyframes infiniteParallax {
+    0% { transform: translateX(50px); }
+    100% { transform: translateX(-1700px); }
+}
+
+
+#sprite-prefooter{
+    width: 256px; 
+    height: 256px; 
+    position: relative;
+    top: -1550px;
+    left: 850px;
+    background: url(../images/spritesheet/sprite-prefooter.png)repeat-x;
+    animation:sprite-prefooter 4s steps(101) infinite;
+}
+
+
+  @keyframes sprite-prefooter {
+    /* Partimos de la primera viñeta del sprite sheet */
+    0% { background-position:0 }
+    /* El tamaño total de ancho del sprite. Es negativo para que no "camine" hacia atrás */
+    100% { background-position:-25856px}
+  }
+
+
+
+
 
 /*footer*/
 footer{

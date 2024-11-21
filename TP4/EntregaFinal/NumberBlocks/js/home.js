@@ -265,5 +265,18 @@ document.addEventListener("DOMContentLoaded",()=>{
     })();
 
 
+    // Formulario
 
+    document.getElementById('subscribeForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Evita que la página se recargue
+    
+        // Mostrar el mensaje de éxito
+        const messageDiv = document.getElementById('successMessage');
+        messageDiv.classList.add('show');
+        
+        // Ocultar el mensaje después de 3 segundos
+        setTimeout(() => {
+            messageDiv.classList.remove('show');
+        }, 3000);
+    });
 })
