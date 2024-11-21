@@ -780,15 +780,15 @@ body{
 
 .video-container {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    justify-content: center; 
+    align-items: center;  
     position: absolute;
 }
 .btn-play {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 41%;
+    left: 47%;
+    
     z-index: 3;
     background: none;
     border: none;
@@ -797,11 +797,9 @@ body{
 }
 .video-overlay {
     position: absolute;
-    top: 0; /* Alinear arriba */
-    left: 0; /* Alinear a la izquierda */
-    width: 100%; /* Ajustar al ancho del contenedor */
-    height: 100%; /* Ajustar al alto del contenedor */
-    z-index: 1; /* Debajo del botón pero encima del iframe */
+    top: 0;
+    left: 0;
+    z-index: 1; 
 }
 
 
@@ -812,6 +810,7 @@ body{
    width:50.25rem;
    height: 28.25rem;
    box-sizing: border-box;
+
 }
 
 .img-personaje3Video {

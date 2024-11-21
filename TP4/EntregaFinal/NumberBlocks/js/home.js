@@ -103,11 +103,13 @@ document.addEventListener("DOMContentLoaded",()=>{
          
 
         });
+        
         window.addEventListener('scroll',()=>{
             let seccion6 = document.querySelector('.container-section-6');
             let personaje3 = document.querySelector('.img-personaje3Video');
             let video = document.querySelector('.video');
             let imgVideo =document.querySelector('.video-overlay');
+            let btn = document.querySelector('.btn-play');
         
             let inicioScrollSeccion6 = seccion6.offsetTop;
             let scrollY = window.scrollY;
@@ -118,6 +120,9 @@ document.addEventListener("DOMContentLoaded",()=>{
                 personaje3.style.transform = `translateY(-${desplazamiento}px)`;
                 video.style.transform = `translateY(${desplazamientovideo}px)`; 
                 imgVideo.style.transform = `translateY(${desplazamientovideo}px)`;
+                btn.style.transform = `translateY(${desplazamientovideo}px)`;
+               
+               
                 
 
             }
@@ -247,6 +252,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         let playButton = document.querySelector('.btn-play');
         let videoIframe = document.querySelector('.video');
         let imgVideo = document.querySelector('.video-overlay');
+        
 
         videoIframe.style.display='block';
         if (playButton && videoIframe) {
