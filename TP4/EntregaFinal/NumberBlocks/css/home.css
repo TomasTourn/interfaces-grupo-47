@@ -788,12 +788,10 @@ body{
     position: absolute;
     top: 41%;
     left: 47%;
-    
     z-index: 3;
     background: none;
     border: none;
-    cursor: pointer;
-    padding: 0;
+    cursor: pointer; 
 }
 .video-overlay {
     position: absolute;
