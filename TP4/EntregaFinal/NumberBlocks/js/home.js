@@ -45,7 +45,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     let hamburguesa=document.querySelector('.hamburguesa');
         hamburguesa.addEventListener('click',()=>{
             hamburguesa.classList.toggle('active');
+            document.querySelector('header').classList.toggle("add-height")
             document.querySelector('.opciones-hamburguesa').classList.toggle("activa");
+          
         })
 
         /*parallax*/
