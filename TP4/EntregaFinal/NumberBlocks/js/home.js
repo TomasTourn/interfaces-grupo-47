@@ -142,102 +142,87 @@ document.addEventListener("DOMContentLoaded",()=>{
             }
         })();
 
+    //seccion 5
+    let seccion5 = document.querySelector('.container-section-5');
+    let images = document.querySelectorAll('.character-image');
+    let parrafos = document.querySelectorAll('.container-parrafo');
+    let imagenActual = 0;
 
-        let seccion5 = document.querySelector('.container-section-5');
-        let images = document.querySelectorAll('.character-image');
-        let parrafos = document.querySelectorAll('.container-parrafo');
-        let imagenActual = 0;
-        
-        // Margen de umbral en píxeles
-        const threshold = 10;
-        let cambioEnProgreso = false; // Bandera para evitar superposiciones
-        
-        window.addEventListener('scroll', () => {
-            let inicioScrollSeccion5 = seccion5.offsetTop - 1000;
-            let scrollY = window.scrollY;
-        
-            if (scrollY >= inicioScrollSeccion5) {
-                let nuevaImagenIndex = imagenActual;
-        
-                parrafos.forEach((parrafo, index) => {
-                    const rect = parrafo.getBoundingClientRect();
-        
-                    // Ajuste con el umbral
-                    const visibleTop = rect.top + threshold;
-                    const visibleBottom = rect.bottom - threshold;
-        
-                    // Detectar si el párrafo está dentro del rango con el umbral
-                    if (visibleTop >= 0 && visibleBottom <= window.innerHeight) {
-                        nuevaImagenIndex = index; // Índice del párrafo visible
-                    }
-                });
-        
-                if (imagenActual !== nuevaImagenIndex && !cambioEnProgreso) {
-                    cambioEnProgreso = true; // Indica que hay un cambio en proceso
-        
-                    images[imagenActual].classList.remove('visible'); // Oculta la imagen actual
-                    setTimeout(() => {
-                        imagenActual = nuevaImagenIndex; // Actualiza el índice actual
-
-                // Muestra la nueva imagen con animación
-                images[nuevaImagenIndex].classList.add('visible');
-        
-                        cambioEnProgreso = false; // Libera la bandera después de completar el cambio
-                    }, 400); // Sincroniza con la animación de transición
+    const threshold = 10;
+    let cambioEnProgreso = false; 
+    
+    window.addEventListener('scroll', () => {
+        let inicioScrollSeccion5 = seccion5.offsetTop - 1000;
+        let scrollY = window.scrollY;
+    
+        if (scrollY >= inicioScrollSeccion5) {
+            let nuevaImagenIndex = imagenActual;
+    
+            parrafos.forEach((parrafo, index) => {
+                const rect = parrafo.getBoundingClientRect();
+                const visibleTop = rect.top + threshold;
+                const visibleBottom = rect.bottom - threshold;
+    
+                
+                if (visibleTop >= 0 && visibleBottom <= window.innerHeight) {
+                    nuevaImagenIndex = index; 
                 }
+            });
+    
+            if (imagenActual !== nuevaImagenIndex && !cambioEnProgreso) {
+                cambioEnProgreso = true; 
+    
+                images[imagenActual].classList.remove('visible'); 
+                setTimeout(() => {
+                    imagenActual = nuevaImagenIndex; 
+                    images[nuevaImagenIndex].classList.add('visible');
+    
+                    cambioEnProgreso = false; 
+                }, 400); 
             }
-        });
+        }
+    });
 
 
-        window.addEventListener('scroll',()=>{
-            const section = document.querySelector('.hero-2');
-            const rect = section.getBoundingClientRect();
-            const scrollY = window.scrollY;
-            
-            // rect.top gives position relative to viewport
-            // adding scrollY gives us absolute position
-            const sectionTop = rect.top + scrollY;
-            
-            const relativeScroll = scrollY - sectionTop;
-            const maxTranslation = 200;
-            const translation = Math.min(relativeScroll * 0.04, maxTranslation);
-            
-            textoApp.style.transform=`translateY(${-scrollY * 0.12}px)`
-            carousel.style.transform=`translateY(${-scrollY * 0.08}px)`
-            number4.style.transform=`translateY(${-scrollY * 0.2}px)`
-            number5.style.transform=`translateY(${translation}px)`
-        })
+    window.addEventListener('scroll',()=>{
+        const section = document.querySelector('.hero-2');
+        const rect = section.getBoundingClientRect();
+        const scrollY = window.scrollY;
+        
+        // rect.top gives position relative to viewport
+        // adding scrollY gives us absolute position
+        const sectionTop = rect.top + scrollY;
+        
+        const relativeScroll = scrollY - sectionTop;
+        const maxTranslation = 200;
+        const translation = Math.min(relativeScroll * 0.04, maxTranslation);
+        
+        textoApp.style.transform=`translateY(${-scrollY * 0.12}px)`
+        carousel.style.transform=`translateY(${-scrollY * 0.08}px)`
+        number4.style.transform=`translateY(${-scrollY * 0.2}px)`
+        number5.style.transform=`translateY(${translation}px)`
+    })
 
-        const modelViewer = document.getElementById('reveal');
+    //seccion 7, 3D
+    const modelViewer = document.getElementById('reveal');
+    const initialXOrbit = -80;
+    const initialYOrbit = 75; 
 
-// Valores iniciales de órbita para el centro de la pantalla
-const initialXOrbit = -80;
-const initialYOrbit = 75; 
+    document.addEventListener('mousemove', (event) => {
+        const { clientX, clientY } = event;
+        const { innerWidth, innerHeight } = window;
+        const xOrbit = (
+            ((clientX / innerWidth) * 360 - 180) + initialXOrbit
+        ).toFixed(2);
+        const maxVerticalAngle = 30; 
+        const yOrbit = (
+            (((clientY / innerHeight) * 2 - 1) * maxVerticalAngle) + initialYOrbit
+        ).toFixed(2);
+        modelViewer.cameraOrbit = `${xOrbit}deg ${yOrbit}deg`;
+        requestAnimationFrame(() => modelViewer.updateFraming());
+    });
 
-document.addEventListener('mousemove', (event) => {
-    // Obtener dimensiones de la ventana
-    const { clientX, clientY } = event;
-    const { innerWidth, innerHeight } = window;
-
-    // Calcular ángulos según la posición del mouse
-    const xOrbit = (
-        ((clientX / innerWidth) * 360 - 180) + initialXOrbit
-    ).toFixed(2);
-
-    // Ajustar sensibilidad y rango para el movimiento vertical
-    const maxVerticalAngle = 30; 
-    const yOrbit = (
-        (((clientY / innerHeight) * 2 - 1) * maxVerticalAngle) + initialYOrbit
-    ).toFixed(2);
-
-    // Actualizar la órbita de la cámara en tiempo real
-    modelViewer.cameraOrbit = `${xOrbit}deg ${yOrbit}deg`;
-
-    // Usar requestAnimationFrame para forzar el renderizado
-    requestAnimationFrame(() => modelViewer.updateFraming());
-});
-
- //cards
+    //cards
     let cards= document.querySelectorAll('.card');
 
     const observer = new IntersectionObserver(
