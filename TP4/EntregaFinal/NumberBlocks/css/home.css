@@ -6,9 +6,8 @@ header nav{
 header {
     position: fixed;
     top: 0; 
-    z-index: 1000;
+    z-index: 20;
     overflow: hidden;
-    max-height: 103px;
 }
 
 body{
@@ -160,9 +159,6 @@ body{
 
 .opciones-hamburguesa.activa .btn-hamburguesa:nth-child(3) {
     animation: deslizarBoton 0.5s forwards 0.6s;
-}
-header.add-height{
-    max-height: 250px;
 }
 @keyframes deslizarBoton {
     0%{
